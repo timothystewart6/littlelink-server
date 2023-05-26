@@ -61,6 +61,7 @@ export const runtimeConfig =
         PATREON: window?.env?.PATREON,
         DEVTO: window?.env?.DEVTO,
         UMAMI_APP_URL: window?.env?.UMAMI_APP_URL,
+        UMAMI_SCRIPT_NAME: window?.env?.UMAMI_SCRIPT_NAME,
         BUTTON_ORDER: window?.env?.BUTTON_ORDER,
         PAYPAL: window?.env?.PAYPAL,
         SLACK: window?.env?.SLACK,
@@ -124,10 +125,17 @@ export const runtimeConfig =
         MYANIMELIST: window?.env?.MYANIMELIST,
         MATOMO_URL: window?.env?.MATOMO_URL,
         MATOMO_SITE_ID: window?.env?.MATOMO_SITE_ID,
+        PLAUSIBLE_URL: window?.env?.PLAUSIBLE_URL,
+        PLAUSIBLE_DATA_API: window?.env?.PLAUSIBLE_DATA_API,
+        PLAUSIBLE_DATA_DOMAIN: window?.env?.PLAUSIBLE_DATA_DOMAIN,
         SHARE: window?.env?.SHARE,
         DROP_SHADOW: window?.env?.DROP_SHADOW,
         FIVEHUNDREDPX: window?.env?.FIVEHUNDREDPX,
         JETPHOTOS: window?.env?.JETPHOTOS,
+        THEME_OS: window?.env?.THEME_OS,
+        SUBSTACK: window?.env?.SUBSTACK,
+        PRINTABLES: window?.env?.PRINTABLES,
+        SERIALIZD: window?.env?.SERIALIZD,
       }
     : {
         // server
@@ -280,6 +288,9 @@ export const runtimeConfig =
         UMAMI_APP_URL: nodeIsProduction
           ? process.env.UMAMI_APP_URL
           : process.env.RAZZLE_UMAMI_APP_URL,
+        UMAMI_SCRIPT_NAME: nodeIsProduction
+          ? process.env.UMAMI_SCRIPT_NAME
+          : process.env.RAZZLE_UMAMI_SCRIPT_NAME,
         BUTTON_ORDER: nodeIsProduction
           ? process.env.BUTTON_ORDER
           : process.env.RAZZLE_BUTTON_ORDER,
@@ -449,6 +460,15 @@ export const runtimeConfig =
         MATOMO_SITE_ID: nodeIsProduction
           ? process.env.MATOMO_SITE_ID
           : process.env.RAZZLE_MATOMO_SITE_ID,
+        PLAUSIBLE_URL: nodeIsProduction
+          ? process.env.PLAUSIBLE_URL
+          : process.env.RAZZLE_PLAUSIBLE_URL,
+        PLAUSIBLE_DATA_API: nodeIsProduction
+          ? process.env.PLAUSIBLE_DATA_API
+          : process.env.RAZZLE_PLAUSIBLE_DATA_API,
+        PLAUSIBLE_DATA_DOMAIN: nodeIsProduction
+          ? process.env.PLAUSIBLE_DATA_DOMAIN
+          : process.env.RAZZLE_PLAUSIBLE_DATA_DOMAIN,
         SHARE: nodeIsProduction ? process.env.SHARE : process.env.RAZZLE_SHARE,
         DROP_SHADOW: nodeIsProduction
           ? process.env.DROP_SHADOW
@@ -459,4 +479,16 @@ export const runtimeConfig =
         JETPHOTOS: nodeIsProduction
           ? process.env.JETPHOTOS
           : process.env.RAZZLE_JETPHOTOS,
+        THEME_OS: nodeIsProduction
+          ? process.env.THEME_OS
+          : process.env.RAZZLE_THEME_OS,
+        SUBSTACK: nodeIsProduction
+          ? process.env.SUBSTACK
+          : process.env.RAZZLE_SUBSTACK,
+        PRINTABLES: nodeIsProduction
+          ? process.env.PRINTABLES
+          : process.env.RAZZLE_PRINTABLES,
+        SERIALIZD: nodeIsProduction
+          ? process.env.SERIALIZD
+          : process.env.RAZZLE_SERIALIZD,
       };

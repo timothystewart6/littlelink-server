@@ -17,7 +17,7 @@ jobs:
     - name: Use Node.js
       uses: actions/setup-node@2fddd8803e2f5c9604345a0b591c3020ee971a93
       with:
-        node-version: v18.13.0
+        node-version: v18.16.0
     - name: Install Dependencies, Test, and Build
       run: |
         yarn install --frozen-lockfile --check-files --network-timeout 600000

@@ -30,7 +30,7 @@ const jsScriptTagsFromAssets = (assets, entrypoint, extra = '') => {
     : '';
 };
 
-const theme = runtimeConfig.THEME === 'Dark' ? 'dark.css' : 'light.css';
+const theme = runtimeConfig.THEME === 'Dark' ? 'dark' : 'light';
 
 const helmet = require('helmet');
 const server = express();
@@ -71,7 +71,7 @@ server
     } else {
       res.status(200).send(
         `<!doctype html>
-    <html lang="${runtimeConfig.LANG || 'en'}">
+    <html lang="${runtimeConfig.LANG || 'en'}" class="${theme}">
     <head>
         <title >${runtimeConfig.META_TITLE || 'My Site'}</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -167,7 +167,13 @@ server
         }
         <link href="css/fonts.css" rel="stylesheet">
         <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/${theme}">
+        <link rel="stylesheet" href="css/${theme}.css">
+        ${
+          runtimeConfig.THEME_OS
+            ? `<link rel="stylesheet" href="css/os.css">`
+            : ''
+        }
+        <link rel="stylesheet" href="css/littlelink.css">
         <link rel="stylesheet" href="css/brands.css">
         ${cssLinksFromAssets(assets, 'client')}
         <link rel="icon" type="image/png" href="${runtimeConfig.FAVICON_URL}">
@@ -189,7 +195,11 @@ server
           runtimeConfig.UMAMI_WEBSITE_ID && runtimeConfig.UMAMI_APP_URL
             ? `
             <!-- Umami Analytics -->
-            <script async defer data-website-id="${runtimeConfig.UMAMI_WEBSITE_ID}" src="${runtimeConfig.UMAMI_APP_URL}/umami.js">
+            <script async defer data-website-id="${
+              runtimeConfig.UMAMI_WEBSITE_ID
+            }" src="${runtimeConfig.UMAMI_APP_URL}/${
+                runtimeConfig.UMAMI_SCRIPT_NAME || 'umami.js'
+              }">
             </script>`
             : ''
         }
@@ -215,6 +225,16 @@ server
                 })();
             </script>
             <!-- Matomo End -->`
+            : ''
+        }
+        ${
+          runtimeConfig.PLAUSIBLE_DATA_DOMAIN &&
+          runtimeConfig.PLAUSIBLE_DATA_API &&
+          runtimeConfig.PLAUSIBLE_URL
+            ? `
+            <!-- Plausible Analytics -->
+            <script async defer data-domain="${runtimeConfig.PLAUSIBLE_DATA_DOMAIN}" data-api="${runtimeConfig.PLAUSIBLE_DATA_API}" src="${runtimeConfig.PLAUSIBLE_URL}">
+            </script>`
             : ''
         }
 

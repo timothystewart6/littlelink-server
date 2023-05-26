@@ -66,6 +66,7 @@ services:
       - DEVTO=https://dev.to/
       - UMAMI_WEBSITE_ID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
       - UMAMI_APP_URL=https://your-umami-app.com
+      - UMAMI_SCRIPT_NAME=script.js
       - BUTTON_ORDER=YOUTUBE,TWITCH,TWITTER,GITHUB,INSTAGRAM,DISCORD,FACEBOOK,TIKTOK,KIT,PATREON
       - PAYPAL=https://www.paypal.me/user
       - SLACK=https://slack.com/
@@ -120,6 +121,8 @@ services:
       - TWITTER_CREATOR=@TechnoTimLive
       - SHARE=https://technotim.live
       - FIVEHUNDREDPX=https://500px.com/
+      - PRINTABLES=https://www.printables.com
+      - SERIALIZD=https://www.serializd.com/
 
     ports:
       - 8080:3000

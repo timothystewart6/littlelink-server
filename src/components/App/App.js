@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { StrictMode } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Home from '../Home/Home';
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -10,9 +10,11 @@ library.add(fab, fas, far);
 
 const App = () => (
   <div className="container">
-    <Routes>
-      <Route exact path="/" element={<Home />} />
-    </Routes>
+    <StrictMode>
+      <Routes>
+        <Route exact path="/" element={<Home />} />
+      </Routes>
+    </StrictMode>
   </div>
 );
 

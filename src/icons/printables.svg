@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   _ngcontent-prusa-front-app-c91=""
+   viewBox="0 0 34.999999 94.05"
+   height="35"
+   version="1.1"
+   id="svg54"
+   sodipodi:docname="printables.svg"
+   width="35"
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs58" />
+  <sodipodi:namedview
+     id="namedview56"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="12.712443"
+     inkscape:cx="55.850793"
+     inkscape:cy="22.41898"
+     inkscape:window-width="1728"
+     inkscape:window-height="988"
+     inkscape:window-x="0"
+     inkscape:window-y="38"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg54" />
+  <g
+     _ngcontent-prusa-front-app-c91=""
+     class="printables-logo"
+     id="g6"
+     transform="translate(-14.136734)">
+    <polygon
+       _ngcontent-prusa-front-app-c91=""
+       points="0,56.43 0,94.05 32.61,75.24 "
+       id="polygon2" />
+    <polygon
+       _ngcontent-prusa-front-app-c91=""
+       points="65.22,18.81 32.61,0 0,18.81 32.61,37.62 32.61,75.24 65.22,56.43 "
+       id="polygon4" />
+  </g>
+</svg>

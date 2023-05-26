@@ -310,6 +310,7 @@ button {
   background-color: #f8f9f9;
   font-weight: 100;
 }
+
 .button.button-stackoverflow:after {
   content: "overflow";
   font-weight: 700;
@@ -537,4 +538,22 @@ button {
 .button.button-jetphotos {
   color: #ffffff;
   background-color: #000000;
+}
+
+/* substack */
+.button.button-substack {
+  color: #000;
+  background-color: #fff;
+}
+
+/* printables */
+.button.button-printables {
+  color: #000;
+  background-color: #eb5405;
+}
+
+/* serializd */
+.button.button-serializd {
+  color: #57c2ad;
+  background-color: #0a0c0e;
 }

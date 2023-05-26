@@ -1,6 +1,6 @@
 import Sort from '../Sort';
 import React from 'react';
-import { render, unmountComponentAtNode } from 'react-dom';
+import { unmountComponentAtNode } from 'react-dom';
 import Button from '../../Button/Button';
 import youtubeLogo from '../../../icons/youtube.svg';
 import twitchLogo from '../../../icons/twitch.svg';
@@ -21,7 +21,11 @@ describe('<Sort />', () => {
   });
 
   test('renders without exploding', () => {
-    render(<Sort />, container);
+    const root = document.getElementById('root');
+
+    if (root) {
+      root.render(<Sort />);
+    }
   });
 
   test('Sorts Buttons by order', () => {

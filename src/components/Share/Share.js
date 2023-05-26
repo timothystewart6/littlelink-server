@@ -18,7 +18,7 @@ function Share(props) {
   return (
     <>
       <a className={'button'} rel="noopener noreferrer" onClick={handleSharing}>
-        <FontAwesomeIcon className="icon" icon="fas fa-share-nodes" />
+        <FontAwesomeIcon className="icon" icon={['fas', 'fa-share-nodes']} />
       </a>
     </>
   );

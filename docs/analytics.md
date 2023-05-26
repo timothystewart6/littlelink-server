@@ -22,7 +22,7 @@ Generated tracking code should look like:
 <script async defer data-website-id="00000000-1111-2222-3333-444444444444" src="https://your-umami-app.com/umami.js"></script>
 ```
 
-Use `data-website-id` as environment variable `UMAMI_WEBSITE_ID` and `src` as `UMAMI_APP_URL`.
+Use `data-website-id` as environment variable `UMAMI_WEBSITE_ID`. Take the inital root host of `src` as `UMAMI_APP_URL`, and the name of the script (i.e. `umami.js` or `script.js`) as `UMAMI_SCRIPT_NAME`.
 
 Sample event for YouTube button.
 

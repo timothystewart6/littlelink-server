@@ -81,6 +81,9 @@ import veroLogo from '../../icons/vero.svg';
 import myAnimeListLogo from '../../icons/myanimelist.svg';
 import fiveHundredPXLogo from '../../icons/500px.svg';
 import jetphotosLogo from '../../icons/jetphotos.svg';
+import substackLogo from '../../icons/substack.svg';
+import printablesLogo from '../../icons/printables.svg';
+import serializdLogo from '../../icons/serializd.svg';
 
 function Home(props) {
   let order = [];
@@ -859,6 +862,33 @@ function Home(props) {
                   order={buttonOrder('JETPHOTOS')}
                 />
               )}
+              {runtimeConfig.SUBSTACK && (
+                <Button
+                  name="substack"
+                  href={runtimeConfig.SUBSTACK}
+                  displayName="Substack"
+                  logo={substackLogo}
+                  order={buttonOrder('SUBSTACK')}
+                />
+              )}
+              {runtimeConfig.PRINTABLES && (
+                <Button
+                  name="printables"
+                  href={runtimeConfig.PRINTABLES}
+                  displayName="Printables"
+                  logo={printablesLogo}
+                  order={buttonOrder('PRINTABLES')}
+                />
+              )}
+              {runtimeConfig.SERIALIZD && (
+                <Button
+                  name="serializd"
+                  href={runtimeConfig.SERIALIZD}
+                  displayName="Serializd"
+                  logo={serializdLogo}
+                  order={buttonOrder('SERIALIZD')}
+                />
+              )}
             </Sort>
             <div>
               <p className="footer">
@@ -866,11 +896,14 @@ function Home(props) {
                 {runtimeConfig.SHARE &&
                   runtimeConfig.OG_TITLE &&
                   runtimeConfig.OG_DESCRIPTION && (
-                    <Share
-                      url={runtimeConfig.SHARE}
-                      title={runtimeConfig.OG_TITLE}
-                      text={runtimeConfig.OG_DESCRIPTION}
-                    />
+                    <>
+                      <br />
+                      <Share
+                        url={runtimeConfig.SHARE}
+                        title={runtimeConfig.OG_TITLE}
+                        text={runtimeConfig.OG_DESCRIPTION}
+                      />
+                    </>
                   )}
               </p>
             </div>
