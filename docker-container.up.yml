@@ -1,0 +1,48 @@
+---
+# this is used for local development and testing
+version: "3.0"
+services:
+  little-link:
+    image: docker.local.hawwestin.net/hawwestin/littlelink-server:1.0.3
+    container_name: littlelink-server
+    environment:
+      - META_TITLE=Hawwestin
+      - META_DESCRIPTION=Hawwestin Link page
+      - META_AUTHOR=Hawwestin
+      - META_KEYWORDS=HomeLab, DevOps, Engineering
+      - LANG=en
+      - META_INDEX_STATUS=all
+      - THEME=Dark
+      - FAVICON_URL=https://avatars.githubusercontent.com/u/30442760?s=96&v=4
+      - AVATAR_URL=https://avatars.githubusercontent.com/u/30442760?s=96&v=4
+      - AVATAR_2X_URL=https://avatars.githubusercontent.com/u/30442760?s=400&u=138a06bc82e26b3742c9d1dee87a5cecd1f37a1d&v=4
+      - AVATAR_ALT=Hawwestin Profile Pic
+      - NAME=Hawwestin
+      - BIO=Hey! Just a place where you can connect with me!
+      - FOOTER=Thanks for stopping by!
+      - GITHUB=https://github.com/hawwestin
+      - YOUTUBE=https://www.youtube.com/channel/UCpiNJpSg1aV4vr1G7N9gkNg
+      - TWITCH=https://www.twitch.tv/hawwestin
+      - FACEBOOK=https://www.facebook.com/Hawwestin
+      - LINKED_IN=https://www.linkedin.com/in/robaszew-michal     
+      - OG_SITE_NAME=Hawwestin Live (OG)
+      - OG_TITLE=Hawwestin (OG)
+      - OG_DESCRIPTION=Hawwestin Link page (OG)
+      - OG_URL=https://hawwestin.net
+      - OG_IMAGE=https://avatars.githubusercontent.com/u/30442760?s=400&u=138a06bc82e26b3742c9d1dee87a5cecd1f37a1d&v=4
+      - OG_IMAGE_WIDTH=400
+      - OG_IMAGE_HEIGHT=400
+      - BUTTON_TARGET=_blank
+    networks: 
+      default:  
+        ipv4_address: 192.168.200.2  
+
+    ports:
+      - 8080:3000
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+networks:
+  default:
+    external:
+      name: docker-static-vlan200

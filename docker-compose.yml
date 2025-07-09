@@ -3,7 +3,7 @@
 version: "3.0"
 services:
   little-link:
-    image: ghcr.io/techno-tim/littlelink-server:latest
+    image: docker.local.hawwestin.net/hawwestin/littlelink-server:1.0.3
     # dockerhub is also supported timothystewart6/littlelink-server
     #image: timothystewart6/littlelink-server:latest
     container_name: littlelink-server
