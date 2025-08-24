@@ -33,7 +33,7 @@ The example below will generate a site exactly like <https://links.technotim.liv
 version: "3.0"
 services:
   littlelink-server:
-    image: ghcr.io/techno-tim/littlelink-server:latest
+    image: ghcr.io/timothystewart6/littlelink-server:latest
     # dockerhub is also supported timothystewart6/littlelink-server
     # image: timothystewart6/littlelink-server:latest
     container_name: littlelink-server
@@ -118,7 +118,7 @@ docker run -d \
   -e KIT='https://l.technotim.live/gear' \
   -e FOOTER=Techno Tim © 2022 \
   --restart unless-stopped \
-  ghcr.io/techno-tim/littlelink-server:latest
+  ghcr.io/timothystewart6/littlelink-server:latest
 ```
 
 ### Using Kubernetes
