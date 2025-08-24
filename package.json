@@ -55,7 +55,7 @@
     "stylelint": "^16.23.0",
     "url": "^0.11.4",
     "webpack": "^5.99.9",
-    "webpack-dev-server": "^4.15.2"
+    "webpack-dev-server": "^5.2.1"
   },
   "resolutions": {
     "string-width": "4.2.3",
