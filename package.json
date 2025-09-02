@@ -25,7 +25,7 @@
     "compression": "^1.8.1",
     "express": "^4.21.2",
     "helmet": "^7.1.0",
-    "morgan": "^1.10.0",
+    "morgan": "^1.10.1",
     "prop-types": "^15.8.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
