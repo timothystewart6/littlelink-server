@@ -7156,10 +7156,10 @@ mimic-fn@^2.1.0:
   resolved "https://registry.yarnpkg.com/mimic-fn/-/mimic-fn-2.1.0.tgz#7ed2c2ccccaf84d3ffcb7a69b57711fc2083401b"
   integrity sha512-OqbOk5oEQeAZ8WXWydlu9HJjz9WVdEIvamMCcXmuqUYjTknH/sqsWvhQ3vgwKFRR1HpjvNBKQ37nbJgYzGqGcg==
 
-mini-css-extract-plugin@^2.9.2:
-  version "2.9.2"
-  resolved "https://registry.yarnpkg.com/mini-css-extract-plugin/-/mini-css-extract-plugin-2.9.2.tgz#966031b468917a5446f4c24a80854b2947503c5b"
-  integrity sha512-GJuACcS//jtq4kCtd5ii/M0SZf7OZRH+BxdqXZHaJfb8TJiVl+NgQRPwiYt2EuqeSkNydn/7vP+bcE27C5mb9w==
+mini-css-extract-plugin@^2.9.4:
+  version "2.9.4"
+  resolved "https://registry.yarnpkg.com/mini-css-extract-plugin/-/mini-css-extract-plugin-2.9.4.tgz#cafa1a42f8c71357f49cd1566810d74ff1cb0200"
+  integrity sha512-ZWYT7ln73Hptxqxk2DxPU9MmapXRhxkJD6tkSR04dnQxm8BGu2hzgKLugK5yySD97u/8yy7Ma7E76k9ZdvtjkQ==
   dependencies:
     schema-utils "^4.0.0"
     tapable "^2.2.1"
@@ -7599,11 +7599,6 @@ on-finished@~2.3.0:
   integrity sha512-ikqdkGAAyf/X/gPhXGvfgAytDZtDbr+bkNUJ0N9h5MI/dmdgCs3l6hoHrcUv41sRKew3jIwrp4qQDXiK99Utww==
   dependencies:
     ee-first "1.1.1"
-
-on-headers@~1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/on-headers/-/on-headers-1.0.2.tgz#772b0ae6aaa525c399e489adfad90c403eb3c28f"
-  integrity sha512-pZAE+FJLoyITytdqK0U5s+FIpjN0JP3OzFi/u8Rx+EV5/W+JTWGXG8xFzevE7AjBfDqHv/8vL8qQsIhHnqRkrA==
 
 on-headers@~1.1.0:
   version "1.1.0"
