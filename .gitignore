@@ -12,3 +12,4 @@ build
 .env.production.local
 .env
 cache
+package-lock.json

@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import { string, number, object } from 'prop-types';
+import { string, object } from 'prop-types';
 import { trackGoogleEvent } from '../../analytics/google';
 import { runtimeConfig } from '../../config';
 import { trackUmamiEvent } from '../../analytics/umami';
@@ -55,7 +55,6 @@ Button.propType = {
   displayName: string.isRequired,
   href: string.isRequired,
   name: string.isRequired,
-  order: number.isRequired,
   logo: string,
   icon: string,
   styles: object,

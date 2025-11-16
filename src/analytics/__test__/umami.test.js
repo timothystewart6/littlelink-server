@@ -6,7 +6,9 @@ describe('umami.js', () => {
   const originalWindow = { ...window };
   windowSpy.mockImplementation(() => ({
     ...originalWindow,
-    umami: mockedUmami,
+    umami: {
+      track: mockedUmami,
+    },
   }));
   it('should call umami with event', () => {
     trackUmamiEvent('youtube-button');

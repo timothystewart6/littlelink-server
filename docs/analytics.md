@@ -27,7 +27,7 @@ Use `data-website-id` as environment variable `UMAMI_WEBSITE_ID`. Take the inita
 Sample event for YouTube button.
 
 ```javascript
-  window.umami('youtube-button');
+  window.umami.track('youtube-button');
 ```
 
 ### Matomo 

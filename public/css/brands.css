@@ -268,6 +268,17 @@ button {
   background-color: #fd5000;
 }
 
+/* Bluesky */
+.button.button-bluesky {
+  color: #000000;
+  background-color: #F3F9FF;
+  border: 1px solid #212121;
+}
+.button.button-bluesky:hover,
+.button.button-bluesky:focus {
+  filter: brightness(90%);
+}
+
 /* Buy Me a Coffee */
 .button.button-buymeacoffee {
   color: #000000;
@@ -557,3 +568,206 @@ button {
   color: #57c2ad;
   background-color: #0a0c0e;
 }
+
+/* threads */
+.button.button-threads {
+  color: #ffffff;
+  background-color: #000000;
+}
+
+/* lemmy */
+.button.button-lemmy {
+  color: #000000;
+  background-color: #ffffff;
+}
+
+/* pixelfed */
+.button.button-pixelfed {
+  color: #000000;
+  background-color: #ffffff;
+}
+
+/* vrchat */
+.button.button-vrchat {
+  color: #000000;
+  background-color: #ffffff;
+}
+
+/* X */
+.button.button-x {
+  color: #000000;
+  background-color: #000000;
+}
+
+/* Codewars */
+.button.button-codewars {
+  color: #df605c;
+  background-color: #222327;
+}
+
+/* Apple Podcasts */
+.button.button-apple-podcasts {
+  color: #ffffff;
+  background-color: #000000;
+  border: 1px solid #FFFFFF;
+}
+.button.button-apple-podcasts:hover,
+.button.button-apple-podcasts:focus {
+  filter: brightness(90%);
+}
+
+/* Google Podcasts */
+.button.button-google-podcasts {
+  color: #000000;
+  background-color: #FFFFFF;
+  border: 1px solid #212121;
+}
+.button.button-google-podcasts:hover,
+.button.button-google-podcasts:focus {
+  filter: brightness(90%);
+}
+
+/* Pocket Casts */
+.button.button-pocket-casts {
+  color: #000000;
+  border-style: solid;
+  border-color: #b8c3c9;
+  border-width: 1px;
+  background-color: #ffffff;
+}
+
+/* Overcast */
+.button.button-overcast {
+  color: #000000;
+  border-style: solid;
+  border-color: #b8c3c9;
+  border-width: 1px;
+  background-color: #ffffff;
+}
+
+/* RSS */
+.button.button-rss {
+  color: #ffffff;
+  background-color: #FF9800;
+}
+
+/* Audius */
+.button.button-audius {
+  color: #000000;
+  background-color: #ffffff;
+}
+
+/* Bandcamp */
+.button.button-bandcamp {
+  color: #11AADD;
+  background-color: #ffffff;
+}
+
+/* Forgejo */
+.button.button-forgejo {
+  color: #C2410C;
+  background-color: #ffffff;
+}
+
+/* Orcid */
+.button.button-orcid {
+  color: #A6CE39;
+  background-color: #ffffff;
+}
+
+/* Credly */
+.button.button-credly {
+  color: #FF6A00;
+  background-color: #ffffff;
+}
+
+/* Semantic Scholar */
+.button.button-semanticscholar {
+  color: #000000;
+  background-color: #ffffff;
+}
+
+/* Google Scholar */
+.button.button-googlescholar {
+  color: #356AC3;
+  background-color: #ffffff;
+}
+
+/* Simplex */
+.button.button-simplex {
+  color: #07B4B9;
+  background-color: #ffffff;
+}
+
+/* Mixcloud */
+.button.button-mixcloud {
+  color: #000000;
+  background-color: #ffffff;
+}
+
+/* Internet Archive */
+.button.button-internetarchive {
+  color: #000000;
+  background-color: #ffff;
+}
+
+/* Google Maps */
+.button.button-googlemaps {
+  color: #4482f1;
+  background-color: #fff;
+}
+
+/* Tidal */
+.button.button-tidal {
+  color: #000000;
+  background-color: #fff;
+}
+
+/* TheStoryGraph */
+.button.button-thestorygraph {
+  color: #ffff;
+  background-color: #18949c;
+}
+
+/* Geocaching */
+.button.button-geocaching {
+  color: #000000;
+  background-color: #ffff;
+}
+
+/* Neocities */
+.button.button-neocities {
+  color: #ffff;
+  background-color: #65a0ad;
+}
+
+/*  Dreamwidth */
+.button.button-dreamwidth {
+  color: #C1272D;
+  background-color: #ffff;
+}
+
+/* Spacehey */
+.button.button-spacehey {
+  color: #204cdc;
+  background-color: #ffff;
+}
+
+/* Viber */
+.button.button-viber {
+  color: #583cbc;
+  background-color: #ffff;
+}
+
+/* Pillowfort */
+.button.button-pillowfort {
+  color: #000000;
+  background-color: #ffff;
+}
+
+/* Makerworld */
+.button.button-makerworld {
+  color: #000000;
+  background-color: #ffff;
+}
+

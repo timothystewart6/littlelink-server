@@ -60,6 +60,7 @@ services:
       - MICRO_BLOG=https://micro.blog/
       - WHATSAPP=https://www.whatsapp.com/
       - STRAVA=https://www.strava.com/
+      - BLUESKY=https://bsky.app/profile/bsky.app
       - BUYMEACOFFEE=https://www.buymeacoffee.com/
       - GITLAB=https://www.gitlab.com/
       - PATREON=https://www.patreon.com/technotim
@@ -123,7 +124,36 @@ services:
       - FIVEHUNDREDPX=https://500px.com/
       - PRINTABLES=https://www.printables.com
       - SERIALIZD=https://www.serializd.com/
-
+      - LEMMY=https://join-lemmy.org
+      - PIXELFED=https://pixelfed.org/
+      - VRCHAT=https://vrchat.com
+      - X=https://x.com
+      - CODEWARS=https://www.codewars.com
+      - APPLE_PODCASTS=https://podcasts.apple.com/de/podcast/NAME/id000000000
+      - GOOGLE_PODCASTS=https://podcasts.google.com/feed/XYZ
+      - POCKET_CASTS=https://pca.st/XYZ
+      - OVERCAST=https://overcast.fm/itunes00000000
+      - RSS=https://example.com/rss
+      - AUDIUS=https://audius.co/
+      - BANDCAMP=https://bandcamp.com/
+      - FORGEJO=https://forgejo.org/
+      - ORCID=https://orcid.org/
+      - CREDLY=https://www.credly.com/
+      - SEMANTICSCHOLAR=https://www.semanticscholar.org/
+      - GOOGLESCHOLAR=https://scholar.google.co.uk/
+      - SIMPLEX=https://simplex.chat/
+      - MIXCLOUD=https://www.mixcloud.com/
+      - INTERNETARCHIVE=https://archive.org/
+      - GOOGLEMAPS=https://www.google.com/maps
+      - TIDAL=https://tidal.com/
+      - THESTORYGRAPH=https://www.thestorygraph.com/
+      - GEOCACHING=https://www.geocaching.com/play
+      - NEOCITIES=https://neocities.org/
+      - VIBER=https://www.viber.com/en/
+      - SPACEHEY=https://spacehey.com/
+      - DREAMWIDTH=https://www.dreamwidth.org/login
+      - PILLOWFORT=https://www.pillowfort.social/log_in
+      - MAKERWORLD=https://makerworld.com/en
     ports:
       - 8080:3000
     restart: unless-stopped

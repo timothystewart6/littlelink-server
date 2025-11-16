@@ -1,23 +1,29 @@
 import Sort from '../Sort';
 import React from 'react';
-import { unmountComponentAtNode } from 'react-dom';
 import Button from '../../Button/Button';
 import youtubeLogo from '../../../icons/youtube.svg';
 import twitchLogo from '../../../icons/twitch.svg';
 import linkedinLogo from '../../../icons/linkedin.svg';
 import githubLogo from '../../../icons/github.svg';
 import renderer from 'react-test-renderer';
+import { createRoot } from 'react-dom/client';
 
 describe('<Sort />', () => {
   let container = null;
+  let root = null;
   beforeEach(() => {
     container = document.createElement('div');
-    document.body.appendChild(container);
+    if (container) {
+      root = createRoot(container);
+      document.body.appendChild(container);
+    }
   });
   afterEach(() => {
-    unmountComponentAtNode(container);
-    container.remove();
-    container = null;
+    if (container) {
+      root.unmount();
+      container.remove();
+      container = null;
+    }
   });
 
   test('renders without exploding', () => {

@@ -73,7 +73,7 @@ server
         `<!doctype html>
     <html lang="${runtimeConfig.LANG || 'en'}" class="${theme}">
     <head>
-        <title >${runtimeConfig.META_TITLE || 'My Site'}</title>
+        <title>${runtimeConfig.META_TITLE || 'My Site'}</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta charset="utf-8" />
         <meta property="og:type" content="siteweb" />
@@ -119,10 +119,8 @@ server
         }
         ${
           runtimeConfig.OG_IMAGE
-            ? `
-                <meta property="og:image" content="${runtimeConfig.OG_IMAGE}" />
-                <meta property="og:image:secure_url" content="${runtimeConfig.OG_IMAGE}" />
-            `
+            ? `<meta property="og:image" content="${runtimeConfig.OG_IMAGE}" />
+        <meta property="og:image:secure_url" content="${runtimeConfig.OG_IMAGE}" />`
             : ''
         }
         ${
@@ -198,8 +196,8 @@ server
             <script async defer data-website-id="${
               runtimeConfig.UMAMI_WEBSITE_ID
             }" src="${runtimeConfig.UMAMI_APP_URL}/${
-                runtimeConfig.UMAMI_SCRIPT_NAME || 'umami.js'
-              }">
+              runtimeConfig.UMAMI_SCRIPT_NAME || 'umami.js'
+            }">
             </script>`
             : ''
         }

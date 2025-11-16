@@ -11,7 +11,7 @@ Inspired by [littlelink](https://github.com/sethcottle/littlelink).
 
 LittleLink-Server is based on the great work from [littlelink](https://github.com/sethcottle/littlelink), a lightweight DIY alternative to services like [Linktree](https://linktr.ee) and [many.link](https://many.link/). LittleLink and LittleLink-Server is built using [Skeleton](http://getskeleton.com/), a dead simple, responsive boilerplate—we just stripped out some additional code you wouldn't need and added in branded styles for popular services. 😊
 
-It takes the same simple approach to a link page and hosts it within a NodeJS server with React Server Side Rendering, containerized for you to use. Now, customizing `LittleLink` with `littlelink-server` is as easy as passing in some environment variables. If you need help configuring this, please see this [video](https://youtu.be/42SqfI_AjXU) at explains everything and a live example at [technotim.live](https://technotim.live/).
+It takes the same simple approach to a link page and hosts it within a NodeJS server with React Server Side Rendering, containerized for you to use. Now, customizing `LittleLink` with `littlelink-server` is as easy as passing in some environment variables. If you need help configuring this, please see this [video](https://youtu.be/42SqfI_AjXU) at explains everything and a live example at [links.technotim.live](https://links.technotim.live/).
 
 ## ⭐ Features
 
@@ -25,7 +25,7 @@ It takes the same simple approach to a link page and hosts it within a NodeJS se
 
 Check the [docker-compose.yml](/docker-compose.yml) file for all supported buttons and configuration!
 
-The example below will generate a site exactly like <https://technotim.live>
+The example below will generate a site exactly like <https://links.technotim.live>
 
 ### Using Docker-Compose
 
@@ -33,7 +33,7 @@ The example below will generate a site exactly like <https://technotim.live>
 version: "3.0"
 services:
   littlelink-server:
-    image: ghcr.io/techno-tim/littlelink-server:latest
+    image: ghcr.io/timothystewart6/littlelink-server:latest
     # dockerhub is also supported timothystewart6/littlelink-server
     # image: timothystewart6/littlelink-server:latest
     container_name: littlelink-server
@@ -118,7 +118,7 @@ docker run -d \
   -e KIT='https://l.technotim.live/gear' \
   -e FOOTER=Techno Tim © 2022 \
   --restart unless-stopped \
-  ghcr.io/techno-tim/littlelink-server:latest
+  ghcr.io/timothystewart6/littlelink-server:latest
 ```
 
 ### Using Kubernetes
@@ -164,12 +164,12 @@ Generated tracking code should look like:
 <script async defer data-website-id="00000000-1111-2222-3333-444444444444" src="https://your-umami-app.com/umami.js"></script>
 ```
 
-Use `data-website-id` as environment variable `UMAMI_WEBSITE_ID`. Take the inital root host of `src` as `UMAMI_APP_URL`, and the name of the script (i.e. `umami.js` or `script.js`) as `UMAMI_SCRIPT_NAME`.
+Use `data-website-id` as environment variable `UMAMI_WEBSITE_ID`. Take the initial root host of `src` as `UMAMI_APP_URL`, and the name of the script (i.e. `umami.js` or `script.js`) as `UMAMI_SCRIPT_NAME`.
 
 Sample event for YouTube button.
 
 ```javascript
-  window.umami('youtube-button');
+  window.umami.track('youtube-button');
 ```
 
 #### Matomo 

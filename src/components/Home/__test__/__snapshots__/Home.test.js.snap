@@ -17,6 +17,7 @@ exports[`<Home /> <Home /> snapshot 1`] = `
     >
       <img
         className="avatar"
+        style={Object {}}
       />
       <h1>
         undefined

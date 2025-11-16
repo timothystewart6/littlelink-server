@@ -1,3 +1,3 @@
 export function trackUmamiEvent(event) {
-  window.umami(event);
+  window.umami.track(event);
 }

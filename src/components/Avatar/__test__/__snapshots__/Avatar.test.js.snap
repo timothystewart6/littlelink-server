@@ -3,5 +3,6 @@
 exports[`<Avatar /> <Avatar /> snapshot 1`] = `
 <img
   className="avatar"
+  style={Object {}}
 />
 `;

@@ -20,6 +20,7 @@ exports[`<App /> <App /> snapshot 1`] = `
       >
         <img
           className="avatar"
+          style={Object {}}
         />
         <h1>
           undefined
