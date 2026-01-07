@@ -11,7 +11,7 @@ Inspired by [littlelink](https://github.com/sethcottle/littlelink).
 
 LittleLink-Server is based on the great work from [littlelink](https://github.com/sethcottle/littlelink), a lightweight DIY alternative to services like [Linktree](https://linktr.ee) and [many.link](https://many.link/). LittleLink and LittleLink-Server is built using [Skeleton](http://getskeleton.com/), a dead simple, responsive boilerplate—we just stripped out some additional code you wouldn't need and added in branded styles for popular services. 😊
 
-It takes the same simple approach to a link page and hosts it within a NodeJS server with React Server Side Rendering, containerized for you to use. Now, customizing `LittleLink` with `littlelink-server` is as easy as passing in some environment variables. If you need help configuring this, please see this [video](https://youtu.be/42SqfI_AjXU) at explains everything and a live example at [links.technotim.live](https://links.technotim.live/).
+It takes the same simple approach to a link page and hosts it within a NodeJS server with React Server Side Rendering, containerized for you to use. Now, customizing `LittleLink` with `littlelink-server` is as easy as passing in some environment variables. If you need help configuring this, please see this [video](https://youtu.be/42SqfI_AjXU) at explains everything and a live example at [links.technotim.com](https://links.technotim.com/).
 
 ## ⭐ Features
 
@@ -25,7 +25,7 @@ It takes the same simple approach to a link page and hosts it within a NodeJS se
 
 Check the [docker-compose.yml](/docker-compose.yml) file for all supported buttons and configuration!
 
-The example below will generate a site exactly like <https://links.technotim.live>
+The example below will generate a site exactly like <https://links.technotim.com>
 
 ### Using Docker-Compose
 
@@ -47,7 +47,7 @@ services:
       - OG_SITE_NAME=Techno Tim
       - OG_TITLE=Techno Tim
       - OG_DESCRIPTION=The home of Techno Tim
-      - OG_URL=https://technotim.live
+      - OG_URL=https://technotim.com
       - OG_IMAGE=https://pbs.twimg.com/profile_images/1286144221217316864/qIAsKOpB_400x400.jpg
       - OG_IMAGE_WIDTH=400
       - OG_IMAGE_HEIGHT=400
@@ -64,22 +64,22 @@ services:
       # you can render an unlimited amount of custom buttons by adding 
       # the CUSTOM_BUTTON_* variables and by using a comma as a separator.
       - CUSTOM_BUTTON_TEXT=Documentation,Recommended Gear
-      - CUSTOM_BUTTON_URL=https://l.technotim.live/docs,https://l.technotim.live/gear
+      - CUSTOM_BUTTON_URL=https://l.technotim.com/docs,https://l.technotim.com/gear
       - CUSTOM_BUTTON_COLOR=#000000,#000000
       - CUSTOM_BUTTON_TEXT_COLOR=#ffffff,#ffffff
       - CUSTOM_BUTTON_ALT_TEXT=Tech documentation site for my videos and more,Recommended Gear
       - CUSTOM_BUTTON_NAME=DOCUMENTATION,GEAR
       - CUSTOM_BUTTON_ICON=fas file-alt,fas fa-cog
-      - GITHUB=https://l.technotim.live/github
-      - TWITTER=https://l.technotim.live/twitter
-      - INSTAGRAM=https://l.technotim.live/instagram
-      - LINKED_IN=https://l.technotim.live/linkedin
-      - YOUTUBE=https://l.technotim.live/subscribe
-      - TWITCH=https://l.technotim.live/twitch
-      - DISCORD=https://l.technotim.live/discord
-      - TIKTOK=https://l.technotim.live/tiktok
-      - FACEBOOK=https://l.technotim.live/facebook
-      - PATREON=https://l.technotim.live/patreon
+      - GITHUB=https://l.technotim.com/github
+      - TWITTER=https://l.technotim.com/twitter
+      - INSTAGRAM=https://l.technotim.com/instagram
+      - LINKED_IN=https://l.technotim.com/linkedin
+      - YOUTUBE=https://l.technotim.com/subscribe
+      - TWITCH=https://l.technotim.com/twitch
+      - DISCORD=https://l.technotim.com/discord
+      - TIKTOK=https://l.technotim.com/tiktok
+      - FACEBOOK=https://l.technotim.com/facebook
+      - PATREON=https://l.technotim.com/patreon
       - FOOTER=Techno Tim © 2022
     ports:
       - 8080:3000
@@ -107,15 +107,15 @@ docker run -d \
   -e AVATAR_ALT='Techno Tim Profile Pic' \
   -e NAME='TechnoTim' \
   -e BIO='Software Engineer | Gamer | Twitch Streamer | Content Creator on YouTube | Homelab | 🇺🇸 🇯🇵 | Full Nerd' \
-  -e GITHUB='https://l.technotim.live/github' \
-  -e TWITTER='https://l.technotim.live/twitter' \
+  -e GITHUB='https://l.technotim.com/github' \
+  -e TWITTER='https://l.technotim.com/twitter' \
   -e INSTAGRAM='https://www.instagram.com/techno.tim' \
-  -e LINKED_IN='https://l.technotim.live/linkedin' \
-  -e YOUTUBE='https://l.technotim.live/subscribe' \
-  -e TWITCH='https://l.technotim.live/twitch' \
-  -e DISCORD='https://l.technotim.live/discord' \
-  -e TIKTOK='https://l.technotim.live/discord' \
-  -e KIT='https://l.technotim.live/gear' \
+  -e LINKED_IN='https://l.technotim.com/linkedin' \
+  -e YOUTUBE='https://l.technotim.com/subscribe' \
+  -e TWITCH='https://l.technotim.com/twitch' \
+  -e DISCORD='https://l.technotim.com/discord' \
+  -e TIKTOK='https://l.technotim.com/discord' \
+  -e KIT='https://l.technotim.com/gear' \
   -e FOOTER=Techno Tim © 2022 \
   --restart unless-stopped \
   ghcr.io/timothystewart6/littlelink-server:latest
