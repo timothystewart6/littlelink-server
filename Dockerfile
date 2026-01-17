@@ -15,5 +15,7 @@ RUN mkdir -p /node_modules
 COPY --from=node-build /usr/src/app/build ./build
 COPY --from=node-build /usr/src/app/node_modules_prod ./node_modules
 EXPOSE 3000
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+    CMD wget --no-verbose --tries=1 --spider http://localhost:3000/healthcheck || exit 1
 CMD [ "node", "build/server.js" ]
 
