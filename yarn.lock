@@ -9304,6 +9304,11 @@ serialize-javascript@^6.0.2:
   dependencies:
     randombytes "^2.1.0"
 
+serialize-javascript@^7.0.3:
+  version "7.0.3"
+  resolved "https://registry.yarnpkg.com/serialize-javascript/-/serialize-javascript-7.0.3.tgz#c92008d8a21bc7b2307c2e885a4bd0f03b2aee6c"
+  integrity sha512-h+cZ/XXarqDgCjo+YSyQU/ulDEESGGf8AMK9pPNmhNSl/FzPl6L8pMp1leca5z6NuG6tvV/auC8/43tmovowww==
+
 serve-index@^1.9.1:
   version "1.9.1"
   resolved "https://registry.yarnpkg.com/serve-index/-/serve-index-1.9.1.tgz#d3768d69b1e7d82e5ce050fff5b453bea12a9239"
