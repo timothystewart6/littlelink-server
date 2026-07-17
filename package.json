@@ -45,20 +45,16 @@
     "eslint-plugin-prettier": "^5.5.4",
     "eslint-plugin-promise": "^6.6.0",
     "eslint-plugin-react": "^7.37.5",
-    "html-webpack-plugin": "^5.6.4",
+    "html-webpack-plugin": "~4.5.2",
     "markdownlint-cli": "^0.48.0",
-    "mini-css-extract-plugin": "^2.10.2",
+    "mini-css-extract-plugin": "^1.6.2",
     "prettier": "^3.8.2",
     "razzle": "^4.2.18",
     "razzle-dev-utils": "^4.2.18",
     "react-test-renderer": "^18.3.1",
     "stylelint": "^16.25.0",
     "url": "^0.11.4",
-    "webpack": "^5.106.1",
-    "webpack-dev-server": "^5.2.2"
-  },
-  "resolutions": {
-    "string-width": "4.2.3",
-    "table": "6.8.0"
+    "webpack": "^4.46.0",
+    "webpack-dev-server": "~3.11.0"
   }
 }
