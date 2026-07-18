@@ -9,9 +9,49 @@ Inspired by [littlelink](https://github.com/sethcottle/littlelink).
 
 ## 👇 What is LittleLink-Server?
 
-LittleLink-Server is based on the great work from [littlelink](https://github.com/sethcottle/littlelink), a lightweight DIY alternative to services like [Linktree](https://linktr.ee) and [many.link](https://many.link/). LittleLink and LittleLink-Server is built using [Skeleton](http://getskeleton.com/), a dead simple, responsive boilerplate—we just stripped out some additional code you wouldn't need and added in branded styles for popular services. 😊
+LittleLink-Server is based on the great work from [littlelink](https://github.com/sethcottle/littlelink), a lightweight DIY alternative to services like [Linktree](https://linktr.ee) and [many.link](https://many.link/). LittleLink and LittleLink-Server is built using [Skeleton](http://getskeleton.com/), a dead simple, responsive boilerplate \u2014 we just stripped out some additional code you wouldn't need and added in branded styles for popular services. 😊
 
-It takes the same simple approach to a link page and hosts it within a NodeJS server with React Server Side Rendering, containerized for you to use. Now, customizing `LittleLink` with `littlelink-server` is as easy as passing in some environment variables. If you need help configuring this, please see this [video](https://youtu.be/42SqfI_AjXU) at explains everything and a live example at [links.technotim.com](https://links.technotim.com/).
+> **Migration note:** This project has migrated from Razzle to [Next.js](https://nextjs.org/). Container configuration is unchanged. All environment variable names are the same. Variables are read when the container starts and during request rendering, not when the image is built. No container configuration changes are required.
+
+## Developer Setup
+
+### Prerequisites
+
+- Node.js 24 or later
+- Yarn Classic 1.22.x
+
+### Commands
+
+```bash
+# Install dependencies
+yarn install
+
+# Start development server with hot reload
+yarn dev
+
+# Run tests
+yarn test
+
+# Build for production
+yarn build
+
+# Start production server
+yarn start
+
+# Lint and format checks
+CI=true yarn lint
+```
+
+### Docker build
+
+```bash
+docker build -t littlelink-server .
+docker run -p 8080:3000 littlelink-server
+```
+
+It takes the same simple approach to a link page and hosts it within a NodeJS server with React, containerized for you to use. Customizing `LittleLink` with `littlelink-server` is as easy as passing in some environment variables. If you need help configuring this, please see this [video](https://youtu.be/42SqfI_AjXU) at explains everything and a live example at [links.technotim.com](https://links.technotim.com/).
+
+> **Migration note:** littlelink-server has migrated from Razzle to [Next.js](https://nextjs.org/). Container configuration is unchanged. All environment variable names are the same. Variables are read when the container starts and during request rendering, not when the image is built. No container configuration change is required.
 
 ## ⭐ Features
 
@@ -140,64 +180,8 @@ Or use a values.yaml files
 
 ## 🔧 Configuration
 
-### Analytics Support
+See [docs/analytics.md](docs/analytics.md) for analytics setup instructions and [docs/healthcheck.md](docs/healthcheck.md) for health check configuration.
 
-#### Google Analytics
-
-See [Getting Started with Analytics](https://support.google.com/analytics/answer/1008015?hl=en). After getting your GA Tracking Id, use your tracking Id as environment variable like `GA_TRACKING_ID=G-XXXXXXXXXX`  (See the example below)
-
-All buttons clicked will be tracked automatically if `GA_TRACKING_ID` exists.
-
-Sample event for YouTube button.
-
-```javascript
-  window.gtag('event', 'youtube-button');
-```
-
-#### Umami
-
-See [Adding a website & Collecting data](https://umami.is/docs/collect-data) page to add and generate your tracking code.
-
-Generated tracking code should look like:
-
-```javascript
-<script async defer data-website-id="00000000-1111-2222-3333-444444444444" src="https://your-umami-app.com/umami.js"></script>
-```
-
-Use `data-website-id` as environment variable `UMAMI_WEBSITE_ID`. Take the initial root host of `src` as `UMAMI_APP_URL`, and the name of the script (i.e. `umami.js` or `script.js`) as `UMAMI_SCRIPT_NAME`.
-
-Sample event for YouTube button.
-
-```javascript
-  window.umami.track('youtube-button');
-```
-
-#### Matomo 
-
-See [Installing Matomo fo how to configure analytics](https://matomo.org/docs/installation/) and [how to find your site id](https://matomo.org/faq/general/faq_19212/)
-
-Use `MATOMO_URL` for your URL and `MATOMO_SITE_ID` for your site id
-
-Sample event for YouTube button.
-
-```javascript
-  window._paq.push(['trackEvent', 'youtube-button']]);
-```
-
-### Health Check
-
-A health check endpoint exists on `/healthcheck`.  If healthy, it will return with a `200` and the following response:
-
-```json
-{
-  "status": "ok"
-}
-```
-
-To skip express from logging these calls, add the environment variable:
-
-```bash
-SKIP_HEALTH_CHECK_LOGS=true
-``` 
+All environment variable names remain unchanged. Variables are read at request time, so changes take effect after a container restart without rebuilding the image. 
   
 

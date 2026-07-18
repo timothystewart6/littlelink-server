@@ -8,7 +8,7 @@ A health check endpoint exists on `/healthcheck`.  If healthy, it will return wi
 }
 ```
 
-To skip express from logging these calls, add the environment variable:
+To skip logging these health check calls, add the environment variable:
 
 ```bash
 SKIP_HEALTH_CHECK_LOGS=true
