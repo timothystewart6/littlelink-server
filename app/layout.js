@@ -1,5 +1,6 @@
 import React from 'react';
 import { getRuntimeConfig, getTheme } from '../src/config/runtimeConfig';
+import AnalyticsScripts from '../src/analytics/AnalyticsScripts';
 
 export const dynamic = 'force-dynamic';
 
@@ -76,6 +77,7 @@ export default async function RootLayout({ children }) {
         {cfg.FAVICON_URL && (
           <link rel="icon" type="image/png" href={cfg.FAVICON_URL} />
         )}
+        <AnalyticsScripts config={cfg} />
       </head>
       <body>{children}</body>
     </html>
