@@ -5,11 +5,20 @@
  * migration. They serve as an executable specification of today's contract.
  */
 
-import { runtimeConfig } from '../config';
+import { getRuntimeConfig } from '../config/runtimeConfig';
 
-// ---------------------------------------------------------------------------
-// Helpers
-// ---------------------------------------------------------------------------
+/**
+ * Set up clean runtimeConfig by clearing known env vars that may be
+ * inherited from the terminal environment.
+ */
+function getCleanRuntimeConfig() {
+  const env = { ...process.env };
+  delete env.LANG;
+  delete env.THEME;
+  return getRuntimeConfig(env);
+}
+
+const runtimeConfig = getCleanRuntimeConfig();
 
 /**
  * Render <Home /> with a given window.env.

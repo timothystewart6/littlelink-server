@@ -1,17 +1,9 @@
 {
-  "parser": "@babel/eslint-parser",
-  "settings": {
-    "react": {
-      "pragma": "React",
-      "version": "detect"
-    }
-  },
-  "plugins": ["jsx","prettier"],
   "extends": [
-    "eslint:recommended",
-    "plugin:react/recommended",
+    "next/core-web-vitals",
     "prettier"
     ],
+  "plugins": ["prettier"],
   "env": {
     "jest": true,
     "jasmine": true,

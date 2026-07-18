@@ -1,6 +1,7 @@
 import React from 'react';
 import { getRuntimeConfig, getTheme } from '../src/config/runtimeConfig';
 import AnalyticsScripts from '../src/analytics/AnalyticsScripts';
+import FontAwesomeInit from '../src/components/FontAwesomeInit';
 
 export const dynamic = 'force-dynamic';
 
@@ -79,7 +80,9 @@ export default async function RootLayout({ children }) {
         )}
         <AnalyticsScripts config={cfg} />
       </head>
-      <body>{children}</body>
+      <body>
+        <FontAwesomeInit>{children}</FontAwesomeInit>
+      </body>
     </html>
   );
 }
