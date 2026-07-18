@@ -8,14 +8,13 @@
 import { getRuntimeConfig } from '../config/runtimeConfig';
 
 /**
- * Set up clean runtimeConfig by clearing known env vars that may be
- * inherited from the terminal environment.
+ * Set up clean runtimeConfig with no environment variables.
+ * next/jest loads .env automatically, so process.env contains
+ * unprefixed vars that getRuntimeConfig would pick up.
+ * We pass an empty object to get a clean baseline.
  */
 function getCleanRuntimeConfig() {
-  const env = { ...process.env };
-  delete env.LANG;
-  delete env.THEME;
-  return getRuntimeConfig(env);
+  return getRuntimeConfig({});
 }
 
 const runtimeConfig = getCleanRuntimeConfig();
