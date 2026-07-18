@@ -24,3 +24,6 @@ jobs:
         yarn ci
       env:
         CI: true
+
+    - name: Build Docker image
+      run: docker build --tag littlelink-server:pr .

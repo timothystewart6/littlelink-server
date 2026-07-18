@@ -13,7 +13,7 @@
     "start:prod": "NODE_ENV=production node build/server.js",
     "lint": "eslint .",
     "lint:style": "stylelint ./src/**/*.css ./public/**/*.css",
-    "postinstall": "command -v patch-package >/dev/null 2>&1 && patch-package || true",
+    "postinstall": "patch-package",
     "ci": "yarn lint && yarn lint:style && yarn lint:markdown && yarn test",
     "lint:markdown": "markdownlint .github/*.md && markdownlint README.md"
   },
