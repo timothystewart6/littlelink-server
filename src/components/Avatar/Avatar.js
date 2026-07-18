@@ -1,22 +1,32 @@
-import React, { memo } from 'react';
-import { string } from 'prop-types';
-import { addShadow } from '../../utils';
-import { runtimeConfig } from '../../config';
+import React from 'react';
 
 import './Avatar.css';
 
+/**
+ * Determine the CSS shadow class based on drop shadow config.
+ * @param {'light'|'medium'|'heavy'|undefined} dropShadow
+ * @returns {string}
+ */
+function addShadow(dropShadow) {
+  switch (dropShadow) {
+    case 'light':
+      return ' box-shadow-light';
+    case 'medium':
+      return ' box-shadow-medium';
+    case 'heavy':
+      return ' box-shadow-heavy';
+    default:
+      return '';
+  }
+}
+
 // Avatar component that renders an image with shadow.
 function Avatar(props) {
-  // Props of the component.
-  const { src, srcSet, alt } = props;
+  const { src, srcSet, alt, avatarSize, dropShadow } = props;
 
-  // Get avatar size from runtime config.
-  const avatarSize = runtimeConfig.AVATAR_SIZE || null;
-
-  // Render the image with shadow.
   return (
     <img
-      className={'avatar' + addShadow()}
+      className={'avatar' + addShadow(dropShadow)}
       src={src}
       srcSet={srcSet}
       alt={alt}
@@ -25,11 +35,4 @@ function Avatar(props) {
   );
 }
 
-// Memoize the component to improve performance.
-export default memo(Avatar);
-
-Avatar.propType = {
-  src: string,
-  srcSet: string,
-  alt: string,
-};
+export default Avatar;

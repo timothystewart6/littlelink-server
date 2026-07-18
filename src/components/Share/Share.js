@@ -1,5 +1,6 @@
-import React, { memo } from 'react';
-import { string } from 'prop-types';
+'use client';
+
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function Share(props) {
@@ -7,27 +8,23 @@ function Share(props) {
 
   const handleSharing = async () => {
     if (navigator.share) {
-      await navigator.share({
-        url,
-        title,
-        text,
-      });
+      try {
+        await navigator.share({
+          url,
+          title,
+          text,
+        });
+      } catch {
+        // User cancelled or sharing failed silently.
+      }
     }
   };
 
   return (
-    <>
-      <a className={'button'} rel="noopener noreferrer" onClick={handleSharing}>
-        <FontAwesomeIcon className="icon" icon={['fas', 'fa-share-nodes']} />
-      </a>
-    </>
+    <a className={'button'} rel="noopener noreferrer" onClick={handleSharing}>
+      <FontAwesomeIcon className="icon" icon={['fas', 'fa-share-nodes']} />
+    </a>
   );
 }
 
-export default memo(Share);
-
-Share.propType = {
-  url: string.isRequired,
-  title: string.isRequired,
-  text: string.isRequired,
-};
+export default Share;

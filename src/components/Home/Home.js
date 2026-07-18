@@ -1,29 +1,31 @@
-import React, { memo } from 'react';
+import React from 'react';
 import Avatar from '../Avatar/Avatar';
 import Button from '../Button/Button';
 import Share from '../Share/Share';
-import { runtimeConfig } from '../../config';
 
 import Sort from '../Sort/Sort';
 
-function Home(props) {
+function Home({ config }) {
   let order = [];
-  if (runtimeConfig?.BUTTON_ORDER) {
-    order = runtimeConfig.BUTTON_ORDER.split(',').reverse();
+  if (config?.BUTTON_ORDER) {
+    order = config.BUTTON_ORDER.split(',').reverse();
   }
 
   const buttonOrder = button => {
     return order.indexOf(button);
   };
 
+  const dropShadow = config?.DROP_SHADOW;
+  const buttonTarget = config?.BUTTON_TARGET;
+
   const renderCustomButtons = () => {
-    const names = runtimeConfig.CUSTOM_BUTTON_NAME?.split(',');
-    const urls = runtimeConfig.CUSTOM_BUTTON_URL?.split(',');
-    const altTexts = runtimeConfig.CUSTOM_BUTTON_ALT_TEXT?.split(',');
-    const texts = runtimeConfig.CUSTOM_BUTTON_TEXT?.split(',');
-    const buttonColors = runtimeConfig.CUSTOM_BUTTON_COLOR?.split(',');
-    const textColors = runtimeConfig.CUSTOM_BUTTON_TEXT_COLOR?.split(',');
-    const icons = runtimeConfig.CUSTOM_BUTTON_ICON?.split(',');
+    const names = config.CUSTOM_BUTTON_NAME?.split(',');
+    const urls = config.CUSTOM_BUTTON_URL?.split(',');
+    const altTexts = config.CUSTOM_BUTTON_ALT_TEXT?.split(',');
+    const texts = config.CUSTOM_BUTTON_TEXT?.split(',');
+    const buttonColors = config.CUSTOM_BUTTON_COLOR?.split(',');
+    const textColors = config.CUSTOM_BUTTON_TEXT_COLOR?.split(',');
+    const icons = config.CUSTOM_BUTTON_ICON?.split(',');
     // have to clean up some of the strings to standardize for analytics
 
     return texts.map((t, i) => {
@@ -52,6 +54,8 @@ function Home(props) {
                 }}
                 alt={altTexts[i]?.trim()}
                 icon={icons && icons[i]?.trim()}
+                buttonTarget={buttonTarget}
+                dropShadow={dropShadow}
               />
             )}
         </div>
@@ -65,1033 +69,1061 @@ function Home(props) {
         <div className="row">
           <div className="column" style={{ marginTop: '12%' }}>
             <Avatar
-              src={runtimeConfig.AVATAR_URL}
-              srcSet={runtimeConfig.AVATAR_2X_URL}
-              alt={runtimeConfig.AVATAR_ALT}
+              src={config.AVATAR_URL}
+              srcSet={config.AVATAR_2X_URL}
+              alt={config.AVATAR_ALT}
+              avatarSize={config.AVATAR_SIZE}
+              dropShadow={dropShadow}
             />
-            <h1>{`${runtimeConfig.NAME}`}</h1>
-            <p>{runtimeConfig.BIO}</p>
+            <h1>{`${config.NAME}`}</h1>
+            <p>{config.BIO}</p>
             <Sort>
-              {runtimeConfig.CUSTOM_BUTTON_TEXT && renderCustomButtons()}
-              {runtimeConfig.YOUTUBE && (
+              {config.CUSTOM_BUTTON_TEXT && renderCustomButtons()}
+              {config.YOUTUBE && (
                 <Button
                   name="youtube"
-                  href={runtimeConfig.YOUTUBE}
+                  href={config.YOUTUBE}
                   displayName="YouTube"
                   logo="/icons/youtube.svg"
                   order={buttonOrder('YOUTUBE')}
+                  buttonTarget={buttonTarget}
+                  dropShadow={dropShadow}
                 />
               )}
-              {runtimeConfig.TWITCH && (
+              {config.TWITCH && (
                 <Button
                   name="twitch"
-                  href={runtimeConfig.TWITCH}
+                  href={config.TWITCH}
                   displayName="Twitch"
                   logo="/icons/twitch.svg"
                   order={buttonOrder('TWITCH')}
+                  buttonTarget={buttonTarget}
+                  dropShadow={dropShadow}
                 />
               )}
-              {runtimeConfig.TWITTER && (
+              {config.TWITTER && (
                 <Button
                   name="twitter"
-                  href={runtimeConfig.TWITTER}
+                  href={config.TWITTER}
                   displayName="Twitter"
                   logo="/icons/twitter.svg"
                   order={buttonOrder('TWITTER')}
+                  buttonTarget={buttonTarget}
+                  dropShadow={dropShadow}
                 />
               )}
-              {runtimeConfig.INSTAGRAM && (
+              {config.INSTAGRAM && (
                 <Button
                   name="instagram"
-                  href={runtimeConfig.INSTAGRAM}
+                  href={config.INSTAGRAM}
                   displayName="Instagram"
                   logo="/icons/instagram.svg"
                   order={buttonOrder('INSTAGRAM')}
+                  buttonTarget={buttonTarget}
+                  dropShadow={dropShadow}
                 />
               )}
-              {runtimeConfig.GITHUB && (
+              {config.GITHUB && (
                 <Button
                   name="github"
-                  href={runtimeConfig.GITHUB}
+                  href={config.GITHUB}
                   displayName="GitHub"
                   logo="/icons/github.svg"
                   order={buttonOrder('GITHUB')}
+                  buttonTarget={buttonTarget}
+                  dropShadow={dropShadow}
                 />
               )}
-              {runtimeConfig.DISCORD && (
+              {config.DISCORD && (
                 <Button
                   name="discord"
-                  href={runtimeConfig.DISCORD}
+                  href={config.DISCORD}
                   displayName="Discord"
                   logo="/icons/discord.svg"
                   order={buttonOrder('DISCORD')}
+                  buttonTarget={buttonTarget}
+                  dropShadow={dropShadow}
                 />
               )}
 
-              {runtimeConfig.TIKTOK && (
+              {config.TIKTOK && (
                 <Button
                   name="tiktok"
-                  href={runtimeConfig.TIKTOK}
+                  href={config.TIKTOK}
                   displayName="TikTok"
                   logo="/icons/tiktok.svg"
                   order={buttonOrder('TIKTOK')}
+                  buttonTarget={buttonTarget}
+                  dropShadow={dropShadow}
                 />
               )}
-              {runtimeConfig.FACEBOOK && (
+              {config.FACEBOOK && (
                 <Button
                   name="facebook"
-                  href={runtimeConfig.FACEBOOK}
+                  href={config.FACEBOOK}
                   displayName="Facebook"
                   logo="/icons/facebook.svg"
                   order={buttonOrder('FACEBOOK')}
+                  buttonTarget={buttonTarget}
+                  dropShadow={dropShadow}
                 />
               )}
-              {runtimeConfig.FACEBOOK_MESSENGER && (
+              {config.FACEBOOK_MESSENGER && (
                 <Button
                   name="facebookmessenger"
-                  href={runtimeConfig.FACEBOOK_MESSENGER}
+                  href={config.FACEBOOK_MESSENGER}
                   displayName="Messenger"
                   logo="/icons/messenger.svg"
                   order={buttonOrder('FACEBOOK_MESSENGER')}
+                  buttonTarget={buttonTarget}
+                  dropShadow={dropShadow}
                 />
               )}
-              {runtimeConfig.LINKED_IN && (
+              {config.LINKED_IN && (
                 <Button
                   name="linkedin"
-                  href={runtimeConfig.LINKED_IN}
+                  href={config.LINKED_IN}
                   displayName="LinkedIn"
                   logo="/icons/linkedin.svg"
                   order={buttonOrder('LINKED_IN')}
+                  buttonTarget={buttonTarget}
+                  dropShadow={dropShadow}
                 />
               )}
-              {runtimeConfig.PRODUCT_HUNT && (
+              {config.PRODUCT_HUNT && (
                 <Button
                   name="producthunt"
-                  href={runtimeConfig.PRODUCT_HUNT}
+                  href={config.PRODUCT_HUNT}
                   displayName="Product Hunt"
                   logo="/icons/producthunt.svg"
                   order={buttonOrder('PRODUCT_HUNT')}
+                  buttonTarget={buttonTarget}
+                  dropShadow={dropShadow}
                 />
               )}
-              {runtimeConfig.SNAPCHAT && (
+              {config.SNAPCHAT && (
                 <Button
                   name="snapchat"
-                  href={runtimeConfig.SNAPCHAT}
+                  href={config.SNAPCHAT}
                   displayName="SnapChat"
                   logo="/icons/snapchat.svg"
                   order={buttonOrder('SNAPCHAT')}
+                  buttonTarget={buttonTarget}
+                  dropShadow={dropShadow}
                 />
               )}
-              {runtimeConfig.SPOTIFY && (
+              {config.SPOTIFY && (
                 <Button
                   name="spotify"
-                  href={runtimeConfig.SPOTIFY}
+                  href={config.SPOTIFY}
                   displayName="Spotify"
                   logo="/icons/spotify.svg"
                   order={buttonOrder('SPOTIFY')}
+                  buttonTarget={buttonTarget}
+                  dropShadow={dropShadow}
                 />
               )}
-              {runtimeConfig.REDDIT && (
+              {config.REDDIT && (
                 <Button
                   name="reddit"
-                  href={runtimeConfig.REDDIT}
+                  href={config.REDDIT}
                   displayName="Reddit"
                   logo="/icons/reddit.svg"
                   order={buttonOrder('REDDIT')}
                 />
               )}
-              {runtimeConfig.MEDIUM && (
+              {config.MEDIUM && (
                 <Button
                   name="medium"
-                  href={runtimeConfig.MEDIUM}
+                  href={config.MEDIUM}
                   displayName="Medium"
                   logo="/icons/medium.svg"
                   order={buttonOrder('MEDIUM')}
                 />
               )}
-              {runtimeConfig.PINTEREST && (
+              {config.PINTEREST && (
                 <Button
                   name="pinterest"
-                  href={runtimeConfig.PINTEREST}
+                  href={config.PINTEREST}
                   displayName="Pinterest"
                   logo="/icons/pinterest.svg"
                   order={buttonOrder('PINTEREST')}
                 />
               )}
-              {runtimeConfig.EMAIL && (
+              {config.EMAIL && (
                 <Button
                   name="default"
-                  href={`mailto:${runtimeConfig.EMAIL}`}
-                  displayName={runtimeConfig.EMAIL_TEXT}
+                  href={`mailto:${config.EMAIL}`}
+                  displayName={config.EMAIL_TEXT}
                   logo="/icons/email.svg"
                   order={buttonOrder('EMAIL')}
                 />
               )}
 
-              {runtimeConfig.EMAIL_ALT && (
+              {config.EMAIL_ALT && (
                 <Button
                   name="default"
-                  href={`mailto:${runtimeConfig.EMAIL_ALT}`}
-                  displayName={runtimeConfig.EMAIL_ALT_TEXT}
+                  href={`mailto:${config.EMAIL_ALT}`}
+                  displayName={config.EMAIL_ALT_TEXT}
                   logo="/icons/email_alt.svg"
                   order={buttonOrder('EMAIL_ALT')}
                 />
               )}
 
-              {runtimeConfig.SOUND_CLOUD && (
+              {config.SOUND_CLOUD && (
                 <Button
                   name="soundcloud"
-                  href={runtimeConfig.SOUND_CLOUD}
+                  href={config.SOUND_CLOUD}
                   displayName="SoundCloud"
                   logo="/icons/soundcloud.svg"
                   order={buttonOrder('SOUND_CLOUD')}
                 />
               )}
-              {runtimeConfig.FIGMA && (
+              {config.FIGMA && (
                 <Button
                   name="figma"
-                  href={runtimeConfig.FIGMA}
+                  href={config.FIGMA}
                   displayName="Figma"
                   logo="/icons/figma.svg"
                   order={buttonOrder('FIGMA')}
                 />
               )}
 
-              {runtimeConfig.TELEGRAM && (
+              {config.TELEGRAM && (
                 <Button
                   name="telegram"
-                  href={runtimeConfig.TELEGRAM}
+                  href={config.TELEGRAM}
                   displayName="Telegram"
                   logo="/icons/telegram.svg"
                   order={buttonOrder('TELEGRAM')}
                 />
               )}
 
-              {runtimeConfig.TUMBLR && (
+              {config.TUMBLR && (
                 <Button
                   name="tumblr"
-                  href={runtimeConfig.TUMBLR}
+                  href={config.TUMBLR}
                   displayName="Tumblr"
                   logo="/icons/tumblr.svg"
                   order={buttonOrder('TUMBLR')}
                 />
               )}
-              {runtimeConfig.STEAM && (
+              {config.STEAM && (
                 <Button
                   name="steam"
-                  href={runtimeConfig.STEAM}
+                  href={config.STEAM}
                   displayName="Steam"
                   logo="/icons/steam.svg"
                   order={buttonOrder('STEAM')}
                 />
               )}
 
-              {runtimeConfig.VIMEO && (
+              {config.VIMEO && (
                 <Button
                   name="vimeo"
-                  href={runtimeConfig.VIMEO}
+                  href={config.VIMEO}
                   displayName="Vimeo"
                   logo="/icons/vimeo.svg"
                   order={buttonOrder('VIMEO')}
                 />
               )}
-              {runtimeConfig.WORDPRESS && (
+              {config.WORDPRESS && (
                 <Button
                   name="wordpress"
-                  href={runtimeConfig.WORDPRESS}
+                  href={config.WORDPRESS}
                   displayName="Wordpress"
                   logo="/icons/wordpress.svg"
                   order={buttonOrder('WORDPRESS')}
                 />
               )}
-              {runtimeConfig.GOODREADS && (
+              {config.GOODREADS && (
                 <Button
                   name="goodreads"
-                  href={runtimeConfig.GOODREADS}
+                  href={config.GOODREADS}
                   displayName="Goodreads"
                   logo="/icons/goodreads.svg"
                   order={buttonOrder('GOODREADS')}
                 />
               )}
-              {runtimeConfig.SKOOB && (
+              {config.SKOOB && (
                 <Button
                   name="skoob"
-                  href={runtimeConfig.SKOOB}
+                  href={config.SKOOB}
                   displayName="Skoob"
                   logo="/icons/skoob.svg"
                   order={buttonOrder('SKOOB')}
                 />
               )}
-              {runtimeConfig.LETTERBOXD && (
+              {config.LETTERBOXD && (
                 <Button
                   name="letterboxd"
-                  href={runtimeConfig.LETTERBOXD}
+                  href={config.LETTERBOXD}
                   displayName="Letterboxd"
                   logo="/icons/letterboxd.svg"
                   order={buttonOrder('LETTERBOXD')}
                 />
               )}
-              {runtimeConfig.MASTODON && (
+              {config.MASTODON && (
                 <Button
                   name="mastodon"
-                  href={runtimeConfig.MASTODON}
+                  href={config.MASTODON}
                   rels="me noopener noreferrer"
                   displayName="Mastodon"
                   logo="/icons/mastodon.svg"
                   order={buttonOrder('MASTODON')}
                 />
               )}
-              {runtimeConfig.MICRO_BLOG && (
+              {config.MICRO_BLOG && (
                 <Button
                   name="microblog"
-                  href={runtimeConfig.MICRO_BLOG}
+                  href={config.MICRO_BLOG}
                   displayName="Microblog"
                   logo="/icons/microblog.svg"
                   order={buttonOrder('MICRO_BLOG')}
                 />
               )}
-              {runtimeConfig.WHATSAPP && (
+              {config.WHATSAPP && (
                 <Button
                   name="whatsapp"
-                  href={runtimeConfig.WHATSAPP}
+                  href={config.WHATSAPP}
                   displayName="WhatsApp"
                   logo="/icons/whatsapp.svg"
                   order={buttonOrder('WHATSAPP')}
                 />
               )}
-              {runtimeConfig.KIT && (
+              {config.KIT && (
                 <Button
                   name="kit"
-                  href={runtimeConfig.KIT}
+                  href={config.KIT}
                   displayName="Kit"
                   logo="/icons/kit.svg"
                   order={buttonOrder('KIT')}
                 />
               )}
-              {runtimeConfig.STRAVA && (
+              {config.STRAVA && (
                 <Button
                   name="strava"
-                  href={runtimeConfig.STRAVA}
+                  href={config.STRAVA}
                   displayName="Strava"
                   logo="/icons/strava.svg"
                   order={buttonOrder('STRAVA')}
                 />
               )}
-              {runtimeConfig.BLUESKY && (
+              {config.BLUESKY && (
                 <Button
                   name="bluesky"
-                  href={runtimeConfig.BLUESKY}
+                  href={config.BLUESKY}
                   displayName="BlueSky"
                   logo="/icons/bluesky.svg"
                   order={buttonOrder('BLUESKY')}
                 />
               )}
-              {runtimeConfig.BUYMEACOFFEE && (
+              {config.BUYMEACOFFEE && (
                 <Button
                   name="buymeacoffee"
-                  href={runtimeConfig.BUYMEACOFFEE}
+                  href={config.BUYMEACOFFEE}
                   displayName="Buy Me a Coffee"
                   logo="/icons/buymeacoffee.svg"
                   order={buttonOrder('BUYMEACOFFEE')}
                 />
               )}
-              {runtimeConfig.GITLAB && (
+              {config.GITLAB && (
                 <Button
                   name="gitlab"
-                  href={runtimeConfig.GITLAB}
+                  href={config.GITLAB}
                   displayName="GitLab"
                   logo="/icons/gitlab.svg"
                   order={buttonOrder('GITLAB')}
                 />
               )}
-              {runtimeConfig.PATREON && (
+              {config.PATREON && (
                 <Button
                   name="patreon"
-                  href={runtimeConfig.PATREON}
+                  href={config.PATREON}
                   displayName="Patreon"
                   logo="/icons/patreon.svg"
                   order={buttonOrder('PATREON')}
                 />
               )}
-              {runtimeConfig.DEVTO && (
+              {config.DEVTO && (
                 <Button
                   name="devto"
-                  href={runtimeConfig.DEVTO}
+                  href={config.DEVTO}
                   displayName="Dev.to"
                   logo="/icons/devto.svg"
                   order={buttonOrder('DEVTO')}
                 />
               )}
-              {runtimeConfig.PAYPAL && (
+              {config.PAYPAL && (
                 <Button
                   name="paypal"
-                  href={runtimeConfig.PAYPAL}
+                  href={config.PAYPAL}
                   displayName="Paypal"
                   logo="/icons/paypal.svg"
                   order={buttonOrder('PAYPAL')}
                 />
               )}
-              {runtimeConfig.SLACK && (
+              {config.SLACK && (
                 <Button
                   name="slack"
-                  href={runtimeConfig.SLACK}
+                  href={config.SLACK}
                   displayName="Slack"
                   logo="/icons/slack.svg"
                   order={buttonOrder('SLACK')}
                 />
               )}
-              {runtimeConfig.STACKOVERFLOW && (
+              {config.STACKOVERFLOW && (
                 <Button
                   name="stackoverflow"
-                  href={runtimeConfig.STACKOVERFLOW}
+                  href={config.STACKOVERFLOW}
                   displayName="stack"
                   logo="/icons/stackoverflow.svg"
                   order={buttonOrder('STACKOVERFLOW')}
                 />
               )}
-              {runtimeConfig.LASTFM && (
+              {config.LASTFM && (
                 <Button
                   name="lastfm"
-                  href={runtimeConfig.LASTFM}
+                  href={config.LASTFM}
                   displayName="Last.fm"
                   logo="/icons/lastfm.svg"
                   order={buttonOrder('LASTFM')}
                 />
               )}
-              {runtimeConfig.GITEA && (
+              {config.GITEA && (
                 <Button
                   name="gitea"
-                  href={runtimeConfig.GITEA}
+                  href={config.GITEA}
                   displayName="Gitea"
                   logo="/icons/gitea.svg"
                   order={buttonOrder('GITEA')}
                 />
               )}
-              {runtimeConfig.POLYWORK && (
+              {config.POLYWORK && (
                 <Button
                   name="polywork"
-                  href={runtimeConfig.POLYWORK}
+                  href={config.POLYWORK}
                   displayName="Polywork"
                   logo="/icons/polywork.svg"
                   order={buttonOrder('POLYWORK')}
                 />
               )}
-              {runtimeConfig.SIGNAL && (
+              {config.SIGNAL && (
                 <Button
                   name="signal"
-                  href={runtimeConfig.SIGNAL}
+                  href={config.SIGNAL}
                   displayName="Signal"
                   logo="/icons/signal.svg"
                   order={buttonOrder('SIGNAL')}
                 />
               )}
-              {runtimeConfig.UNTAPPD && (
+              {config.UNTAPPD && (
                 <Button
                   name="untappd"
-                  href={runtimeConfig.UNTAPPD}
+                  href={config.UNTAPPD}
                   displayName="Untappd"
                   logo="/icons/untappd.svg"
                   order={buttonOrder('UNTAPPD')}
                 />
               )}
-              {runtimeConfig.INSTANTGAMING && (
+              {config.INSTANTGAMING && (
                 <Button
                   name="instantgaming"
-                  href={runtimeConfig.INSTANTGAMING}
+                  href={config.INSTANTGAMING}
                   displayName="Instant Gaming"
                   logo="/icons/instantgaming.svg"
                   order={buttonOrder('INSTANTGAMING')}
                 />
               )}
-              {runtimeConfig.GHOST && (
+              {config.GHOST && (
                 <Button
                   name="ghost"
-                  href={runtimeConfig.GHOST}
+                  href={config.GHOST}
                   displayName="ghost"
                   logo="/icons/ghost.svg"
                   order={buttonOrder('GHOST')}
                 />
               )}
-              {runtimeConfig.TRAKT && (
+              {config.TRAKT && (
                 <Button
                   name="trakt"
-                  href={runtimeConfig.TRAKT}
+                  href={config.TRAKT}
                   displayName="Trakt"
                   logo="/icons/trakt.svg"
                   order={buttonOrder('TRAKT')}
                 />
               )}
-              {runtimeConfig.CASHAPP && (
+              {config.CASHAPP && (
                 <Button
                   name="cashapp"
-                  href={runtimeConfig.CASHAPP}
+                  href={config.CASHAPP}
                   displayName="Cash App"
                   logo="/icons/cashapp.svg"
                   order={buttonOrder('CASHAPP')}
                 />
               )}
-              {runtimeConfig.TEESPRING && (
+              {config.TEESPRING && (
                 <Button
                   name="teespring"
-                  href={runtimeConfig.TEESPRING}
+                  href={config.TEESPRING}
                   displayName="Teespring"
                   logo="/icons/teespring.svg"
                   order={buttonOrder('TEESPRING')}
                 />
               )}
-              {runtimeConfig.XING && (
+              {config.XING && (
                 <Button
                   name="xing"
-                  href={runtimeConfig.XING}
+                  href={config.XING}
                   displayName="Xing"
                   logo="/icons/xing.svg"
                   order={buttonOrder('XING')}
                 />
               )}
-              {runtimeConfig.KEYBASE && (
+              {config.KEYBASE && (
                 <Button
                   name="keybase"
-                  href={runtimeConfig.KEYBASE}
+                  href={config.KEYBASE}
                   displayName="Keybase"
                   logo="/icons/keybase.svg"
                   order={buttonOrder('KEYBASE')}
                 />
               )}
-              {runtimeConfig.ONLYFANS && (
+              {config.ONLYFANS && (
                 <Button
                   name="onlyfans"
-                  href={runtimeConfig.ONLYFANS}
+                  href={config.ONLYFANS}
                   displayName="OnlyFans"
                   logo="/icons/onlyfans.svg"
                   order={buttonOrder('ONLYFANS')}
                 />
               )}
-              {runtimeConfig.SESSION && (
+              {config.SESSION && (
                 <Button
                   name="session"
-                  href={runtimeConfig.SESSION}
+                  href={config.SESSION}
                   displayName="Session"
                   logo="/icons/session.svg"
                   order={buttonOrder('SESSION')}
                 />
               )}
-              {runtimeConfig.THREEMA && (
+              {config.THREEMA && (
                 <Button
                   name="threema"
-                  href={runtimeConfig.THREEMA}
+                  href={config.THREEMA}
                   displayName="Threema"
                   logo="/icons/threema.svg"
                   order={buttonOrder('THREEMA')}
                 />
               )}
-              {runtimeConfig.STREAMLABS && (
+              {config.STREAMLABS && (
                 <Button
                   name="streamlabs"
-                  href={runtimeConfig.STREAMLABS}
+                  href={config.STREAMLABS}
                   displayName="Streamlabs"
                   logo="/icons/streamlabs.svg"
                   order={buttonOrder('STREAMLABS')}
                 />
               )}
-              {runtimeConfig.PRIVATEBIN && (
+              {config.PRIVATEBIN && (
                 <Button
                   name="privatebin"
-                  href={runtimeConfig.PRIVATEBIN}
+                  href={config.PRIVATEBIN}
                   displayName="Private Bin"
                   logo="/icons/privatebin.svg"
                   order={buttonOrder('PRIVATEBIN')}
                 />
               )}
-              {runtimeConfig.AMAZON_AFFILIATE && (
+              {config.AMAZON_AFFILIATE && (
                 <Button
                   name="amazon"
-                  href={runtimeConfig.AMAZON_AFFILIATE}
+                  href={config.AMAZON_AFFILIATE}
                   displayName="Amazon Affiliate"
                   logo="/icons/amazon.svg"
                   order={buttonOrder('AMAZON_AFFILIATE')}
                 />
               )}
-              {runtimeConfig.AMAZON_WISHLIST && (
+              {config.AMAZON_WISHLIST && (
                 <Button
                   name="amazon"
-                  href={runtimeConfig.AMAZON_WISHLIST}
+                  href={config.AMAZON_WISHLIST}
                   displayName="Amazon Wishlist"
                   logo="/icons/amazon.svg"
                   order={buttonOrder('AMAZON_WISHLIST')}
                 />
               )}
-              {runtimeConfig.APPLE_MUSIC && (
+              {config.APPLE_MUSIC && (
                 <Button
                   name="applemusic"
-                  href={runtimeConfig.APPLE_MUSIC}
+                  href={config.APPLE_MUSIC}
                   displayName="Apple Music"
                   logo="/icons/applemusic.svg"
                   order={buttonOrder('APPLE_MUSIC')}
                 />
               )}
-              {runtimeConfig.YOUTUBE_MUSIC && (
+              {config.YOUTUBE_MUSIC && (
                 <Button
                   name="youtubemusic"
-                  href={runtimeConfig.YOUTUBE_MUSIC}
+                  href={config.YOUTUBE_MUSIC}
                   displayName="YouTube Music"
                   logo="/icons/youtubemusic.svg"
                   order={buttonOrder('YOUTUBE_MUSIC')}
                 />
               )}
-              {runtimeConfig.VENMO && (
+              {config.VENMO && (
                 <Button
                   name="venmo"
-                  href={runtimeConfig.VENMO}
+                  href={config.VENMO}
                   displayName="Venmo"
                   logo="/icons/venmo.svg"
                   order={buttonOrder('VENMO')}
                 />
               )}
-              {runtimeConfig.STATUS && (
+              {config.STATUS && (
                 <Button
                   name="status"
-                  href={runtimeConfig.STATUS}
+                  href={config.STATUS}
                   displayName="Status"
                   logo="/icons/status.svg"
                   order={buttonOrder('STATUS')}
                 />
               )}
-              {runtimeConfig.MATRIX && (
+              {config.MATRIX && (
                 <Button
                   name="matrix"
-                  href={runtimeConfig.MATRIX}
+                  href={config.MATRIX}
                   displayName="[matrix]"
                   logo="/icons/matrix.svg"
                   order={buttonOrder('MATRIX')}
                 />
               )}
-              {runtimeConfig.ANILIST && (
+              {config.ANILIST && (
                 <Button
                   name="anilist"
-                  href={runtimeConfig.ANILIST}
+                  href={config.ANILIST}
                   displayName="AniList"
                   logo="/icons/anilist.svg"
                   order={buttonOrder('ANILIST')}
                 />
               )}
-              {runtimeConfig.GITBUCKET && (
+              {config.GITBUCKET && (
                 <Button
                   name="gitbucket"
-                  href={runtimeConfig.GITBUCKET}
+                  href={config.GITBUCKET}
                   displayName="GitBucket"
                   logo="/icons/gitbucket.svg"
                   order={buttonOrder('GITBUCKET')}
                 />
               )}
-              {runtimeConfig.SHAZAM && (
+              {config.SHAZAM && (
                 <Button
                   name="shazam"
-                  href={runtimeConfig.SHAZAM}
+                  href={config.SHAZAM}
                   displayName="Shazam"
                   logo="/icons/shazam.svg"
                   order={buttonOrder('SHAZAM')}
                 />
               )}
-              {runtimeConfig.FLICKR && (
+              {config.FLICKR && (
                 <Button
                   name="flickr"
-                  href={runtimeConfig.FLICKR}
+                  href={config.FLICKR}
                   displayName="Flickr"
                   logo="/icons/flickr.svg"
                   order={buttonOrder('FLICKR')}
                 />
               )}
-              {runtimeConfig.TPDB && (
+              {config.TPDB && (
                 <Button
                   name="tpdb"
-                  href={runtimeConfig.TPDB}
+                  href={config.TPDB}
                   displayName="The Poster Database"
                   logo="/icons/tpdb.svg"
                   order={buttonOrder('TPDB')}
                 />
               )}
-              {runtimeConfig.OSU && (
+              {config.OSU && (
                 <Button
                   name="osu"
-                  href={runtimeConfig.OSU}
+                  href={config.OSU}
                   displayName="osu!"
                   logo="/icons/osu.svg"
                   order={buttonOrder('OSU')}
                 />
               )}
-              {runtimeConfig.KAKAOTALK && (
+              {config.KAKAOTALK && (
                 <Button
                   name="kakaoTalk"
-                  href={runtimeConfig.KAKAOTALK}
+                  href={config.KAKAOTALK}
                   displayName="KakaoTalk"
                   logo="/icons/kaokotalk.svg"
                   order={buttonOrder('KAKAOTALK')}
                 />
               )}
-              {runtimeConfig.LINE && (
+              {config.LINE && (
                 <Button
                   name="lineMessenger"
-                  href={runtimeConfig.LINE}
+                  href={config.LINE}
                   displayName="Line Messenger"
                   logo="/icons/linemessenger.svg"
                   order={buttonOrder('LINE')}
                 />
               )}
-              {runtimeConfig.DESIGNBYHUMANS && (
+              {config.DESIGNBYHUMANS && (
                 <Button
                   name="designByHumans"
-                  href={runtimeConfig.DESIGNBYHUMANS}
+                  href={config.DESIGNBYHUMANS}
                   displayName="Design By Hümans"
                   logo="/icons/designbyhumans.svg"
                   order={buttonOrder('DESIGNBYHUMANS')}
                 />
               )}
-              {runtimeConfig.DOCKERHUB && (
+              {config.DOCKERHUB && (
                 <Button
                   name="dockerhub"
-                  href={runtimeConfig.DOCKERHUB}
+                  href={config.DOCKERHUB}
                   displayName="Dockerhub"
                   logo="/icons/docker.svg"
                   order={buttonOrder('DOCKERHUB')}
                 />
               )}
-              {runtimeConfig.VERO && (
+              {config.VERO && (
                 <Button
                   name="vero"
-                  href={runtimeConfig.VERO}
+                  href={config.VERO}
                   displayName="VERO"
                   logo="/icons/vero.svg"
                   order={buttonOrder('VERO')}
                 />
               )}
-              {runtimeConfig.MYANIMELIST && (
+              {config.MYANIMELIST && (
                 <Button
                   name="myAnimeList"
-                  href={runtimeConfig.MYANIMELIST}
+                  href={config.MYANIMELIST}
                   displayName="MyAnimeList"
                   logo="/icons/myanimelist.svg"
                   order={buttonOrder('MYANIMELIST')}
                 />
               )}
-              {runtimeConfig.FIVEHUNDREDPX && (
+              {config.FIVEHUNDREDPX && (
                 <Button
                   name="500px"
-                  href={runtimeConfig.FIVEHUNDREDPX}
+                  href={config.FIVEHUNDREDPX}
                   displayName="500px"
                   logo="/icons/500px.svg"
                   order={buttonOrder('FIVEHUNDREDPX')}
                 />
               )}
-              {runtimeConfig.JETPHOTOS && (
+              {config.JETPHOTOS && (
                 <Button
                   name="jetphotos"
-                  href={runtimeConfig.JETPHOTOS}
+                  href={config.JETPHOTOS}
                   displayName="JetPhotos"
                   logo="/icons/jetphotos.svg"
                   order={buttonOrder('JETPHOTOS')}
                 />
               )}
-              {runtimeConfig.SUBSTACK && (
+              {config.SUBSTACK && (
                 <Button
                   name="substack"
-                  href={runtimeConfig.SUBSTACK}
+                  href={config.SUBSTACK}
                   displayName="Substack"
                   logo="/icons/substack.svg"
                   order={buttonOrder('SUBSTACK')}
                 />
               )}
-              {runtimeConfig.PRINTABLES && (
+              {config.PRINTABLES && (
                 <Button
                   name="printables"
-                  href={runtimeConfig.PRINTABLES}
+                  href={config.PRINTABLES}
                   displayName="Printables"
                   logo="/icons/printables.svg"
                   order={buttonOrder('PRINTABLES')}
                 />
               )}
-              {runtimeConfig.SERIALIZD && (
+              {config.SERIALIZD && (
                 <Button
                   name="serializd"
-                  href={runtimeConfig.SERIALIZD}
+                  href={config.SERIALIZD}
                   displayName="Serializd"
                   logo="/icons/serializd.svg"
                   order={buttonOrder('SERIALIZD')}
                 />
               )}
-              {runtimeConfig.THREADS && (
+              {config.THREADS && (
                 <Button
                   name="threads"
-                  href={runtimeConfig.THREADS}
+                  href={config.THREADS}
                   displayName="Threads"
                   logo="/icons/threads.svg"
                   order={buttonOrder('THREADS')}
                 />
               )}
-              {runtimeConfig.LEMMY && (
+              {config.LEMMY && (
                 <Button
                   name="lemmy"
-                  href={runtimeConfig.LEMMY}
+                  href={config.LEMMY}
                   displayName="Lemmy"
                   logo="/icons/lemmy.svg"
                   order={buttonOrder('LEMMY')}
                 />
               )}
-              {runtimeConfig.PIXELFED && (
+              {config.PIXELFED && (
                 <Button
                   name="pixelfed"
-                  href={runtimeConfig.PIXELFED}
+                  href={config.PIXELFED}
                   displayName="Pixelfed"
                   logo="/icons/pixelfed.svg"
                   order={buttonOrder('PIXELFED')}
                 />
               )}
-              {runtimeConfig.VRCHAT && (
+              {config.VRCHAT && (
                 <Button
                   name="vrchat"
-                  href={runtimeConfig.VRCHAT}
+                  href={config.VRCHAT}
                   displayName="VRChat"
                   logo="/icons/vrchat.svg"
                   order={buttonOrder('VRCHAT')}
                 />
               )}
-              {runtimeConfig.X && (
+              {config.X && (
                 <Button
                   name="x"
-                  href={runtimeConfig.X}
+                  href={config.X}
                   displayName=" "
                   logo="/icons/x.svg"
                   order={buttonOrder('X')}
                 />
               )}
-              {runtimeConfig.CODEWARS && (
+              {config.CODEWARS && (
                 <Button
                   name="codewars"
-                  href={runtimeConfig.CODEWARS}
+                  href={config.CODEWARS}
                   displayName="Codewars"
                   logo="/icons/codewars.svg"
                   order={buttonOrder('CODEWARS')}
                 />
               )}
-              {runtimeConfig.APPLE_PODCASTS && (
+              {config.APPLE_PODCASTS && (
                 <Button
                   name="apple-podcasts"
-                  href={runtimeConfig.APPLE_PODCASTS}
+                  href={config.APPLE_PODCASTS}
                   displayName="Apple Podcasts"
                   logo="/icons/apple-podcasts.svg"
                   order={buttonOrder('APPLE_PODCASTS')}
                 />
               )}
-              {runtimeConfig.GOOGLE_PODCASTS && (
+              {config.GOOGLE_PODCASTS && (
                 <Button
                   name="google-podcasts"
-                  href={runtimeConfig.GOOGLE_PODCASTS}
+                  href={config.GOOGLE_PODCASTS}
                   displayName="Google Podcasts"
                   logo="/icons/google-podcasts.svg"
                   order={buttonOrder('GOOGLE_PODCASTS')}
                 />
               )}
-              {runtimeConfig.POCKET_CASTS && (
+              {config.POCKET_CASTS && (
                 <Button
                   name="pocket-casts"
-                  href={runtimeConfig.POCKET_CASTS}
+                  href={config.POCKET_CASTS}
                   displayName="Pocket Casts"
                   logo="/icons/pocketcasts.svg"
                   order={buttonOrder('POCKET_CASTS')}
                 />
               )}
-              {runtimeConfig.OVERCAST && (
+              {config.OVERCAST && (
                 <Button
                   name="overcast"
-                  href={runtimeConfig.OVERCAST}
+                  href={config.OVERCAST}
                   displayName="Overcast"
                   logo="/icons/overcast.svg"
                   order={buttonOrder('OVERCAST')}
                 />
               )}
-              {runtimeConfig.RSS && (
+              {config.RSS && (
                 <Button
                   name="rss"
-                  href={runtimeConfig.RSS}
+                  href={config.RSS}
                   displayName="RSS"
                   logo="/icons/generic-rss.svg"
                   order={buttonOrder('RSS')}
                 />
               )}
-              {runtimeConfig.AUDIUS && (
+              {config.AUDIUS && (
                 <Button
                   name="audius"
-                  href={runtimeConfig.AUDIUS}
+                  href={config.AUDIUS}
                   displayName="Audius"
                   logo="/icons/audius.svg"
                   order={buttonOrder('AUDIUS')}
                 />
               )}
-              {runtimeConfig.BANDCAMP && (
+              {config.BANDCAMP && (
                 <Button
                   name="bandcamp"
-                  href={runtimeConfig.BANDCAMP}
+                  href={config.BANDCAMP}
                   displayName="Bandcamp"
                   logo="/icons/bandcamp.svg"
                   order={buttonOrder('BANDCAMP')}
                 />
               )}
-              {runtimeConfig.FORGEJO && (
+              {config.FORGEJO && (
                 <Button
                   name="forgejo"
-                  href={runtimeConfig.FORGEJO}
+                  href={config.FORGEJO}
                   displayName="Forgejo"
                   logo="/icons/forgejo.svg"
                   order={buttonOrder('FORGEJO')}
                 />
               )}
-              {runtimeConfig.ORCID && (
+              {config.ORCID && (
                 <Button
                   name="orcid"
-                  href={runtimeConfig.ORCID}
+                  href={config.ORCID}
                   displayName="ORCID"
                   logo="/icons/orcid.svg"
                   order={buttonOrder('ORCID')}
                 />
               )}
-              {runtimeConfig.CREDLY && (
+              {config.CREDLY && (
                 <Button
                   name="credly"
-                  href={runtimeConfig.CREDLY}
+                  href={config.CREDLY}
                   displayName="Credly"
                   logo="/icons/credly.svg"
                   order={buttonOrder('CREDLY')}
                 />
               )}
-              {runtimeConfig.SEMANTICSCHOLAR && (
+              {config.SEMANTICSCHOLAR && (
                 <Button
                   name="semanticscholar"
-                  href={runtimeConfig.SEMANTICSCHOLAR}
+                  href={config.SEMANTICSCHOLAR}
                   displayName="Semantic Scholar"
                   logo="/icons/semanticscholar.svg"
                   order={buttonOrder('SEMANTICSCHOLAR')}
                 />
               )}
-              {runtimeConfig.GOOGLESCHOLAR && (
+              {config.GOOGLESCHOLAR && (
                 <Button
                   name="googlescholar"
-                  href={runtimeConfig.GOOGLESCHOLAR}
+                  href={config.GOOGLESCHOLAR}
                   displayName="Google Scholar"
                   logo="/icons/googlescholar.svg"
                   order={buttonOrder('GOOGLESCHOLAR')}
                 />
               )}
-              {runtimeConfig.SIMPLEX && (
+              {config.SIMPLEX && (
                 <Button
                   name="simplex"
-                  href={runtimeConfig.SIMPLEX}
+                  href={config.SIMPLEX}
                   displayName="Simplex"
                   logo="/icons/simplex.svg"
                   order={buttonOrder('SIMPLEX')}
                 />
               )}
-              {runtimeConfig.MIXCLOUD && (
+              {config.MIXCLOUD && (
                 <Button
                   name="mixcloud"
-                  href={runtimeConfig.MIXCLOUD}
+                  href={config.MIXCLOUD}
                   displayName="MIXCLOUD"
                   logo="/icons/mixcloud.svg"
                   order={buttonOrder('MIXCLOUD')}
                 />
               )}
-              {runtimeConfig.INTERNETARCHIVE && (
+              {config.INTERNETARCHIVE && (
                 <Button
                   name="internetarchive"
-                  href={runtimeConfig.INTERNETARCHIVE}
+                  href={config.INTERNETARCHIVE}
                   displayName="Internet Archive"
                   logo="/icons/internetarchive.svg"
                   order={buttonOrder('INTERNETARCHIVE')}
                 />
               )}
-              {runtimeConfig.GOOGLEMAPS && (
+              {config.GOOGLEMAPS && (
                 <Button
                   name="googlemaps"
-                  href={runtimeConfig.GOOGLEMAPS}
+                  href={config.GOOGLEMAPS}
                   displayName="Google Maps"
                   logo="/icons/googlemaps.svg"
                   order={buttonOrder('GOOGLEMAPS')}
                 />
               )}
-              {runtimeConfig.TIDAL && (
+              {config.TIDAL && (
                 <Button
                   name="tidal"
-                  href={runtimeConfig.TIDAL}
+                  href={config.TIDAL}
                   displayName="Tidal"
                   logo="/icons/tidal.svg"
                   order={buttonOrder('TIDAL')}
                 />
               )}
-              {runtimeConfig.THESTORYGRAPH && (
+              {config.THESTORYGRAPH && (
                 <Button
                   name="thestorygraph"
-                  href={runtimeConfig.THESTORYGRAPH}
+                  href={config.THESTORYGRAPH}
                   displayName="The StoryGraph"
                   logo="/icons/storygraph.svg"
                   order={buttonOrder('THESTORYGRAPH')}
                 />
               )}
-              {runtimeConfig.GEOCACHING && (
+              {config.GEOCACHING && (
                 <Button
                   name="geocaching"
-                  href={runtimeConfig.GEOCACHING}
+                  href={config.GEOCACHING}
                   displayName="GEOCACHING"
                   logo="/icons/geocaching.svg"
                   order={buttonOrder('GEOCACHING')}
                 />
               )}
-              {runtimeConfig.NEOCITIES && (
+              {config.NEOCITIES && (
                 <Button
                   name="neocities"
-                  href={runtimeConfig.NEOCITIES}
+                  href={config.NEOCITIES}
                   displayName="neocities"
                   logo="/icons/neocities.svg"
                   order={buttonOrder('NEOCITIES')}
                 />
               )}
-              {runtimeConfig.DREAMWIDTH && (
+              {config.DREAMWIDTH && (
                 <Button
                   name="dreamwidth"
-                  href={runtimeConfig.DREAMWIDTH}
+                  href={config.DREAMWIDTH}
                   displayName="dreamWIDTH"
                   logo="/icons/dreamwidth.svg"
                   order={buttonOrder('DREAMWIDTH')}
                 />
               )}
-              {runtimeConfig.SPACEHEY && (
+              {config.SPACEHEY && (
                 <Button
                   name="spacehey"
-                  href={runtimeConfig.SPACEHEY}
+                  href={config.SPACEHEY}
                   displayName="spacehey"
                   logo="/icons/spacehey.svg"
                   order={buttonOrder('SPACEHEY')}
                 />
               )}
-              {runtimeConfig.VIBER && (
+              {config.VIBER && (
                 <Button
                   name="viber"
-                  href={runtimeConfig.VIBER}
+                  href={config.VIBER}
                   displayName="Viber"
                   logo="/icons/viber.svg"
                   order={buttonOrder('VIBER')}
                 />
               )}
-              {runtimeConfig.PILLOWFORT && (
+              {config.PILLOWFORT && (
                 <Button
                   name="pillowfort"
-                  href={runtimeConfig.PILLOWFORT}
+                  href={config.PILLOWFORT}
                   displayName="Pillowfort"
                   logo="/icons/pillowfort.svg"
                   order={buttonOrder('PILLOWFORT')}
                 />
               )}
-              {runtimeConfig.MAKERWORLD && (
+              {config.MAKERWORLD && (
                 <Button
                   name="makerworld"
-                  href={runtimeConfig.MAKERWORLD}
+                  href={config.MAKERWORLD}
                   displayName="Makerworld"
                   logo="/icons/makerworld.svg"
                   order={buttonOrder('MAKERWORLD')}
@@ -1100,19 +1132,17 @@ function Home(props) {
             </Sort>
             <div>
               <p className="footer">
-                {runtimeConfig.FOOTER}
-                {runtimeConfig.SHARE &&
-                  runtimeConfig.OG_TITLE &&
-                  runtimeConfig.OG_DESCRIPTION && (
-                    <>
-                      <br />
-                      <Share
-                        url={runtimeConfig.SHARE}
-                        title={runtimeConfig.OG_TITLE}
-                        text={runtimeConfig.OG_DESCRIPTION}
-                      />
-                    </>
-                  )}
+                {config.FOOTER}
+                {config.SHARE && config.OG_TITLE && config.OG_DESCRIPTION && (
+                  <>
+                    <br />
+                    <Share
+                      url={config.SHARE}
+                      title={config.OG_TITLE}
+                      text={config.OG_DESCRIPTION}
+                    />
+                  </>
+                )}
               </p>
             </div>
           </div>
@@ -1122,4 +1152,4 @@ function Home(props) {
   );
 }
 
-export default memo(Home);
+export default Home;

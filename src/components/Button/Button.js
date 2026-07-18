@@ -1,62 +1,61 @@
-import React, { memo } from 'react';
-import { string, object } from 'prop-types';
-import { trackGoogleEvent } from '../../analytics/google';
-import { runtimeConfig } from '../../config';
-import { trackUmamiEvent } from '../../analytics/umami';
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { trackMatomoEvent } from '../../analytics/matomo';
-import { addShadow } from '../../utils';
+
+/**
+ * Determine the CSS shadow class based on drop shadow config.
+ * @param {'light'|'medium'|'heavy'|undefined} dropShadow
+ * @returns {string}
+ */
+function addShadow(dropShadow) {
+  switch (dropShadow) {
+    case 'light':
+      return ' box-shadow-light';
+    case 'medium':
+      return ' box-shadow-medium';
+    case 'heavy':
+      return ' box-shadow-heavy';
+    default:
+      return '';
+  }
+}
 
 function Button(props) {
-  const { name, href, displayName, logo, styles, alt, icon, rels } = props;
+  const {
+    name,
+    href,
+    displayName,
+    logo,
+    styles,
+    alt,
+    icon,
+    rels,
+    buttonTarget,
+    dropShadow,
+  } = props;
 
-  const handleClick = () => {
-    const eventName = `${name}-button`;
-
-    if (runtimeConfig?.GA_TRACKING_ID) {
-      trackGoogleEvent(eventName);
-    }
-    if (runtimeConfig?.UMAMI_WEBSITE_ID && runtimeConfig?.UMAMI_APP_URL) {
-      trackUmamiEvent(eventName);
-    }
-    if (runtimeConfig?.MATOMO_SITE_ID && runtimeConfig?.MATOMO_URL) {
-      trackMatomoEvent(eventName);
-    }
-  };
+  const className =
+    (styles ? 'button' : `button button-${name}`) + addShadow(dropShadow);
+  const target = buttonTarget || '_blank';
+  const rel = rels || 'noopener noreferrer';
+  const eventName = name ? `${name}-button` : undefined;
 
   return (
-    <>
-      <a
-        className={(styles ? 'button' : `button button-${name}`) + addShadow()}
-        href={href}
-        target={runtimeConfig?.BUTTON_TARGET || '_blank'}
-        rel={rels ? rels : 'noopener noreferrer'}
-        onClick={handleClick}
-        style={styles ? styles : undefined}
-        title={alt || displayName}
-      >
-        {logo && (
-          <img className="icon" src={logo} alt={`${displayName} logo`} />
-        )}
+    <a
+      className={className}
+      href={href}
+      target={target}
+      rel={rel}
+      data-analytics-event={eventName}
+      style={styles || undefined}
+      title={alt || displayName}
+    >
+      {logo && <img className="icon" src={logo} alt={`${displayName} logo`} />}
 
-        {icon && <FontAwesomeIcon className="icon" icon={icon.split(' ')} />}
+      {icon && <FontAwesomeIcon className="icon" icon={icon.split(' ')} />}
 
-        {displayName}
-      </a>
-    </>
+      {displayName}
+    </a>
   );
 }
 
-export default memo(Button);
-
-Button.propType = {
-  src: string.isRequired,
-  alt: string.isRequired,
-  displayName: string.isRequired,
-  href: string.isRequired,
-  name: string.isRequired,
-  logo: string,
-  icon: string,
-  styles: object,
-  rels: string,
-};
+export default Button;
