@@ -3,119 +3,8 @@ import Avatar from '../Avatar/Avatar';
 import Button from '../Button/Button';
 import Share from '../Share/Share';
 import { runtimeConfig } from '../../config';
-import githubLogo from '../../icons/github.svg';
-import instagramLogo from '../../icons/instagram.svg';
-import kitLogo from '../../icons/kit.svg';
-import tiktokLogo from '../../icons/tiktok.svg';
-import twitchLogo from '../../icons/twitch.svg';
-import twitterLogo from '../../icons/twitter.svg';
-import discordLogo from '../../icons/discord.svg';
-import youtubeLogo from '../../icons/youtube.svg';
-import facebookLogo from '../../icons/facebook.svg';
-import messengerLogo from '../../icons/messenger.svg';
-import linkedinLogo from '../../icons/linkedin.svg';
-import producthuntLogo from '../../icons/producthunt.svg';
-import snapchatLogo from '../../icons/snapchat.svg';
-import spotifyLogo from '../../icons/spotify.svg';
-import redditLogo from '../../icons/reddit.svg';
-import mediumLogo from '../../icons/medium.svg';
-import pinterestLogo from '../../icons/pinterest.svg';
-import soundcloudLogo from '../../icons/soundcloud.svg';
-import figmaLogo from '../../icons/figma.svg';
-import telegramLogo from '../../icons/telegram.svg';
-import tumblrLogo from '../../icons/tumblr.svg';
-import steamLogo from '../../icons/steam.svg';
-import vimeoLogo from '../../icons/vimeo.svg';
-import wordpressLogo from '../../icons/wordpress.svg';
-import goodreadsLogo from '../../icons/goodreads.svg';
-import skoobLogo from '../../icons/skoob.svg';
-import letterboxdLogo from '../../icons/letterboxd.svg';
-import mastodonLogo from '../../icons/mastodon.svg';
-import microblogLogo from '../../icons/microblog.svg';
-import emailLogo from '../../icons/email.svg';
-import emailAltLogo from '../../icons/email_alt.svg';
-import whatsappLogo from '../../icons/whatsapp.svg';
-import stravaLogo from '../../icons/strava.svg';
-import blueSkyLogo from '../../icons/bluesky.svg';
-import buyMeACoffeeLogo from '../../icons/buymeacoffee.svg';
-import gitlabLogo from '../../icons/gitlab.svg';
-import patreonLogo from '../../icons/patreon.svg';
-import devtoLogo from '../../icons/devto.svg';
+
 import Sort from '../Sort/Sort';
-import paypalLogo from '../../icons/paypal.svg';
-import slackLogo from '../../icons/slack.svg';
-import stackoverflowLogo from '../../icons/stackoverflow.svg';
-import lastfmLogo from '../../icons/lastfm.svg';
-import giteaLogo from '../../icons/gitea.svg';
-import polyworkLogo from '../../icons/polywork.svg';
-import signalLogo from '../../icons/signal.svg';
-import untappdLogo from '../../icons/untappd.svg';
-import instantGamingLogo from '../../icons/instantgaming.svg';
-import ghostLogo from '../../icons/ghost.svg';
-import traktLogo from '../../icons/trakt.svg';
-import cashappLogo from '../../icons/cashapp.svg';
-import teespringLogo from '../../icons/teespring.svg';
-import xingLogo from '../../icons/xing.svg';
-import keybaseLogo from '../../icons/keybase.svg';
-import onlyfansLogo from '../../icons/onlyfans.svg';
-import sessionLogo from '../../icons/session.svg';
-import threemaLogo from '../../icons/threema.svg';
-import streamlabsLogo from '../../icons/streamlabs.svg';
-import privatebinLogo from '../../icons/privatebin.svg';
-import amazonLogo from '../../icons/amazon.svg';
-import applemusicLogo from '../../icons/applemusic.svg';
-import youtubemusicLogo from '../../icons/youtubemusic.svg';
-import venmoLogo from '../../icons/venmo.svg';
-import statusLogo from '../../icons/status.svg';
-import matrixLogo from '../../icons/matrix.svg';
-import anilistLogo from '../../icons/anilist.svg';
-import gitbucketLogo from '../../icons/gitbucket.svg';
-import shazamLogo from '../../icons/shazam.svg';
-import flickrLogo from '../../icons/flickr.svg';
-import tpdbLogo from '../../icons/tpdb.svg';
-import osuLogo from '../../icons/osu.svg';
-import lineLogo from '../../icons/linemessenger.svg';
-import kakaoLogo from '../../icons/kaokotalk.svg';
-import designByHumansLogo from '../../icons/designbyhumans.svg';
-import dockerhubLogo from '../../icons/docker.svg';
-import veroLogo from '../../icons/vero.svg';
-import myAnimeListLogo from '../../icons/myanimelist.svg';
-import fiveHundredPXLogo from '../../icons/500px.svg';
-import jetphotosLogo from '../../icons/jetphotos.svg';
-import substackLogo from '../../icons/substack.svg';
-import printablesLogo from '../../icons/printables.svg';
-import serializdLogo from '../../icons/serializd.svg';
-import threadsLogo from '../../icons/threads.svg';
-import lemmyLogo from '../../icons/lemmy.svg';
-import pixelfedLogo from '../../icons/pixelfed.svg';
-import vrchatLogo from '../../icons/vrchat.svg';
-import xLogo from '../../icons/x.svg';
-import codewarsLogo from '../../icons/codewars.svg';
-import applePodcastsLogo from '../../icons/apple-podcasts.svg';
-import googlePodcastsLogo from '../../icons/google-podcasts.svg';
-import pocketCastsLogo from '../../icons/pocketcasts.svg';
-import overcastLogo from '../../icons/overcast.svg';
-import rssLogo from '../../icons/generic-rss.svg';
-import audiusLogo from '../../icons/audius.svg';
-import bandcampLogo from '../../icons/bandcamp.svg';
-import forgejoLogo from '../../icons/forgejo.svg';
-import orcidLogo from '../../icons/orcid.svg';
-import credlyLogo from '../../icons/credly.svg';
-import semanticscholarLogo from '../../icons/semanticscholar.svg';
-import googlescholarLogo from '../../icons/googlescholar.svg';
-import simplexLogo from '../../icons/simplex.svg';
-import mixcloudLogo from '../../icons/mixcloud.svg';
-import internetarchiveLogo from '../../icons/internetarchive.svg';
-import googlemapsLogo from '../../icons/googlemaps.svg';
-import tidalLogo from '../../icons/tidal.svg';
-import thestorygraphLogo from '../../icons/storygraph.svg';
-import geocachingLogo from '../../icons/geocaching.svg';
-import neocitiesLogo from '../../icons/neocities.svg';
-import dreamwidthLogo from '../../icons/dreamwidth.svg';
-import spaceheyLogo from '../../icons/spacehey.svg';
-import viberLogo from '../../icons/viber.svg';
-import pillowfortLogo from '../../icons/pillowfort.svg';
-import makerworldLogo from '../../icons/makerworld.svg';
 
 function Home(props) {
   let order = [];
@@ -189,7 +78,7 @@ function Home(props) {
                   name="youtube"
                   href={runtimeConfig.YOUTUBE}
                   displayName="YouTube"
-                  logo={youtubeLogo}
+                  logo="/icons/youtube.svg"
                   order={buttonOrder('YOUTUBE')}
                 />
               )}
@@ -198,7 +87,7 @@ function Home(props) {
                   name="twitch"
                   href={runtimeConfig.TWITCH}
                   displayName="Twitch"
-                  logo={twitchLogo}
+                  logo="/icons/twitch.svg"
                   order={buttonOrder('TWITCH')}
                 />
               )}
@@ -207,7 +96,7 @@ function Home(props) {
                   name="twitter"
                   href={runtimeConfig.TWITTER}
                   displayName="Twitter"
-                  logo={twitterLogo}
+                  logo="/icons/twitter.svg"
                   order={buttonOrder('TWITTER')}
                 />
               )}
@@ -216,7 +105,7 @@ function Home(props) {
                   name="instagram"
                   href={runtimeConfig.INSTAGRAM}
                   displayName="Instagram"
-                  logo={instagramLogo}
+                  logo="/icons/instagram.svg"
                   order={buttonOrder('INSTAGRAM')}
                 />
               )}
@@ -225,7 +114,7 @@ function Home(props) {
                   name="github"
                   href={runtimeConfig.GITHUB}
                   displayName="GitHub"
-                  logo={githubLogo}
+                  logo="/icons/github.svg"
                   order={buttonOrder('GITHUB')}
                 />
               )}
@@ -234,7 +123,7 @@ function Home(props) {
                   name="discord"
                   href={runtimeConfig.DISCORD}
                   displayName="Discord"
-                  logo={discordLogo}
+                  logo="/icons/discord.svg"
                   order={buttonOrder('DISCORD')}
                 />
               )}
@@ -244,7 +133,7 @@ function Home(props) {
                   name="tiktok"
                   href={runtimeConfig.TIKTOK}
                   displayName="TikTok"
-                  logo={tiktokLogo}
+                  logo="/icons/tiktok.svg"
                   order={buttonOrder('TIKTOK')}
                 />
               )}
@@ -253,7 +142,7 @@ function Home(props) {
                   name="facebook"
                   href={runtimeConfig.FACEBOOK}
                   displayName="Facebook"
-                  logo={facebookLogo}
+                  logo="/icons/facebook.svg"
                   order={buttonOrder('FACEBOOK')}
                 />
               )}
@@ -262,7 +151,7 @@ function Home(props) {
                   name="facebookmessenger"
                   href={runtimeConfig.FACEBOOK_MESSENGER}
                   displayName="Messenger"
-                  logo={messengerLogo}
+                  logo="/icons/messenger.svg"
                   order={buttonOrder('FACEBOOK_MESSENGER')}
                 />
               )}
@@ -271,7 +160,7 @@ function Home(props) {
                   name="linkedin"
                   href={runtimeConfig.LINKED_IN}
                   displayName="LinkedIn"
-                  logo={linkedinLogo}
+                  logo="/icons/linkedin.svg"
                   order={buttonOrder('LINKED_IN')}
                 />
               )}
@@ -280,7 +169,7 @@ function Home(props) {
                   name="producthunt"
                   href={runtimeConfig.PRODUCT_HUNT}
                   displayName="Product Hunt"
-                  logo={producthuntLogo}
+                  logo="/icons/producthunt.svg"
                   order={buttonOrder('PRODUCT_HUNT')}
                 />
               )}
@@ -289,7 +178,7 @@ function Home(props) {
                   name="snapchat"
                   href={runtimeConfig.SNAPCHAT}
                   displayName="SnapChat"
-                  logo={snapchatLogo}
+                  logo="/icons/snapchat.svg"
                   order={buttonOrder('SNAPCHAT')}
                 />
               )}
@@ -298,7 +187,7 @@ function Home(props) {
                   name="spotify"
                   href={runtimeConfig.SPOTIFY}
                   displayName="Spotify"
-                  logo={spotifyLogo}
+                  logo="/icons/spotify.svg"
                   order={buttonOrder('SPOTIFY')}
                 />
               )}
@@ -307,7 +196,7 @@ function Home(props) {
                   name="reddit"
                   href={runtimeConfig.REDDIT}
                   displayName="Reddit"
-                  logo={redditLogo}
+                  logo="/icons/reddit.svg"
                   order={buttonOrder('REDDIT')}
                 />
               )}
@@ -316,7 +205,7 @@ function Home(props) {
                   name="medium"
                   href={runtimeConfig.MEDIUM}
                   displayName="Medium"
-                  logo={mediumLogo}
+                  logo="/icons/medium.svg"
                   order={buttonOrder('MEDIUM')}
                 />
               )}
@@ -325,7 +214,7 @@ function Home(props) {
                   name="pinterest"
                   href={runtimeConfig.PINTEREST}
                   displayName="Pinterest"
-                  logo={pinterestLogo}
+                  logo="/icons/pinterest.svg"
                   order={buttonOrder('PINTEREST')}
                 />
               )}
@@ -334,7 +223,7 @@ function Home(props) {
                   name="default"
                   href={`mailto:${runtimeConfig.EMAIL}`}
                   displayName={runtimeConfig.EMAIL_TEXT}
-                  logo={emailLogo}
+                  logo="/icons/email.svg"
                   order={buttonOrder('EMAIL')}
                 />
               )}
@@ -344,7 +233,7 @@ function Home(props) {
                   name="default"
                   href={`mailto:${runtimeConfig.EMAIL_ALT}`}
                   displayName={runtimeConfig.EMAIL_ALT_TEXT}
-                  logo={emailAltLogo}
+                  logo="/icons/email_alt.svg"
                   order={buttonOrder('EMAIL_ALT')}
                 />
               )}
@@ -354,7 +243,7 @@ function Home(props) {
                   name="soundcloud"
                   href={runtimeConfig.SOUND_CLOUD}
                   displayName="SoundCloud"
-                  logo={soundcloudLogo}
+                  logo="/icons/soundcloud.svg"
                   order={buttonOrder('SOUND_CLOUD')}
                 />
               )}
@@ -363,7 +252,7 @@ function Home(props) {
                   name="figma"
                   href={runtimeConfig.FIGMA}
                   displayName="Figma"
-                  logo={figmaLogo}
+                  logo="/icons/figma.svg"
                   order={buttonOrder('FIGMA')}
                 />
               )}
@@ -373,7 +262,7 @@ function Home(props) {
                   name="telegram"
                   href={runtimeConfig.TELEGRAM}
                   displayName="Telegram"
-                  logo={telegramLogo}
+                  logo="/icons/telegram.svg"
                   order={buttonOrder('TELEGRAM')}
                 />
               )}
@@ -383,7 +272,7 @@ function Home(props) {
                   name="tumblr"
                   href={runtimeConfig.TUMBLR}
                   displayName="Tumblr"
-                  logo={tumblrLogo}
+                  logo="/icons/tumblr.svg"
                   order={buttonOrder('TUMBLR')}
                 />
               )}
@@ -392,7 +281,7 @@ function Home(props) {
                   name="steam"
                   href={runtimeConfig.STEAM}
                   displayName="Steam"
-                  logo={steamLogo}
+                  logo="/icons/steam.svg"
                   order={buttonOrder('STEAM')}
                 />
               )}
@@ -402,7 +291,7 @@ function Home(props) {
                   name="vimeo"
                   href={runtimeConfig.VIMEO}
                   displayName="Vimeo"
-                  logo={vimeoLogo}
+                  logo="/icons/vimeo.svg"
                   order={buttonOrder('VIMEO')}
                 />
               )}
@@ -411,7 +300,7 @@ function Home(props) {
                   name="wordpress"
                   href={runtimeConfig.WORDPRESS}
                   displayName="Wordpress"
-                  logo={wordpressLogo}
+                  logo="/icons/wordpress.svg"
                   order={buttonOrder('WORDPRESS')}
                 />
               )}
@@ -420,7 +309,7 @@ function Home(props) {
                   name="goodreads"
                   href={runtimeConfig.GOODREADS}
                   displayName="Goodreads"
-                  logo={goodreadsLogo}
+                  logo="/icons/goodreads.svg"
                   order={buttonOrder('GOODREADS')}
                 />
               )}
@@ -429,7 +318,7 @@ function Home(props) {
                   name="skoob"
                   href={runtimeConfig.SKOOB}
                   displayName="Skoob"
-                  logo={skoobLogo}
+                  logo="/icons/skoob.svg"
                   order={buttonOrder('SKOOB')}
                 />
               )}
@@ -438,7 +327,7 @@ function Home(props) {
                   name="letterboxd"
                   href={runtimeConfig.LETTERBOXD}
                   displayName="Letterboxd"
-                  logo={letterboxdLogo}
+                  logo="/icons/letterboxd.svg"
                   order={buttonOrder('LETTERBOXD')}
                 />
               )}
@@ -448,7 +337,7 @@ function Home(props) {
                   href={runtimeConfig.MASTODON}
                   rels="me noopener noreferrer"
                   displayName="Mastodon"
-                  logo={mastodonLogo}
+                  logo="/icons/mastodon.svg"
                   order={buttonOrder('MASTODON')}
                 />
               )}
@@ -457,7 +346,7 @@ function Home(props) {
                   name="microblog"
                   href={runtimeConfig.MICRO_BLOG}
                   displayName="Microblog"
-                  logo={microblogLogo}
+                  logo="/icons/microblog.svg"
                   order={buttonOrder('MICRO_BLOG')}
                 />
               )}
@@ -466,7 +355,7 @@ function Home(props) {
                   name="whatsapp"
                   href={runtimeConfig.WHATSAPP}
                   displayName="WhatsApp"
-                  logo={whatsappLogo}
+                  logo="/icons/whatsapp.svg"
                   order={buttonOrder('WHATSAPP')}
                 />
               )}
@@ -475,7 +364,7 @@ function Home(props) {
                   name="kit"
                   href={runtimeConfig.KIT}
                   displayName="Kit"
-                  logo={kitLogo}
+                  logo="/icons/kit.svg"
                   order={buttonOrder('KIT')}
                 />
               )}
@@ -484,7 +373,7 @@ function Home(props) {
                   name="strava"
                   href={runtimeConfig.STRAVA}
                   displayName="Strava"
-                  logo={stravaLogo}
+                  logo="/icons/strava.svg"
                   order={buttonOrder('STRAVA')}
                 />
               )}
@@ -493,7 +382,7 @@ function Home(props) {
                   name="bluesky"
                   href={runtimeConfig.BLUESKY}
                   displayName="BlueSky"
-                  logo={blueSkyLogo}
+                  logo="/icons/bluesky.svg"
                   order={buttonOrder('BLUESKY')}
                 />
               )}
@@ -502,7 +391,7 @@ function Home(props) {
                   name="buymeacoffee"
                   href={runtimeConfig.BUYMEACOFFEE}
                   displayName="Buy Me a Coffee"
-                  logo={buyMeACoffeeLogo}
+                  logo="/icons/buymeacoffee.svg"
                   order={buttonOrder('BUYMEACOFFEE')}
                 />
               )}
@@ -511,7 +400,7 @@ function Home(props) {
                   name="gitlab"
                   href={runtimeConfig.GITLAB}
                   displayName="GitLab"
-                  logo={gitlabLogo}
+                  logo="/icons/gitlab.svg"
                   order={buttonOrder('GITLAB')}
                 />
               )}
@@ -520,7 +409,7 @@ function Home(props) {
                   name="patreon"
                   href={runtimeConfig.PATREON}
                   displayName="Patreon"
-                  logo={patreonLogo}
+                  logo="/icons/patreon.svg"
                   order={buttonOrder('PATREON')}
                 />
               )}
@@ -529,7 +418,7 @@ function Home(props) {
                   name="devto"
                   href={runtimeConfig.DEVTO}
                   displayName="Dev.to"
-                  logo={devtoLogo}
+                  logo="/icons/devto.svg"
                   order={buttonOrder('DEVTO')}
                 />
               )}
@@ -538,7 +427,7 @@ function Home(props) {
                   name="paypal"
                   href={runtimeConfig.PAYPAL}
                   displayName="Paypal"
-                  logo={paypalLogo}
+                  logo="/icons/paypal.svg"
                   order={buttonOrder('PAYPAL')}
                 />
               )}
@@ -547,7 +436,7 @@ function Home(props) {
                   name="slack"
                   href={runtimeConfig.SLACK}
                   displayName="Slack"
-                  logo={slackLogo}
+                  logo="/icons/slack.svg"
                   order={buttonOrder('SLACK')}
                 />
               )}
@@ -556,7 +445,7 @@ function Home(props) {
                   name="stackoverflow"
                   href={runtimeConfig.STACKOVERFLOW}
                   displayName="stack"
-                  logo={stackoverflowLogo}
+                  logo="/icons/stackoverflow.svg"
                   order={buttonOrder('STACKOVERFLOW')}
                 />
               )}
@@ -565,7 +454,7 @@ function Home(props) {
                   name="lastfm"
                   href={runtimeConfig.LASTFM}
                   displayName="Last.fm"
-                  logo={lastfmLogo}
+                  logo="/icons/lastfm.svg"
                   order={buttonOrder('LASTFM')}
                 />
               )}
@@ -574,7 +463,7 @@ function Home(props) {
                   name="gitea"
                   href={runtimeConfig.GITEA}
                   displayName="Gitea"
-                  logo={giteaLogo}
+                  logo="/icons/gitea.svg"
                   order={buttonOrder('GITEA')}
                 />
               )}
@@ -583,7 +472,7 @@ function Home(props) {
                   name="polywork"
                   href={runtimeConfig.POLYWORK}
                   displayName="Polywork"
-                  logo={polyworkLogo}
+                  logo="/icons/polywork.svg"
                   order={buttonOrder('POLYWORK')}
                 />
               )}
@@ -592,7 +481,7 @@ function Home(props) {
                   name="signal"
                   href={runtimeConfig.SIGNAL}
                   displayName="Signal"
-                  logo={signalLogo}
+                  logo="/icons/signal.svg"
                   order={buttonOrder('SIGNAL')}
                 />
               )}
@@ -601,7 +490,7 @@ function Home(props) {
                   name="untappd"
                   href={runtimeConfig.UNTAPPD}
                   displayName="Untappd"
-                  logo={untappdLogo}
+                  logo="/icons/untappd.svg"
                   order={buttonOrder('UNTAPPD')}
                 />
               )}
@@ -610,7 +499,7 @@ function Home(props) {
                   name="instantgaming"
                   href={runtimeConfig.INSTANTGAMING}
                   displayName="Instant Gaming"
-                  logo={instantGamingLogo}
+                  logo="/icons/instantgaming.svg"
                   order={buttonOrder('INSTANTGAMING')}
                 />
               )}
@@ -619,7 +508,7 @@ function Home(props) {
                   name="ghost"
                   href={runtimeConfig.GHOST}
                   displayName="ghost"
-                  logo={ghostLogo}
+                  logo="/icons/ghost.svg"
                   order={buttonOrder('GHOST')}
                 />
               )}
@@ -628,7 +517,7 @@ function Home(props) {
                   name="trakt"
                   href={runtimeConfig.TRAKT}
                   displayName="Trakt"
-                  logo={traktLogo}
+                  logo="/icons/trakt.svg"
                   order={buttonOrder('TRAKT')}
                 />
               )}
@@ -637,7 +526,7 @@ function Home(props) {
                   name="cashapp"
                   href={runtimeConfig.CASHAPP}
                   displayName="Cash App"
-                  logo={cashappLogo}
+                  logo="/icons/cashapp.svg"
                   order={buttonOrder('CASHAPP')}
                 />
               )}
@@ -646,7 +535,7 @@ function Home(props) {
                   name="teespring"
                   href={runtimeConfig.TEESPRING}
                   displayName="Teespring"
-                  logo={teespringLogo}
+                  logo="/icons/teespring.svg"
                   order={buttonOrder('TEESPRING')}
                 />
               )}
@@ -655,7 +544,7 @@ function Home(props) {
                   name="xing"
                   href={runtimeConfig.XING}
                   displayName="Xing"
-                  logo={xingLogo}
+                  logo="/icons/xing.svg"
                   order={buttonOrder('XING')}
                 />
               )}
@@ -664,7 +553,7 @@ function Home(props) {
                   name="keybase"
                   href={runtimeConfig.KEYBASE}
                   displayName="Keybase"
-                  logo={keybaseLogo}
+                  logo="/icons/keybase.svg"
                   order={buttonOrder('KEYBASE')}
                 />
               )}
@@ -673,7 +562,7 @@ function Home(props) {
                   name="onlyfans"
                   href={runtimeConfig.ONLYFANS}
                   displayName="OnlyFans"
-                  logo={onlyfansLogo}
+                  logo="/icons/onlyfans.svg"
                   order={buttonOrder('ONLYFANS')}
                 />
               )}
@@ -682,7 +571,7 @@ function Home(props) {
                   name="session"
                   href={runtimeConfig.SESSION}
                   displayName="Session"
-                  logo={sessionLogo}
+                  logo="/icons/session.svg"
                   order={buttonOrder('SESSION')}
                 />
               )}
@@ -691,7 +580,7 @@ function Home(props) {
                   name="threema"
                   href={runtimeConfig.THREEMA}
                   displayName="Threema"
-                  logo={threemaLogo}
+                  logo="/icons/threema.svg"
                   order={buttonOrder('THREEMA')}
                 />
               )}
@@ -700,7 +589,7 @@ function Home(props) {
                   name="streamlabs"
                   href={runtimeConfig.STREAMLABS}
                   displayName="Streamlabs"
-                  logo={streamlabsLogo}
+                  logo="/icons/streamlabs.svg"
                   order={buttonOrder('STREAMLABS')}
                 />
               )}
@@ -709,7 +598,7 @@ function Home(props) {
                   name="privatebin"
                   href={runtimeConfig.PRIVATEBIN}
                   displayName="Private Bin"
-                  logo={privatebinLogo}
+                  logo="/icons/privatebin.svg"
                   order={buttonOrder('PRIVATEBIN')}
                 />
               )}
@@ -718,7 +607,7 @@ function Home(props) {
                   name="amazon"
                   href={runtimeConfig.AMAZON_AFFILIATE}
                   displayName="Amazon Affiliate"
-                  logo={amazonLogo}
+                  logo="/icons/amazon.svg"
                   order={buttonOrder('AMAZON_AFFILIATE')}
                 />
               )}
@@ -727,7 +616,7 @@ function Home(props) {
                   name="amazon"
                   href={runtimeConfig.AMAZON_WISHLIST}
                   displayName="Amazon Wishlist"
-                  logo={amazonLogo}
+                  logo="/icons/amazon.svg"
                   order={buttonOrder('AMAZON_WISHLIST')}
                 />
               )}
@@ -736,7 +625,7 @@ function Home(props) {
                   name="applemusic"
                   href={runtimeConfig.APPLE_MUSIC}
                   displayName="Apple Music"
-                  logo={applemusicLogo}
+                  logo="/icons/applemusic.svg"
                   order={buttonOrder('APPLE_MUSIC')}
                 />
               )}
@@ -745,7 +634,7 @@ function Home(props) {
                   name="youtubemusic"
                   href={runtimeConfig.YOUTUBE_MUSIC}
                   displayName="YouTube Music"
-                  logo={youtubemusicLogo}
+                  logo="/icons/youtubemusic.svg"
                   order={buttonOrder('YOUTUBE_MUSIC')}
                 />
               )}
@@ -754,7 +643,7 @@ function Home(props) {
                   name="venmo"
                   href={runtimeConfig.VENMO}
                   displayName="Venmo"
-                  logo={venmoLogo}
+                  logo="/icons/venmo.svg"
                   order={buttonOrder('VENMO')}
                 />
               )}
@@ -763,7 +652,7 @@ function Home(props) {
                   name="status"
                   href={runtimeConfig.STATUS}
                   displayName="Status"
-                  logo={statusLogo}
+                  logo="/icons/status.svg"
                   order={buttonOrder('STATUS')}
                 />
               )}
@@ -772,7 +661,7 @@ function Home(props) {
                   name="matrix"
                   href={runtimeConfig.MATRIX}
                   displayName="[matrix]"
-                  logo={matrixLogo}
+                  logo="/icons/matrix.svg"
                   order={buttonOrder('MATRIX')}
                 />
               )}
@@ -781,7 +670,7 @@ function Home(props) {
                   name="anilist"
                   href={runtimeConfig.ANILIST}
                   displayName="AniList"
-                  logo={anilistLogo}
+                  logo="/icons/anilist.svg"
                   order={buttonOrder('ANILIST')}
                 />
               )}
@@ -790,7 +679,7 @@ function Home(props) {
                   name="gitbucket"
                   href={runtimeConfig.GITBUCKET}
                   displayName="GitBucket"
-                  logo={gitbucketLogo}
+                  logo="/icons/gitbucket.svg"
                   order={buttonOrder('GITBUCKET')}
                 />
               )}
@@ -799,7 +688,7 @@ function Home(props) {
                   name="shazam"
                   href={runtimeConfig.SHAZAM}
                   displayName="Shazam"
-                  logo={shazamLogo}
+                  logo="/icons/shazam.svg"
                   order={buttonOrder('SHAZAM')}
                 />
               )}
@@ -808,7 +697,7 @@ function Home(props) {
                   name="flickr"
                   href={runtimeConfig.FLICKR}
                   displayName="Flickr"
-                  logo={flickrLogo}
+                  logo="/icons/flickr.svg"
                   order={buttonOrder('FLICKR')}
                 />
               )}
@@ -817,7 +706,7 @@ function Home(props) {
                   name="tpdb"
                   href={runtimeConfig.TPDB}
                   displayName="The Poster Database"
-                  logo={tpdbLogo}
+                  logo="/icons/tpdb.svg"
                   order={buttonOrder('TPDB')}
                 />
               )}
@@ -826,7 +715,7 @@ function Home(props) {
                   name="osu"
                   href={runtimeConfig.OSU}
                   displayName="osu!"
-                  logo={osuLogo}
+                  logo="/icons/osu.svg"
                   order={buttonOrder('OSU')}
                 />
               )}
@@ -835,7 +724,7 @@ function Home(props) {
                   name="kakaoTalk"
                   href={runtimeConfig.KAKAOTALK}
                   displayName="KakaoTalk"
-                  logo={kakaoLogo}
+                  logo="/icons/kaokotalk.svg"
                   order={buttonOrder('KAKAOTALK')}
                 />
               )}
@@ -844,7 +733,7 @@ function Home(props) {
                   name="lineMessenger"
                   href={runtimeConfig.LINE}
                   displayName="Line Messenger"
-                  logo={lineLogo}
+                  logo="/icons/linemessenger.svg"
                   order={buttonOrder('LINE')}
                 />
               )}
@@ -853,7 +742,7 @@ function Home(props) {
                   name="designByHumans"
                   href={runtimeConfig.DESIGNBYHUMANS}
                   displayName="Design By Hümans"
-                  logo={designByHumansLogo}
+                  logo="/icons/designbyhumans.svg"
                   order={buttonOrder('DESIGNBYHUMANS')}
                 />
               )}
@@ -862,7 +751,7 @@ function Home(props) {
                   name="dockerhub"
                   href={runtimeConfig.DOCKERHUB}
                   displayName="Dockerhub"
-                  logo={dockerhubLogo}
+                  logo="/icons/docker.svg"
                   order={buttonOrder('DOCKERHUB')}
                 />
               )}
@@ -871,7 +760,7 @@ function Home(props) {
                   name="vero"
                   href={runtimeConfig.VERO}
                   displayName="VERO"
-                  logo={veroLogo}
+                  logo="/icons/vero.svg"
                   order={buttonOrder('VERO')}
                 />
               )}
@@ -880,7 +769,7 @@ function Home(props) {
                   name="myAnimeList"
                   href={runtimeConfig.MYANIMELIST}
                   displayName="MyAnimeList"
-                  logo={myAnimeListLogo}
+                  logo="/icons/myanimelist.svg"
                   order={buttonOrder('MYANIMELIST')}
                 />
               )}
@@ -889,7 +778,7 @@ function Home(props) {
                   name="500px"
                   href={runtimeConfig.FIVEHUNDREDPX}
                   displayName="500px"
-                  logo={fiveHundredPXLogo}
+                  logo="/icons/500px.svg"
                   order={buttonOrder('FIVEHUNDREDPX')}
                 />
               )}
@@ -898,7 +787,7 @@ function Home(props) {
                   name="jetphotos"
                   href={runtimeConfig.JETPHOTOS}
                   displayName="JetPhotos"
-                  logo={jetphotosLogo}
+                  logo="/icons/jetphotos.svg"
                   order={buttonOrder('JETPHOTOS')}
                 />
               )}
@@ -907,7 +796,7 @@ function Home(props) {
                   name="substack"
                   href={runtimeConfig.SUBSTACK}
                   displayName="Substack"
-                  logo={substackLogo}
+                  logo="/icons/substack.svg"
                   order={buttonOrder('SUBSTACK')}
                 />
               )}
@@ -916,7 +805,7 @@ function Home(props) {
                   name="printables"
                   href={runtimeConfig.PRINTABLES}
                   displayName="Printables"
-                  logo={printablesLogo}
+                  logo="/icons/printables.svg"
                   order={buttonOrder('PRINTABLES')}
                 />
               )}
@@ -925,7 +814,7 @@ function Home(props) {
                   name="serializd"
                   href={runtimeConfig.SERIALIZD}
                   displayName="Serializd"
-                  logo={serializdLogo}
+                  logo="/icons/serializd.svg"
                   order={buttonOrder('SERIALIZD')}
                 />
               )}
@@ -934,7 +823,7 @@ function Home(props) {
                   name="threads"
                   href={runtimeConfig.THREADS}
                   displayName="Threads"
-                  logo={threadsLogo}
+                  logo="/icons/threads.svg"
                   order={buttonOrder('THREADS')}
                 />
               )}
@@ -943,7 +832,7 @@ function Home(props) {
                   name="lemmy"
                   href={runtimeConfig.LEMMY}
                   displayName="Lemmy"
-                  logo={lemmyLogo}
+                  logo="/icons/lemmy.svg"
                   order={buttonOrder('LEMMY')}
                 />
               )}
@@ -952,7 +841,7 @@ function Home(props) {
                   name="pixelfed"
                   href={runtimeConfig.PIXELFED}
                   displayName="Pixelfed"
-                  logo={pixelfedLogo}
+                  logo="/icons/pixelfed.svg"
                   order={buttonOrder('PIXELFED')}
                 />
               )}
@@ -961,7 +850,7 @@ function Home(props) {
                   name="vrchat"
                   href={runtimeConfig.VRCHAT}
                   displayName="VRChat"
-                  logo={vrchatLogo}
+                  logo="/icons/vrchat.svg"
                   order={buttonOrder('VRCHAT')}
                 />
               )}
@@ -970,7 +859,7 @@ function Home(props) {
                   name="x"
                   href={runtimeConfig.X}
                   displayName=" "
-                  logo={xLogo}
+                  logo="/icons/x.svg"
                   order={buttonOrder('X')}
                 />
               )}
@@ -979,7 +868,7 @@ function Home(props) {
                   name="codewars"
                   href={runtimeConfig.CODEWARS}
                   displayName="Codewars"
-                  logo={codewarsLogo}
+                  logo="/icons/codewars.svg"
                   order={buttonOrder('CODEWARS')}
                 />
               )}
@@ -988,7 +877,7 @@ function Home(props) {
                   name="apple-podcasts"
                   href={runtimeConfig.APPLE_PODCASTS}
                   displayName="Apple Podcasts"
-                  logo={applePodcastsLogo}
+                  logo="/icons/apple-podcasts.svg"
                   order={buttonOrder('APPLE_PODCASTS')}
                 />
               )}
@@ -997,7 +886,7 @@ function Home(props) {
                   name="google-podcasts"
                   href={runtimeConfig.GOOGLE_PODCASTS}
                   displayName="Google Podcasts"
-                  logo={googlePodcastsLogo}
+                  logo="/icons/google-podcasts.svg"
                   order={buttonOrder('GOOGLE_PODCASTS')}
                 />
               )}
@@ -1006,7 +895,7 @@ function Home(props) {
                   name="pocket-casts"
                   href={runtimeConfig.POCKET_CASTS}
                   displayName="Pocket Casts"
-                  logo={pocketCastsLogo}
+                  logo="/icons/pocketcasts.svg"
                   order={buttonOrder('POCKET_CASTS')}
                 />
               )}
@@ -1015,7 +904,7 @@ function Home(props) {
                   name="overcast"
                   href={runtimeConfig.OVERCAST}
                   displayName="Overcast"
-                  logo={overcastLogo}
+                  logo="/icons/overcast.svg"
                   order={buttonOrder('OVERCAST')}
                 />
               )}
@@ -1024,7 +913,7 @@ function Home(props) {
                   name="rss"
                   href={runtimeConfig.RSS}
                   displayName="RSS"
-                  logo={rssLogo}
+                  logo="/icons/generic-rss.svg"
                   order={buttonOrder('RSS')}
                 />
               )}
@@ -1033,7 +922,7 @@ function Home(props) {
                   name="audius"
                   href={runtimeConfig.AUDIUS}
                   displayName="Audius"
-                  logo={audiusLogo}
+                  logo="/icons/audius.svg"
                   order={buttonOrder('AUDIUS')}
                 />
               )}
@@ -1042,7 +931,7 @@ function Home(props) {
                   name="bandcamp"
                   href={runtimeConfig.BANDCAMP}
                   displayName="Bandcamp"
-                  logo={bandcampLogo}
+                  logo="/icons/bandcamp.svg"
                   order={buttonOrder('BANDCAMP')}
                 />
               )}
@@ -1051,7 +940,7 @@ function Home(props) {
                   name="forgejo"
                   href={runtimeConfig.FORGEJO}
                   displayName="Forgejo"
-                  logo={forgejoLogo}
+                  logo="/icons/forgejo.svg"
                   order={buttonOrder('FORGEJO')}
                 />
               )}
@@ -1060,7 +949,7 @@ function Home(props) {
                   name="orcid"
                   href={runtimeConfig.ORCID}
                   displayName="ORCID"
-                  logo={orcidLogo}
+                  logo="/icons/orcid.svg"
                   order={buttonOrder('ORCID')}
                 />
               )}
@@ -1069,7 +958,7 @@ function Home(props) {
                   name="credly"
                   href={runtimeConfig.CREDLY}
                   displayName="Credly"
-                  logo={credlyLogo}
+                  logo="/icons/credly.svg"
                   order={buttonOrder('CREDLY')}
                 />
               )}
@@ -1078,7 +967,7 @@ function Home(props) {
                   name="semanticscholar"
                   href={runtimeConfig.SEMANTICSCHOLAR}
                   displayName="Semantic Scholar"
-                  logo={semanticscholarLogo}
+                  logo="/icons/semanticscholar.svg"
                   order={buttonOrder('SEMANTICSCHOLAR')}
                 />
               )}
@@ -1087,7 +976,7 @@ function Home(props) {
                   name="googlescholar"
                   href={runtimeConfig.GOOGLESCHOLAR}
                   displayName="Google Scholar"
-                  logo={googlescholarLogo}
+                  logo="/icons/googlescholar.svg"
                   order={buttonOrder('GOOGLESCHOLAR')}
                 />
               )}
@@ -1096,7 +985,7 @@ function Home(props) {
                   name="simplex"
                   href={runtimeConfig.SIMPLEX}
                   displayName="Simplex"
-                  logo={simplexLogo}
+                  logo="/icons/simplex.svg"
                   order={buttonOrder('SIMPLEX')}
                 />
               )}
@@ -1105,7 +994,7 @@ function Home(props) {
                   name="mixcloud"
                   href={runtimeConfig.MIXCLOUD}
                   displayName="MIXCLOUD"
-                  logo={mixcloudLogo}
+                  logo="/icons/mixcloud.svg"
                   order={buttonOrder('MIXCLOUD')}
                 />
               )}
@@ -1114,7 +1003,7 @@ function Home(props) {
                   name="internetarchive"
                   href={runtimeConfig.INTERNETARCHIVE}
                   displayName="Internet Archive"
-                  logo={internetarchiveLogo}
+                  logo="/icons/internetarchive.svg"
                   order={buttonOrder('INTERNETARCHIVE')}
                 />
               )}
@@ -1123,7 +1012,7 @@ function Home(props) {
                   name="googlemaps"
                   href={runtimeConfig.GOOGLEMAPS}
                   displayName="Google Maps"
-                  logo={googlemapsLogo}
+                  logo="/icons/googlemaps.svg"
                   order={buttonOrder('GOOGLEMAPS')}
                 />
               )}
@@ -1132,7 +1021,7 @@ function Home(props) {
                   name="tidal"
                   href={runtimeConfig.TIDAL}
                   displayName="Tidal"
-                  logo={tidalLogo}
+                  logo="/icons/tidal.svg"
                   order={buttonOrder('TIDAL')}
                 />
               )}
@@ -1141,7 +1030,7 @@ function Home(props) {
                   name="thestorygraph"
                   href={runtimeConfig.THESTORYGRAPH}
                   displayName="The StoryGraph"
-                  logo={thestorygraphLogo}
+                  logo="/icons/storygraph.svg"
                   order={buttonOrder('THESTORYGRAPH')}
                 />
               )}
@@ -1150,7 +1039,7 @@ function Home(props) {
                   name="geocaching"
                   href={runtimeConfig.GEOCACHING}
                   displayName="GEOCACHING"
-                  logo={geocachingLogo}
+                  logo="/icons/geocaching.svg"
                   order={buttonOrder('GEOCACHING')}
                 />
               )}
@@ -1159,7 +1048,7 @@ function Home(props) {
                   name="neocities"
                   href={runtimeConfig.NEOCITIES}
                   displayName="neocities"
-                  logo={neocitiesLogo}
+                  logo="/icons/neocities.svg"
                   order={buttonOrder('NEOCITIES')}
                 />
               )}
@@ -1168,7 +1057,7 @@ function Home(props) {
                   name="dreamwidth"
                   href={runtimeConfig.DREAMWIDTH}
                   displayName="dreamWIDTH"
-                  logo={dreamwidthLogo}
+                  logo="/icons/dreamwidth.svg"
                   order={buttonOrder('DREAMWIDTH')}
                 />
               )}
@@ -1177,7 +1066,7 @@ function Home(props) {
                   name="spacehey"
                   href={runtimeConfig.SPACEHEY}
                   displayName="spacehey"
-                  logo={spaceheyLogo}
+                  logo="/icons/spacehey.svg"
                   order={buttonOrder('SPACEHEY')}
                 />
               )}
@@ -1186,7 +1075,7 @@ function Home(props) {
                   name="viber"
                   href={runtimeConfig.VIBER}
                   displayName="Viber"
-                  logo={viberLogo}
+                  logo="/icons/viber.svg"
                   order={buttonOrder('VIBER')}
                 />
               )}
@@ -1195,7 +1084,7 @@ function Home(props) {
                   name="pillowfort"
                   href={runtimeConfig.PILLOWFORT}
                   displayName="Pillowfort"
-                  logo={pillowfortLogo}
+                  logo="/icons/pillowfort.svg"
                   order={buttonOrder('PILLOWFORT')}
                 />
               )}
@@ -1204,7 +1093,7 @@ function Home(props) {
                   name="makerworld"
                   href={runtimeConfig.MAKERWORLD}
                   displayName="Makerworld"
-                  logo={makerworldLogo}
+                  logo="/icons/makerworld.svg"
                   order={buttonOrder('MAKERWORLD')}
                 />
               )}
