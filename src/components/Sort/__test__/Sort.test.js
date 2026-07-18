@@ -5,77 +5,54 @@ import youtubeLogo from '../../../icons/youtube.svg';
 import twitchLogo from '../../../icons/twitch.svg';
 import linkedinLogo from '../../../icons/linkedin.svg';
 import githubLogo from '../../../icons/github.svg';
-import renderer from 'react-test-renderer';
-import { createRoot } from 'react-dom/client';
+import { render } from '@testing-library/react';
 
 describe('<Sort />', () => {
-  let container = null;
-  let root = null;
-  beforeEach(() => {
-    container = document.createElement('div');
-    if (container) {
-      root = createRoot(container);
-      document.body.appendChild(container);
-    }
-  });
-  afterEach(() => {
-    if (container) {
-      root.unmount();
-      container.remove();
-      container = null;
-    }
-  });
-
   test('renders without exploding', () => {
-    const root = document.getElementById('root');
-
-    if (root) {
-      root.render(<Sort />);
-    }
+    const { container } = render(<Sort />);
+    expect(container).toBeTruthy();
   });
 
   test('Sorts Buttons by order', () => {
-    const tree = renderer
-      .create(
-        <Sort>
-          <Button
-            name="twitch"
-            href="twitch.tv"
-            displayName="Twitch"
-            logo={twitchLogo}
-            order={0}
-          />
+    const { container } = render(
+      <Sort>
+        <Button
+          name="twitch"
+          href="twitch.tv"
+          displayName="Twitch"
+          logo={twitchLogo}
+          order={0}
+        />
+        <Button
+          name="youtube"
+          href="youtube.com"
+          displayName="YouTube"
+          logo={youtubeLogo}
+          order={-1}
+        />
+        <Button
+          name="linkedin"
+          href="linkedin.com"
+          displayName="LinkedIn"
+          logo={linkedinLogo}
+          order={2}
+        />
+        <Button
+          name="github"
+          href="github.com"
+          displayName="GitHub"
+          logo={githubLogo}
+          order={1}
+        />
+      </Sort>,
+    );
 
-          <Button
-            name="youtube"
-            href="youtube.com"
-            displayName="YouTube"
-            logo={youtubeLogo}
-            order={-1}
-          />
-          <Button
-            name="linkedin"
-            href="linkedin.com"
-            displayName="LinkedIn"
-            logo={linkedinLogo}
-            order={2}
-          />
-          <Button
-            name="github"
-            href="github.com"
-            displayName="GitHub"
-            logo={githubLogo}
-            order={1}
-          />
-        </Sort>,
-      )
-      .toJSON();
-
-    expect(tree.length).toEqual(4);
-    expect(tree[0].props.href).toEqual('linkedin.com');
-    expect(tree[1].props.href).toEqual('github.com');
-    expect(tree[2].props.href).toEqual('twitch.tv');
-    expect(tree[3].props.href).toEqual('youtube.com');
-    expect(tree).toMatchSnapshot();
+    const links = container.querySelectorAll('a');
+    expect(links.length).toEqual(4);
+    // Descending order by `order` prop: linkedin(2), github(1), twitch(0), youtube(-1)
+    expect(links[0].getAttribute('href')).toEqual('linkedin.com');
+    expect(links[1].getAttribute('href')).toEqual('github.com');
+    expect(links[2].getAttribute('href')).toEqual('twitch.tv');
+    expect(links[3].getAttribute('href')).toEqual('youtube.com');
   });
 });

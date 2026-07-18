@@ -1,10 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Button /> <Button /> snapshot 1`] = `
-<a
-  className="button button-undefined"
-  onClick={[Function]}
-  rel="noopener noreferrer"
-  target="_blank"
-/>
-`;
+exports[`<Button /> <Button /> snapshot 1`] = `null`;

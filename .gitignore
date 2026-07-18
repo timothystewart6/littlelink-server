@@ -13,3 +13,4 @@ build
 .env
 cache
 package-lock.json
+.next
