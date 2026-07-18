@@ -2,6 +2,7 @@
 const nextConfig = {
   poweredByHeader: false,
   reactStrictMode: true,
+  compress: false,
 };
 
 module.exports = nextConfig;
