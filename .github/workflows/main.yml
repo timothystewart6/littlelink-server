@@ -19,6 +19,7 @@ jobs:
       run: |
         yarn install --frozen-lockfile --check-files --network-timeout 600000
         yarn ci
+        yarn build
       env:
         CI: true
 
