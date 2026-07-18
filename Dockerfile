@@ -2,6 +2,7 @@ FROM node:24.18.0-alpine AS node-build
 WORKDIR /usr/src/app
 COPY package.json ./
 COPY yarn.lock ./
+COPY patches ./patches
 COPY src ./src
 COPY public ./public
 RUN yarn install --frozen-lockfile --check-files --network-timeout 600000
@@ -10,7 +11,7 @@ RUN yarn install --frozen-lockfile --check-files --production --modules-folder n
 
 FROM node:24.18.0-alpine
 WORKDIR /usr/src/app
-ENV NODE_ENV production
+ENV NODE_ENV=production
 RUN mkdir -p /node_modules
 COPY --from=node-build /usr/src/app/build ./build
 COPY --from=node-build /usr/src/app/node_modules_prod ./node_modules
