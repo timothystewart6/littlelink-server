@@ -65,10 +65,6 @@ export default async function RootLayout({ children }) {
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta charSet="utf-8" />
         <meta property="og:type" content="siteweb" />
-        {cfg.META_AUTHOR && <meta name="author" content={cfg.META_AUTHOR} />}
-        {cfg.META_KEYWORDS && (
-          <meta name="keywords" content={cfg.META_KEYWORDS} />
-        )}
         <link href="css/fonts.css" rel="stylesheet" />
         <link rel="stylesheet" href="css/normalize.css" />
         <link rel="stylesheet" href={`css/${theme}.css`} />

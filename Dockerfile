@@ -19,6 +19,7 @@ ENV HOSTNAME=0.0.0.0
 ENV PORT=3000
 COPY --from=node-build /usr/src/app/.next ./.next
 COPY --from=node-build /usr/src/app/public ./public
+COPY --from=node-build /usr/src/app/src ./src
 COPY --from=node-build /usr/src/app/server.js ./
 COPY --from=node-build /usr/src/app/next.config.js ./
 COPY --from=node-build /usr/src/app/package.json ./

@@ -11,3 +11,4 @@ build
 .env.test.local
 .env.production.local
 cache
+playwright.config.cjs

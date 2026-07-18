@@ -75,8 +75,8 @@ function Home({ config }) {
               avatarSize={config.AVATAR_SIZE}
               dropShadow={dropShadow}
             />
-            <h1>{`${config.NAME}`}</h1>
-            <p>{config.BIO}</p>
+            {config.NAME && <h1>{config.NAME}</h1>}
+            {config.BIO && <p>{config.BIO}</p>}
             <Sort>
               {config.CUSTOM_BUTTON_TEXT && renderCustomButtons()}
               {config.YOUTUBE && (
