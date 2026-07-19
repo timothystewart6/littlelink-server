@@ -11,23 +11,28 @@
  * remove every Razzle convention.
  */
 
-const { ENV_NAMES } = require('./envNames');
+import { ENV_NAMES } from './envNames';
+export { ENV_NAMES } from './envNames';
+import type { EnvName } from './envNames';
+
+export type RuntimeConfig = Readonly<Record<EnvName, string | undefined>>;
+export type Theme = 'dark' | 'light';
+export type DropShadow = 'light' | 'medium' | 'heavy';
 
 /**
  * Return a fresh runtime configuration object from the given environment.
- *
- * @param {object} [env=process.env]
- * @returns {Record<string, string|undefined>}
  */
-function getRuntimeConfig(env) {
+export function getRuntimeConfig(
+  env?: Readonly<Record<string, string | undefined>>,
+): RuntimeConfig {
   if (!env) {
-    env = process.env;
+    env = process.env as Record<string, string | undefined>;
   }
-  const config = {};
+  const config: Record<string, string | undefined> = {};
   for (const key of ENV_NAMES) {
     config[key] = env[key];
   }
-  return config;
+  return config as RuntimeConfig;
 }
 
 /**
@@ -35,11 +40,8 @@ function getRuntimeConfig(env) {
  *
  * Only THEME=Dark (uppercase D, exact spelling) produces "dark".
  * Every other value including "dark" (lowercase) produces "light".
- *
- * @param {object} config - A runtime config object from getRuntimeConfig()
- * @returns {'dark'|'light'}
  */
-function getTheme(config) {
+export function getTheme(config: RuntimeConfig): Theme {
   return config.THEME === 'Dark' ? 'dark' : 'light';
 }
 
@@ -47,12 +49,7 @@ function getTheme(config) {
  * Determine whether health-check access logs should be suppressed.
  *
  * Only exactly SKIP_HEALTH_CHECK_LOGS=true suppresses logging.
- *
- * @param {object} config - A runtime config object from getRuntimeConfig()
- * @returns {boolean}
  */
-function shouldSkipHealthLog(config) {
+export function shouldSkipHealthLog(config: RuntimeConfig): boolean {
   return config.SKIP_HEALTH_CHECK_LOGS === 'true';
 }
-
-module.exports = { getRuntimeConfig, getTheme, shouldSkipHealthLog, ENV_NAMES };

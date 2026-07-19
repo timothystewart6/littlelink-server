@@ -9,7 +9,7 @@
  * stable public API. Any deliberate addition or removal should update
  * this array and its corresponding test.
  */
-const ENV_NAMES = Object.freeze([
+export const ENV_NAMES = Object.freeze([
   'AMAZON_AFFILIATE',
   'AMAZON_WISHLIST',
   'ANILIST',
@@ -175,6 +175,6 @@ const ENV_NAMES = Object.freeze([
   'XING',
   'YOUTUBE',
   'YOUTUBE_MUSIC',
-]);
+] as const);
 
-module.exports = { ENV_NAMES };
+export type EnvName = (typeof ENV_NAMES)[number];

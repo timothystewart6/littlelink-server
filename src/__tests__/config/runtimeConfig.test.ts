@@ -1,3 +1,4 @@
+import type { RuntimeConfig } from '../../config/runtimeConfig';
 import {
   getRuntimeConfig,
   getTheme,
@@ -7,15 +8,20 @@ import {
 
 describe('getRuntimeConfig', () => {
   test('reads every allowlisted key from the provided env object', () => {
-    const env = { GITHUB: 'https://github.com/test', META_TITLE: 'Test Site' };
+    const env: Record<string, string | undefined> = {
+      GITHUB: 'https://github.com/test',
+      META_TITLE: 'Test Site',
+    };
     const config = getRuntimeConfig(env);
     expect(config.GITHUB).toBe('https://github.com/test');
     expect(config.META_TITLE).toBe('Test Site');
   });
 
   test('missing keys remain undefined', () => {
-    const config = getRuntimeConfig({});
-    expect(config.UNKNOWN_KEY).toBeUndefined();
+    const config = getRuntimeConfig({} as Record<string, string | undefined>);
+    expect(
+      (config as Record<string, string | undefined>).UNKNOWN_KEY,
+    ).toBeUndefined();
     expect(config.GITHUB).toBeUndefined();
   });
 
@@ -31,7 +37,7 @@ describe('getRuntimeConfig', () => {
       SKIP_HEALTH_CHECK_LOGS: 'false',
       DROP_SHADOW: 'medium',
       THEME: 'Dark',
-    });
+    } as Record<string, string | undefined>);
     expect(config.SKIP_HEALTH_CHECK_LOGS).toBe('false');
     expect(config.DROP_SHADOW).toBe('medium');
     expect(config.THEME).toBe('Dark');
@@ -42,7 +48,7 @@ describe('getRuntimeConfig', () => {
       META_TITLE: 'Test & "quotes" <angle> </script> \u2028 \u2029',
       NAME: 'User & Friends',
       GITHUB: 'https://example.com?q=<injection>&a=b',
-    });
+    } as Record<string, string | undefined>);
     expect(config.META_TITLE).toBe(
       'Test & "quotes" <angle> </script> \u2028 \u2029',
     );
@@ -51,7 +57,7 @@ describe('getRuntimeConfig', () => {
   });
 
   test('a config created for one request does not retain later mutations', () => {
-    const env = { GITHUB: 'original' };
+    const env: Record<string, string | undefined> = { GITHUB: 'original' };
     const config = getRuntimeConfig(env);
     expect(config.GITHUB).toBe('original');
     env.GITHUB = 'mutated';
@@ -59,54 +65,62 @@ describe('getRuntimeConfig', () => {
   });
 
   test('every call returns a new object', () => {
-    const a = getRuntimeConfig({});
-    const b = getRuntimeConfig({});
+    const a = getRuntimeConfig({} as Record<string, string | undefined>);
+    const b = getRuntimeConfig({} as Record<string, string | undefined>);
     expect(a).not.toBe(b);
   });
 });
 
 describe('getTheme', () => {
   test('THEME=Dark returns dark', () => {
-    expect(getTheme({ THEME: 'Dark' })).toBe('dark');
+    expect(getTheme({ THEME: 'Dark' } as RuntimeConfig)).toBe('dark');
   });
 
   test('THEME=dark (lowercase) returns light', () => {
-    expect(getTheme({ THEME: 'dark' })).toBe('light');
+    expect(getTheme({ THEME: 'dark' } as RuntimeConfig)).toBe('light');
   });
 
   test('THEME absent returns light', () => {
-    expect(getTheme({})).toBe('light');
+    expect(getTheme({} as RuntimeConfig)).toBe('light');
   });
 
   test('THEME set to any other value returns light', () => {
-    expect(getTheme({ THEME: 'DARK' })).toBe('light');
-    expect(getTheme({ THEME: 'LIGHT' })).toBe('light');
-    expect(getTheme({ THEME: '' })).toBe('light');
+    expect(getTheme({ THEME: 'DARK' } as RuntimeConfig)).toBe('light');
+    expect(getTheme({ THEME: 'LIGHT' } as RuntimeConfig)).toBe('light');
+    expect(getTheme({ THEME: '' } as RuntimeConfig)).toBe('light');
   });
 });
 
 describe('shouldSkipHealthLog', () => {
   test('SKIP_HEALTH_CHECK_LOGS=true returns true', () => {
-    expect(shouldSkipHealthLog({ SKIP_HEALTH_CHECK_LOGS: 'true' })).toBe(true);
+    expect(
+      shouldSkipHealthLog({ SKIP_HEALTH_CHECK_LOGS: 'true' } as RuntimeConfig),
+    ).toBe(true);
   });
 
   test('SKIP_HEALTH_CHECK_LOGS=TRUE returns false', () => {
-    expect(shouldSkipHealthLog({ SKIP_HEALTH_CHECK_LOGS: 'TRUE' })).toBe(false);
+    expect(
+      shouldSkipHealthLog({ SKIP_HEALTH_CHECK_LOGS: 'TRUE' } as RuntimeConfig),
+    ).toBe(false);
   });
 
   test('SKIP_HEALTH_CHECK_LOGS=false returns false', () => {
-    expect(shouldSkipHealthLog({ SKIP_HEALTH_CHECK_LOGS: 'false' })).toBe(
-      false,
-    );
+    expect(
+      shouldSkipHealthLog({ SKIP_HEALTH_CHECK_LOGS: 'false' } as RuntimeConfig),
+    ).toBe(false);
   });
 
   test('SKIP_HEALTH_CHECK_LOGS absent returns false', () => {
-    expect(shouldSkipHealthLog({})).toBe(false);
+    expect(shouldSkipHealthLog({} as RuntimeConfig)).toBe(false);
   });
 
   test('SKIP_HEALTH_CHECK_LOGS set to any non-true string returns false', () => {
-    expect(shouldSkipHealthLog({ SKIP_HEALTH_CHECK_LOGS: '1' })).toBe(false);
-    expect(shouldSkipHealthLog({ SKIP_HEALTH_CHECK_LOGS: 'yes' })).toBe(false);
+    expect(
+      shouldSkipHealthLog({ SKIP_HEALTH_CHECK_LOGS: '1' } as RuntimeConfig),
+    ).toBe(false);
+    expect(
+      shouldSkipHealthLog({ SKIP_HEALTH_CHECK_LOGS: 'yes' } as RuntimeConfig),
+    ).toBe(false);
   });
 });
 
