@@ -11,7 +11,8 @@ on:
 
 jobs:
   install-test-build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
 
@@ -25,13 +26,8 @@ jobs:
         env:
           CI: true
 
-      - name: Lint
+      - name: Run CI checks
         run: yarn ci
-        env:
-          CI: true
-
-      - name: Type Check
-        run: yarn typecheck
         env:
           CI: true
 
@@ -51,7 +47,7 @@ jobs:
             -e META_TITLE='PR Test' \
             -e THEME=Dark \
             littlelink-server:pr
+          trap 'docker stop littlelink-pr 2>/dev/null' EXIT
           sleep 3
           curl -s -o /dev/null -w "healthcheck: %{http_code}\\n" http://localhost:3100/healthcheck
           curl -s -o /dev/null -w "root: %{http_code}\\n" http://localhost:3100/
-          docker stop littlelink-pr

@@ -5,7 +5,8 @@ on:
 
 jobs:
   minimal-env-e2e:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
 
@@ -29,8 +30,5 @@ jobs:
       - name: Run minimal-env e2e tests
         env:
           CI: true
-        run: |
-          docker run --rm -d --name littlelink-minimal -p 3002:3000 littlelink-server:pr
-          trap 'docker stop littlelink-minimal 2>/dev/null' EXIT
-          sleep 3
-          yarn playwright test --config=playwright.config.ts --project=minimal-env --reporter=list
+          IMAGE_NAME: littlelink-server:pr
+        run: bash e2e/minimal-env.sh

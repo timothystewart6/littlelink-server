@@ -10,9 +10,14 @@ on:
       DOCKERHUB_TOKEN:
         required: true
 
+permissions:
+  actions: write
+  contents: read
+
 jobs:
   build-and-push-docker-image:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
     steps:
       - name: Checkout
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
@@ -43,6 +48,8 @@ jobs:
           file: ./Dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
           tags: |
             ghcr.io/timothystewart6/littlelink-server:latest
             timothystewart6/littlelink-server

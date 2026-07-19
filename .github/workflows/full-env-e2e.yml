@@ -5,7 +5,8 @@ on:
 
 jobs:
   full-env-e2e:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
     container:
       image: mcr.microsoft.com/playwright:v1.61.1@sha256:5b8f294aff9041b7191c34a4bab3ac270157a28774d4b0660e9743297b697e48
       options: --user 1001
@@ -22,7 +23,12 @@ jobs:
         env:
           CI: true
 
+      - name: Build
+        run: yarn build
+        env:
+          CI: true
+
       - name: Run full-env e2e tests
-        run: yarn test:e2e
+        run: yarn playwright test --config=playwright.config.ts --project=chromium --reporter=list
         env:
           CI: true

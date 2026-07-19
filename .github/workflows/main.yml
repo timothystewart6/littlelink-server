@@ -5,6 +5,9 @@ on:
     branches:
       - master
 
+permissions:
+  contents: read
+
 jobs:
   install-test-build:
     uses: ./.github/workflows/install-test-build.yml

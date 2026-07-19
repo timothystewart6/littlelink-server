@@ -8,6 +8,9 @@ on:
       - README.md
       - LICENSE
 
+permissions:
+  contents: read
+
 jobs:
   install-test-build:
     uses: ./.github/workflows/install-test-build.yml
@@ -17,4 +20,3 @@ jobs:
   full-env-e2e:
     needs: [install-test-build]
     uses: ./.github/workflows/full-env-e2e.yml
-
