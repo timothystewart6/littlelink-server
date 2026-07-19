@@ -60,6 +60,8 @@ If you use VS Code, set the workspace TypeScript version:
 2. Click the TypeScript version in the bottom-right status bar.
 3. Select **Use Workspace Version** (the one listed next to `node_modules/typescript`).
 
+For contribution workflow, validation, and button guidance, see [CONTRIBUTING.md](CONTRIBUTING.md).
+
 ### Runtime configuration
 
 Environment values are always strings and are read at **request time**, not at build time. No `NEXT_PUBLIC_` prefix or `env` block is needed. Changes take effect after a container restart without rebuilding the image.
@@ -102,6 +104,14 @@ ROBOTS_TXT=User-agent: *\nDisallow: /private
 docker build -t littlelink-server .
 docker run -p 8080:3000 littlelink-server
 ```
+
+## Contributing
+
+For local setup, validation, pull requests, and button contribution guidance, see [CONTRIBUTING.md](CONTRIBUTING.md).
+
+## License
+
+LittleLink-Server is licensed under the [MIT License](LICENSE.md).
 
 Customizing LittleLink-Server is as easy as passing in environment variables. For a walkthrough, see this [video](https://youtu.be/42SqfI_AjXU), or view a live example at [links.technotim.com](https://links.technotim.com/).
 

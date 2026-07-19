@@ -1,55 +1,65 @@
 name: Brand Request
-description: Suggest a brand to be added
-title: '[BRAND REQUEST] <title>'
+description: Request a new brand or service button
+title: '[Brand]: '
 labels: ['Add Brand']
 
-
 body:
-
   - type: markdown
     attributes:
-      value: |-
-        ## Please enter the following headings, where applicable, to make it easier to complete this request!
-    validations:
-      required: false
+      value: |
+        Use this form to request a new button. If you plan to open a pull request, read CONTRIBUTING.md for the expected implementation and validation steps.
 
-
-  - type: textarea
-    id: brandName
+  - type: input
+    id: brand-name
     attributes:
-      label: Please enter the brand name.
-      description: Please enter the brand name as youd like it to appear on the button. 
-      placeholder: Brand name how it would appear on a button. e.g. Google
+      label: Brand Name
+      description: Enter the display name exactly as it should appear on the button.
+      placeholder: Google
     validations:
       required: true
 
-  - type: textarea
-    id: brandSite
+  - type: input
+    id: brand-url
     attributes:
-      label: Please enter the brand website.
-      description: Please enter the brand website. 
-      placeholder: https://Google.com
+      label: Brand Website
+      description: Link to the official website or profile service.
+      placeholder: https://www.google.com
     validations:
       required: true
 
+  - type: input
+    id: env-name
+    attributes:
+      label: Suggested Environment Variable Name
+      description: Use uppercase letters, numbers, and underscores. Leave blank if unsure.
+      placeholder: GOOGLE
+    validations:
+      required: false
+
   - type: textarea
-    id: brandSVG
+    id: icon-source
     attributes:
-      label: Please enter the brand SVG. (If Applicable)
-      description: Please enter the brand SVG. 
-      placeholder: Brand name how it would appear on a button. e.g. https://www.svgrepo.com/show/355037/google.svg
+      label: Icon or SVG Source
+      description: Link to an official SVG, brand guidelines, or icon source if available.
+      placeholder: https://www.svgrepo.com/show/355037/google.svg
     validations:
       required: false
 
-  - type: markdown
+  - type: textarea
+    id: colors
     attributes:
-      value: |-
-        ## Thanks 🙏
-        Please note that there is no guarantee that your brand will be implemented
-        If you haven't already done so, please Star the LittleLink-Server repository on GitHub!
+      label: Brand Colors
+      description: Include official background and text colors if known.
+      placeholder: |
+        - Background: #000000
+        - Text: #ffffff
     validations:
       required: false
 
-
-
-
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Add links, screenshots, or examples that help verify the request.
+    validations:
+      required: false

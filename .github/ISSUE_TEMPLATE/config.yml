@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Contributing Guide
+    url: https://github.com/timothystewart6/littlelink-server/blob/main/CONTRIBUTING.md
+    about: Read setup, workflow, validation, and button contribution guidance.

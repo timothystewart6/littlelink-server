@@ -19,7 +19,7 @@
     "test": "node --experimental-vm-modules ./node_modules/.bin/jest --passWithNoTests --env=jsdom",
     "lint": "eslint .",
     "lint:style": "stylelint ./src/**/*.css ./public/**/*.css",
-    "lint:markdown": "markdownlint .github/*.md && markdownlint README.md",
+    "lint:markdown": "markdownlint .github/*.md && markdownlint README.md CONTRIBUTING.md",
     "ci": "yarn lint && yarn lint:style && yarn lint:markdown && yarn compose-env:check && yarn typecheck && yarn test"
   },
   "dependencies": {
