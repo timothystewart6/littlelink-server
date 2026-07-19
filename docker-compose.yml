@@ -119,6 +119,8 @@ services:
       - PRIVATEBIN=https://privatebin.net/
       - PRODUCT_HUNT=https://www.producthunt.com/
       - REDDIT=https://www.reddit.com/
+      - "ROBOTS_ADDITIONAL_RULES=User-agent: GPTBot\nDisallow: /"
+      - ROBOTS_TXT=
       - RSS=https://example.com/rss
       - SEMANTICSCHOLAR=https://www.semanticscholar.org/
       - SERIALIZD=https://www.serializd.com/
