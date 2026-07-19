@@ -29,6 +29,9 @@ yarn install
 # Start development server with hot reload
 yarn dev
 
+# Run type checking
+yarn typecheck
+
 # Run tests
 yarn test
 
@@ -41,6 +44,23 @@ yarn start
 # Lint and format checks
 CI=true yarn lint
 ```
+
+### File conventions
+
+This project uses TypeScript. The file extension tells you what the file contains:
+
+- `.ts` for code without JSX (server, configuration, utilities)
+- `.tsx` for React components and tests that contain JSX
+
+If you use VS Code, set the workspace TypeScript version:
+
+1. Open any `.ts` or `.tsx` file.
+2. Click the TypeScript version in the bottom-right status bar.
+3. Select **Use Workspace Version** (the one listed next to `node_modules/typescript`).
+
+### Runtime configuration
+
+Environment values are always strings and are read at **request time**, not at build time. No `NEXT_PUBLIC_` prefix or `env` block is needed. Changes take effect after a container restart without rebuilding the image.
 
 ### Docker build
 
