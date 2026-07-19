@@ -173,6 +173,18 @@ test.describe('Full featured compose example', () => {
     await expect(favicon).toHaveAttribute('href', ENV.FAVICON_URL!);
   });
 
+  test('sitemap uses configured public URL', async ({ page }) => {
+    const response = await page.request.get('/sitemap.xml');
+    expect(response.status()).toBe(200);
+    expect(response.headers()['content-type']).toContain('application/xml');
+
+    const body = await response.text();
+    expect(body).toContain('<urlset');
+    expect(body).toContain(`<loc>${ENV.OG_URL}/</loc>`);
+    expect(body).toContain('<changefreq>weekly</changefreq>');
+    expect(body).toContain('<priority>1.0</priority>');
+  });
+
   test('healthcheck returns 200 and status ok', async ({ page }) => {
     const response = await page.request.get('/healthcheck');
     expect(response.status()).toBe(200);
