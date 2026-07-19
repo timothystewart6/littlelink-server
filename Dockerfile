@@ -5,7 +5,7 @@ COPY yarn.lock ./
 COPY src ./src
 COPY public ./public
 COPY app ./app
-COPY next.config.js ./
+COPY next.config.ts ./
 COPY tsconfig.json ./
 COPY tsconfig.server.json ./
 COPY next-env.d.ts ./
@@ -24,7 +24,7 @@ COPY --from=node-build /usr/src/app/public ./public
 COPY --from=node-build /usr/src/app/src ./src
 COPY --from=node-build /usr/src/app/dist-server ./dist-server
 COPY --from=node-build /usr/src/app/server.ts ./
-COPY --from=node-build /usr/src/app/next.config.js ./
+COPY --from=node-build /usr/src/app/next.config.ts ./
 COPY --from=node-build /usr/src/app/package.json ./
 COPY --from=node-build /usr/src/app/node_modules ./node_modules
 EXPOSE 3000
