@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-css-tags */
 import React from 'react';
 import type { Metadata } from 'next';
 import { getRuntimeConfig, getTheme } from '../src/config/runtimeConfig';
