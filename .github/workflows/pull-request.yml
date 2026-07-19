@@ -12,11 +12,27 @@ permissions:
   contents: read
 
 jobs:
-  install-test-build:
+  quality-gate:
+    name: Node quality gate
     uses: ./.github/workflows/install-test-build.yml
     with:
       build-docker: true
 
-  full-env-e2e:
-    needs: [install-test-build]
+  js-install-and-test:
+    needs: [quality-gate]
+    if: ${{ always() }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Verify Node quality gate
+        run: |
+          if [ "${{ needs.quality-gate.result }}" != "success" ]; then
+            echo "Node quality gate finished with result: ${{ needs.quality-gate.result }}"
+            exit 1
+          fi
+          echo "Node quality gate passed"
+
+  browser-e2e:
+    name: Browser e2e suite
+    needs: [quality-gate]
     uses: ./.github/workflows/full-env-e2e.yml

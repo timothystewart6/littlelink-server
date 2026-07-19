@@ -15,7 +15,8 @@ permissions:
   contents: read
 
 jobs:
-  build-and-push-docker-image:
+  publish:
+    name: Build and publish container image
     runs-on: ubuntu-24.04
     timeout-minutes: 60
     steps:

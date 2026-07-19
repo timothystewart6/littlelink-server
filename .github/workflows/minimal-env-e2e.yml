@@ -4,7 +4,8 @@ on:
   workflow_call:
 
 jobs:
-  minimal-env-e2e:
+  playwright-container-env:
+    name: Minimal container Playwright tests
     runs-on: ubuntu-24.04
     timeout-minutes: 20
     steps:

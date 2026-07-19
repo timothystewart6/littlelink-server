@@ -4,7 +4,8 @@ on:
   workflow_call:
 
 jobs:
-  full-env-e2e:
+  playwright-full-env:
+    name: Full environment Playwright tests
     runs-on: ubuntu-24.04
     timeout-minutes: 15
     container:

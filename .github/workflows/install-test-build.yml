@@ -10,7 +10,8 @@ on:
         default: false
 
 jobs:
-  install-test-build:
+  node-checks:
+    name: Lint, typecheck, test, and build
     runs-on: ubuntu-24.04
     timeout-minutes: 25
     steps:
