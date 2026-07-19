@@ -45,7 +45,7 @@ const ENV: Record<string, string> = {
   CUSTOM_BUTTON_ALT_TEXT:
     'Tech documentation site for my videos and more,Recommended Gear',
   CUSTOM_BUTTON_NAME: 'DOCUMENTATION,GEAR',
-  CUSTOM_BUTTON_ICON: 'fas file-alt,fas fa-cog',
+  CUSTOM_BUTTON_ICON: 'fas file-lines,fas gear',
   GITHUB: 'https://l.technotim.com/github',
   TWITTER: 'https://l.technotim.com/twitter',
   INSTAGRAM: 'https://www.instagram.com/techno.tim',
