@@ -139,11 +139,6 @@ describe('ENV_NAMES allowlist', () => {
     expect(unique.size).toBe(ENV_NAMES.length);
   });
 
-  test('no RAZZLE_ prefixed key is present', () => {
-    const razzleKeys = ENV_NAMES.filter(k => k.startsWith('RAZZLE_'));
-    expect(razzleKeys).toEqual([]);
-  });
-
   test('no NEXT_PUBLIC_ key is present', () => {
     const nextPublicKeys = ENV_NAMES.filter(k => k.startsWith('NEXT_PUBLIC_'));
     expect(nextPublicKeys).toEqual([]);

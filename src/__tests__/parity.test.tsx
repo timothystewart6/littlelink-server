@@ -1,8 +1,8 @@
 /**
- * Parity tests for the Razzle baseline.
+ * Rendering contract tests.
  *
- * These tests capture the current rendering behavior before the Next.js
- * migration. They serve as an executable specification of today's contract.
+ * These tests capture the expected rendering behavior and serve as an
+ * executable specification of today's contract.
  */
 
 import { getRuntimeConfig } from '../config/runtimeConfig';
@@ -184,8 +184,8 @@ describe('Parity: button order', () => {
 
 describe('Parity: README example renders all buttons', () => {
   test('App renders with full README environment', () => {
-    // With Razzle baseline, the full README env produces >50 buttons.
-    // This is verified against the built Razzle server in container-smoke-test.sh.
+    // The full README env produces >50 buttons.
+    // This is verified against the built server in container-smoke-test.sh.
     // Unit-level testing of rendered DOM with all env vars requires
     // jest.isolateModules or a dedicated integration test.
     expect(true).toBe(true);

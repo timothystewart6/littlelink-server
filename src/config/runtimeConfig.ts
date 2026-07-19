@@ -6,9 +6,7 @@
  * This ensures that container environment values set after the image was
  * built are reflected in every request without a process restart.
  *
- * Only unprefixed names are read. The old RAZZLE_ prefix is not retained
- * because production containers never used that prefix and the goal is to
- * remove every Razzle convention.
+ * Only documented, unprefixed names are read.
  */
 
 import { ENV_NAMES } from './envNames';

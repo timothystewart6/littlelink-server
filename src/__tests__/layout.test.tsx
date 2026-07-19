@@ -25,7 +25,7 @@ beforeEach(() => {
 describe('RootLayout', () => {
   // Note: RootLayout is an async Server Component. Next.js resolves these
   // internally before rendering. Direct RTL rendering is not possible with
-  // the Razzle Jest runner. We validate the layout structure through the
+  // the Jest renderer. We validate the layout structure through the
   // Next.js build output and e2e tests.
   //
   // The component returns:

@@ -83,7 +83,7 @@ describe('AnalyticsScripts', () => {
       PLAUSIBLE_URL: 'https://plausible.example.com/js/script.js',
     };
     const result = AnalyticsScripts({ config });
-    // GA Fragment collapses to 1 element when rendered by Razzle jest,
+    // GA Fragment can collapse to 1 element in the test renderer,
     // Umami = 1, Matomo Fragment = 1, Plausible = 1
     expect(result.length).toBeGreaterThanOrEqual(4);
   });
