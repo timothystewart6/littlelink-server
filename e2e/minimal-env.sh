@@ -9,7 +9,7 @@ trap "docker kill $CONTAINER_ID 2>/dev/null" EXIT
 sleep 3
 
 cd "$(dirname "$0")/.."
-npx playwright test --config=playwright.config.cjs --project=minimal-env \
+yarn playwright test --config=playwright.config.ts --project=minimal-env \
   --reporter=list "$@"
 
 echo "Done"

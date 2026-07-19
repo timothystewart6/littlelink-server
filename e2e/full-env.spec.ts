@@ -6,12 +6,12 @@
  * expected buttons rendered, healthcheck working, footer present.
  */
 
-const { test, expect } = require('@playwright/test');
+import { test, expect } from '@playwright/test';
 
-const ENV = {
+const ENV: Record<string, string> = {
   META_TITLE: 'Techno Tim',
   META_DESCRIPTION:
-    'Software Engineer | Gamer | Twitch Streamer | Content Creator on YouTube | Homelab | 🇺🇸 🇯🇵  | Full Nerd',
+    'Software Engineer | Gamer | Twitch Streamer | Content Creator on YouTube | Homelab | \uD83C\uDDFA\uD83C\uDDF8 \uD83C\uDDEF\uD83C\uDDF5  | Full Nerd',
   META_AUTHOR: 'Techno Tim',
   META_KEYWORDS: 'HomeLab, HTML, CSS, Engineering',
   LANG: 'en',
@@ -34,7 +34,7 @@ const ENV = {
     'https://pbs.twimg.com/profile_images/1286144221217316864/qIAsKOpB_400x400.jpg',
   AVATAR_ALT: 'Techno Tim Profile Pic',
   NAME: 'TechnoTim',
-  BIO: 'Software Engineer | Gamer | Twitch Streamer | Content Creator on YouTube | Homelab | 🇺🇸 🇯🇵 | Full Nerd',
+  BIO: 'Software Engineer | Gamer | Twitch Streamer | Content Creator on YouTube | Homelab | \uD83C\uDDFA\uD83C\uDDF8 \uD83C\uDDEF\uD83C\uDDF5 | Full Nerd',
   BUTTON_ORDER:
     'YOUTUBE,TWITCH,TWITTER,GITHUB,INSTAGRAM,LINKED_IN,DISCORD,FACEBOOK,TIKTOK,PATREON,GEAR,DOCUMENTATION',
   CUSTOM_BUTTON_TEXT: 'Documentation,Recommended Gear',
@@ -56,7 +56,7 @@ const ENV = {
   TIKTOK: 'https://l.technotim.com/tiktok',
   FACEBOOK: 'https://l.technotim.com/facebook',
   PATREON: 'https://l.technotim.com/patreon',
-  FOOTER: 'Techno Tim © 2022',
+  FOOTER: 'Techno Tim \u00a9 2022',
 };
 
 test.describe('Full featured compose example', () => {
@@ -64,7 +64,7 @@ test.describe('Full featured compose example', () => {
 
   test('page has correct title from META_TITLE', async ({ page }) => {
     await page.goto('/', { waitUntil: 'networkidle' });
-    await expect(page).toHaveTitle(ENV.META_TITLE);
+    await expect(page).toHaveTitle(ENV.META_TITLE!);
   });
 
   test('renderer does not leak "undefined" text anywhere', async ({ page }) => {
@@ -76,12 +76,12 @@ test.describe('Full featured compose example', () => {
   test('shows NAME as h1', async ({ page }) => {
     await page.goto('/', { waitUntil: 'networkidle' });
     const h1 = page.locator('h1');
-    await expect(h1).toHaveText(ENV.NAME);
+    await expect(h1).toHaveText(ENV.NAME!);
   });
 
   test('shows BIO as paragraph', async ({ page }) => {
     await page.goto('/', { waitUntil: 'networkidle' });
-    await expect(page.getByText(ENV.BIO.substring(0, 30))).toBeVisible();
+    await expect(page.getByText(ENV.BIO!.substring(0, 30))).toBeVisible();
   });
 
   test('renders all expected social buttons', async ({ page }) => {
@@ -101,12 +101,12 @@ test.describe('Full featured compose example', () => {
   test('avatar image renders with correct alt text', async ({ page }) => {
     await page.goto('/', { waitUntil: 'networkidle' });
     const avatar = page.locator('img').first();
-    await expect(avatar).toHaveAttribute('alt', ENV.AVATAR_ALT);
+    await expect(avatar).toHaveAttribute('alt', ENV.AVATAR_ALT!);
   });
 
   test('footer shows copyright text', async ({ page }) => {
     await page.goto('/', { waitUntil: 'networkidle' });
-    await expect(page.getByText('Techno Tim © 2022')).toBeVisible();
+    await expect(page.getByText('Techno Tim \u00a9 2022')).toBeVisible();
   });
 
   test('html lang is set to configured LANG', async ({ page }) => {
@@ -124,13 +124,13 @@ test.describe('Full featured compose example', () => {
   test('meta description is present', async ({ page }) => {
     await page.goto('/', { waitUntil: 'networkidle' });
     const metaDesc = page.locator('meta[name="description"]');
-    await expect(metaDesc).toHaveAttribute('content', ENV.META_DESCRIPTION);
+    await expect(metaDesc).toHaveAttribute('content', ENV.META_DESCRIPTION!);
   });
 
   test('meta keywords are present', async ({ page }) => {
     await page.goto('/', { waitUntil: 'networkidle' });
     const metaKw = page.locator('meta[name="keywords"]');
-    await expect(metaKw).toHaveAttribute('content', ENV.META_KEYWORDS);
+    await expect(metaKw).toHaveAttribute('content', ENV.META_KEYWORDS!);
     // Verify no duplicate keywords meta tag
     await expect(metaKw).toHaveCount(1);
   });
@@ -138,7 +138,7 @@ test.describe('Full featured compose example', () => {
   test('favicon link is present', async ({ page }) => {
     await page.goto('/', { waitUntil: 'networkidle' });
     const favicon = page.locator('link[rel="icon"]');
-    await expect(favicon).toHaveAttribute('href', ENV.FAVICON_URL);
+    await expect(favicon).toHaveAttribute('href', ENV.FAVICON_URL!);
   });
 
   test('healthcheck returns 200 and status ok', async ({ page }) => {

@@ -1,6 +1,6 @@
-const { defineConfig, devices } = require('@playwright/test');
+import { defineConfig, devices } from '@playwright/test';
 
-module.exports = defineConfig({
+export default defineConfig({
   testDir: './e2e',
   timeout: 30000,
   workers: 1,
@@ -80,12 +80,12 @@ module.exports = defineConfig({
   projects: [
     {
       name: 'chromium',
-      testMatch: '**/full-env.spec.js',
+      testMatch: '**/full-env.spec.ts',
       use: { ...devices['Desktop Chrome'] },
     },
     {
       name: 'minimal-env',
-      testMatch: '**/minimal-env.spec.js',
+      testMatch: '**/minimal-env.spec.ts',
       use: {
         ...devices['Desktop Chrome'],
         baseURL: 'http://localhost:3002',

@@ -1,5 +1,5 @@
 import React from 'react';
 
-export function FontAwesomeIcon() {
+export function FontAwesomeIcon(): React.ReactElement {
   return <i className="fa" />;
 }

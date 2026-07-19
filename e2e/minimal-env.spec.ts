@@ -5,7 +5,7 @@
  * the page renders gracefully without "undefined" text anywhere.
  */
 
-const { test, expect } = require('@playwright/test');
+import { test, expect } from '@playwright/test';
 
 test.describe('Minimal env (no variables set)', () => {
   test('page does not contain "undefined" text', async ({ page }) => {
