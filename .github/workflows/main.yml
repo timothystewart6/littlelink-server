@@ -39,6 +39,9 @@ jobs:
   full-env-e2e:
     needs: [install-test-build]
     runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.61.1@sha256:5b8f294aff9041b7191c34a4bab3ac270157a28774d4b0660e9743297b697e48
+      options: --user 1001
     steps:
     - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
 
@@ -51,10 +54,6 @@ jobs:
       run: yarn install --frozen-lockfile --check-files --network-timeout 600000
       env:
         CI: true
-
-    - name: Install Playwright browsers
-      run: yarn playwright install --with-deps chromium
-      timeout-minutes: 5
 
     - name: Run full-env e2e tests
       run: yarn test:e2e
