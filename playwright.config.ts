@@ -38,6 +38,7 @@ export default defineConfig({
           OG_IMAGE_WIDTH: '400',
           OG_IMAGE_HEIGHT: '400',
           GA_TRACKING_ID: 'G-XXXXXXXXXX',
+          ROBOTS_ADDITIONAL_RULES: 'User-agent: GPTBot\\nDisallow: /',
           THEME: 'Dark',
           FAVICON_URL:
             'https://pbs.twimg.com/profile_images/1286144221217316864/qIAsKOpB_200x200.jpg',
