@@ -18,7 +18,7 @@
     "lint": "eslint .",
     "lint:style": "stylelint ./src/**/*.css ./public/**/*.css",
     "lint:markdown": "markdownlint .github/*.md && markdownlint README.md",
-    "ci": "yarn lint && yarn lint:style && yarn lint:markdown && yarn test"
+    "ci": "yarn lint && yarn lint:style && yarn lint:markdown && yarn typecheck && yarn test"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
