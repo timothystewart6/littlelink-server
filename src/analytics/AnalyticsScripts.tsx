@@ -1,24 +1,13 @@
-/**
- * AnalyticsScripts is a Server Component that renders analytics provider
- * scripts based on runtime configuration.
- *
- * Each provider renders only when its required environment variables are present.
- * All interpolated values are passed through React's JSX escaping, which
- * prevents injection into inline script content.
- *
- * Usage:
- *   <AnalyticsScripts config={cfg} />
- */
-
 import React from 'react';
 import Script from 'next/script';
+import type { RuntimeConfig } from '../config/runtimeConfig';
 
 /**
  * Safely encode a string for inline JavaScript context.
- * Escapes <, >, &, U+2028, U+2029, and backslash to prevent injection
+ * Escapes <, >, U+2028, U+2029, and backslash to prevent injection
  * when interpolating into <script> content.
  */
-function safeJsEncode(str) {
+function safeJsEncode(str: unknown): string {
   if (typeof str !== 'string') return '';
   return str
     .replace(/\\/g, '\\\\')
@@ -30,8 +19,12 @@ function safeJsEncode(str) {
 
 export { safeJsEncode };
 
-export default function AnalyticsScripts({ config }) {
-  const scripts = [];
+export default function AnalyticsScripts({
+  config,
+}: {
+  config: Partial<RuntimeConfig>;
+}) {
+  const scripts: React.ReactElement[] = [];
 
   // Google Analytics
   if (config.GA_TRACKING_ID) {

@@ -2,18 +2,17 @@
 
 import { useEffect } from 'react';
 
+export interface AnalyticsTrackerProps {
+  gaTrackingId?: string;
+  umamiWebsiteId?: string;
+  umamiAppUrl?: string;
+  matomoSiteId?: string;
+  matomoUrl?: string;
+}
+
 /**
  * AnalyticsTracker is a Client Component that uses event delegation to
  * capture button clicks and forward them to configured analytics providers.
- *
- * Usage:
- *   <AnalyticsTracker
- *     gaTrackingId={cfg.GA_TRACKING_ID}
- *     umamiWebsiteId={cfg.UMAMI_WEBSITE_ID}
- *     umamiAppUrl={cfg.UMAMI_APP_URL}
- *     matomoSiteId={cfg.MATOMO_SITE_ID}
- *     matomoUrl={cfg.MATOMO_URL}
- *   />
  *
  * Only the provider-enabled booleans are passed to this component.
  * The full runtime config is never shipped to the client bundle.
@@ -24,14 +23,16 @@ export default function AnalyticsTracker({
   umamiAppUrl,
   matomoSiteId,
   matomoUrl,
-}) {
+}: AnalyticsTrackerProps) {
   const hasGoogle = !!gaTrackingId;
   const hasUmami = !!(umamiWebsiteId && umamiAppUrl);
   const hasMatomo = !!(matomoSiteId && matomoUrl);
 
   useEffect(() => {
-    function handleClick(e) {
-      const link = e.target.closest('[data-analytics-event]');
+    function handleClick(e: MouseEvent) {
+      const target = e.target;
+      if (!(target instanceof Element)) return;
+      const link = target.closest('[data-analytics-event]');
       if (!link) return;
 
       const eventName = link.getAttribute('data-analytics-event');
@@ -58,6 +59,5 @@ export default function AnalyticsTracker({
     return () => document.removeEventListener('click', handleClick);
   }, [hasGoogle, hasUmami, hasMatomo]);
 
-  // This component renders nothing visible.
   return null;
 }

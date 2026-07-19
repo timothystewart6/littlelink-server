@@ -17,6 +17,6 @@ describe('umami.js', () => {
 
   it('should call umami with event', () => {
     trackUmamiEvent('youtube-button');
-    expect(window.umami.track).toHaveBeenCalledWith('youtube-button');
+    expect(window.umami!.track).toHaveBeenCalledWith('youtube-button');
   });
 });
