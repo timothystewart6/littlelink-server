@@ -31,19 +31,25 @@
 
 .button,
 button {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-left: auto;
   margin-right: auto;
   text-decoration: none;
-  height: 48px;
+  min-height: 48px;
+  padding: 10px 16px;
   text-align: center;
   vertical-align: middle;
   font-size: 18px;
-  width: 300px;
+  width: min(300px, 100%);
+  max-width: 100%;
+  box-sizing: border-box;
   font-weight: 700;
-  line-height: 48px;
+  line-height: 1.2;
   letter-spacing: 0.1px;
-  white-space: wrap;
+  white-space: normal;
+  overflow-wrap: anywhere;
   border-radius: 8px;
   cursor: pointer;
 }
@@ -56,7 +62,9 @@ button {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 .icon {
-  padding: 0px 8px 3.5px 0px;
+  flex-shrink: 0;
+  margin-right: 8px;
+  padding: 0;
   vertical-align: middle;
   width: 20px;
   height: 20px;
