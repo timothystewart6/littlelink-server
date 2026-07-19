@@ -19,13 +19,18 @@ COPY tsconfig.json ./
 COPY tsconfig.server.json ./
 COPY next-env.d.ts ./
 COPY server.ts ./
-RUN yarn build
+ENV NEXT_TELEMETRY_DISABLED=1
+RUN --mount=type=cache,target=/usr/src/app/.next/cache yarn build
+RUN rm -rf \
+    .next/standalone/node_modules/@img/sharp-libvips-linux-* \
+    .next/standalone/node_modules/@img/sharp-linux-*
 
 FROM node:24.18.0-alpine@sha256:a0b9bf06e4e6193cf7a0f58816cc935ff8c2a908f81e6f1a95432d679c54fbfd
 WORKDIR /usr/src/app
 ENV NODE_ENV=production
 ENV HOSTNAME=0.0.0.0
 ENV PORT=3000
+ENV NEXT_TELEMETRY_DISABLED=1
 COPY --from=node-build --chown=node:node /usr/src/app/.next/standalone ./
 COPY --from=node-build --chown=node:node /usr/src/app/.next/static ./.next/static
 COPY --from=node-build --chown=node:node /usr/src/app/public ./public
