@@ -1,0 +1,27 @@
+# Dependencies
+node_modules
+
+# Build outputs
+.next
+dist-server
+build
+cache
+
+# Test and coverage
+coverage
+test-results
+
+# Local environment
+.env
+.env.*
+*.log
+
+# OS files
+.DS_Store
+
+# Git
+.git
+.gitignore
+
+# Documentation (not needed for build)
+*.md
