@@ -36,8 +36,65 @@ jobs:
       env:
         CI: true
 
-  build-and-push-docker-image:
+  full-env-e2e:
     needs: [install-test-build]
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+
+    - name: Use Node.js
+      uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+      with:
+        node-version: v24.18.0
+
+    - name: Install Dependencies
+      run: yarn install --frozen-lockfile --check-files --network-timeout 600000
+      env:
+        CI: true
+
+    - name: Install Playwright browsers
+      run: yarn playwright install --with-deps chromium
+      timeout-minutes: 5
+
+    - name: Run full-env e2e tests
+      run: yarn test:e2e
+      env:
+        CI: true
+
+  minimal-env-e2e:
+    needs: [install-test-build]
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+
+    - name: Use Node.js
+      uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+      with:
+        node-version: v24.18.0
+
+    - name: Install Dependencies
+      run: yarn install --frozen-lockfile --check-files --network-timeout 600000
+      env:
+        CI: true
+
+    - name: Build Docker image
+      run: docker build --tag littlelink-server:pr .
+
+    - name: Install Playwright browsers
+      run: yarn playwright install --with-deps chromium
+      timeout-minutes: 5
+
+    - name: Run minimal-env e2e tests
+      env:
+        CI: true
+      run: |
+        docker run --rm -d --name littlelink-minimal -p 3002:3000 littlelink-server:pr
+        trap 'docker stop littlelink-minimal 2>/dev/null' EXIT
+        sleep 3
+        yarn playwright test --config=playwright.config.ts --project=minimal-env --reporter=list
+
+  build-and-push-docker-image:
+    needs: [install-test-build, full-env-e2e, minimal-env-e2e]
     runs-on: ubuntu-latest
     steps:
       -

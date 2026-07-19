@@ -52,3 +52,29 @@ jobs:
         curl -s -o /dev/null -w "healthcheck: %{http_code}\\n" http://localhost:3100/healthcheck
         curl -s -o /dev/null -w "root: %{http_code}\\n" http://localhost:3100/
         docker stop littlelink-pr
+
+  full-env-e2e:
+    needs: [install-test-build]
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+
+    - name: Use Node.js
+      uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+      with:
+        node-version: v24.18.0
+
+    - name: Install Dependencies
+      run: yarn install --frozen-lockfile --check-files --network-timeout 600000
+      env:
+        CI: true
+
+    - name: Install Playwright browsers
+      run: yarn playwright install --with-deps chromium
+      timeout-minutes: 5
+
+    - name: Run full-env e2e tests
+      run: yarn test:e2e
+      env:
+        CI: true
+
