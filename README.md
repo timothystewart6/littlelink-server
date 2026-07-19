@@ -64,6 +64,17 @@ If you use VS Code, set the workspace TypeScript version:
 
 Environment values are always strings and are read at **request time**, not at build time. No `NEXT_PUBLIC_` prefix or `env` block is needed. Changes take effect after a container restart without rebuilding the image.
 
+### Sitemap
+
+LittleLink-Server exposes `/sitemap.xml` when `OG_URL` is configured and `META_INDEX_STATUS` allows indexing. The sitemap contains the single public profile URL and is generated at request time from environment variables.
+
+```bash
+OG_URL=https://links.example.com
+META_INDEX_STATUS=all
+```
+
+If `OG_URL` is not set, or `META_INDEX_STATUS` contains `noindex`, `/sitemap.xml` returns `404`.
+
 ### Docker build
 
 ```bash

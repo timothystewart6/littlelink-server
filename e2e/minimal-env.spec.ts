@@ -45,4 +45,9 @@ test.describe('Minimal env (no variables set)', () => {
     const body = await response.json();
     expect(body).toEqual({ status: 'ok' });
   });
+
+  test('sitemap is not published without a public URL', async ({ page }) => {
+    const response = await page.request.get('/sitemap.xml');
+    expect(response.status()).toBe(404);
+  });
 });
