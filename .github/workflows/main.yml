@@ -26,6 +26,9 @@ jobs:
   publish-images:
     name: Publish container images
     needs: [quality-gate, browser-e2e, container-e2e]
+    permissions:
+      actions: write
+      contents: read
     uses: ./.github/workflows/build-and-push.yml
     secrets:
       PAT: ${{ secrets.PAT }}
