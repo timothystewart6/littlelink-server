@@ -37,6 +37,7 @@ const eslintConfig = [
       'test-results/**',
       'next-env.d.ts',
       'cache/**',
+      'dist-server/**',
     ],
   },
   ...nextCoreWebVitals,

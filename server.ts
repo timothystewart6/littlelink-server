@@ -1,12 +1,13 @@
 /* eslint-disable no-console */
-const {
+import {
   getRuntimeConfig,
   shouldSkipHealthLog,
-} = require('./src/config/runtimeConfig');
-const next = require('next');
-const express = require('express');
-const morgan = require('morgan');
-const compression = require('compression');
+} from './src/config/runtimeConfig';
+import next from 'next';
+import express from 'express';
+import morgan from 'morgan';
+import compression from 'compression';
+import type { Request } from 'express';
 
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
@@ -20,7 +21,7 @@ app.prepare().then(() => {
   if (!dev) {
     server.use(
       morgan('combined', {
-        skip: req => {
+        skip: (req: Request) => {
           if (
             req?.originalUrl?.includes('/healthcheck') &&
             shouldSkipHealthLog(getRuntimeConfig())
@@ -40,7 +41,7 @@ app.prepare().then(() => {
     return handle(req, res);
   });
 
-  server.listen(port, '0.0.0.0', err => {
+  server.listen(port, '0.0.0.0', (err?: Error | null) => {
     if (err) {
       console.error(err);
       process.exit(1);
