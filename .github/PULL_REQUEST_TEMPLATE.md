@@ -11,6 +11,7 @@ Screenshot (If Applicable)
 
 - [ ] Tested locally
 - [ ] Ran `yarn ci` to test my code
+- [ ] Ran `yarn typecheck` to verify types
 - [ ] Did not add any unnecessary changes
 - [ ] All my changes appear after other changes in each file
 - [ ] Included a screenshot (if adding a new button)
