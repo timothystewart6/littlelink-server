@@ -7,127 +7,20 @@ on:
 
 jobs:
   install-test-build:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
-
-    - name: Use Node.js
-      uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
-      with:
-        node-version: v24.18.0
-
-    - name: Install Dependencies
-      run: yarn install --frozen-lockfile --check-files --network-timeout 600000
-      env:
-        CI: true
-
-    - name: Lint
-      run: yarn ci
-      env:
-        CI: true
-
-    - name: Type Check
-      run: yarn typecheck
-      env:
-        CI: true
-
-    - name: Build
-      run: yarn build
-      env:
-        CI: true
+    uses: ./.github/workflows/install-test-build.yml
 
   full-env-e2e:
     needs: [install-test-build]
-    runs-on: ubuntu-latest
-    container:
-      image: mcr.microsoft.com/playwright:v1.61.1@sha256:5b8f294aff9041b7191c34a4bab3ac270157a28774d4b0660e9743297b697e48
-      options: --user 1001
-    steps:
-    - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
-
-    - name: Use Node.js
-      uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
-      with:
-        node-version: v24.18.0
-
-    - name: Install Dependencies
-      run: yarn install --frozen-lockfile --check-files --network-timeout 600000
-      env:
-        CI: true
-
-    - name: Run full-env e2e tests
-      run: yarn test:e2e
-      env:
-        CI: true
+    uses: ./.github/workflows/full-env-e2e.yml
 
   minimal-env-e2e:
     needs: [install-test-build]
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
-
-    - name: Use Node.js
-      uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
-      with:
-        node-version: v24.18.0
-
-    - name: Install Dependencies
-      run: yarn install --frozen-lockfile --check-files --network-timeout 600000
-      env:
-        CI: true
-
-    - name: Build Docker image
-      run: docker build --tag littlelink-server:pr .
-
-    - name: Install Playwright browsers
-      run: yarn playwright install --with-deps chromium
-      timeout-minutes: 5
-
-    - name: Run minimal-env e2e tests
-      env:
-        CI: true
-      run: |
-        docker run --rm -d --name littlelink-minimal -p 3002:3000 littlelink-server:pr
-        trap 'docker stop littlelink-minimal 2>/dev/null' EXIT
-        sleep 3
-        yarn playwright test --config=playwright.config.ts --project=minimal-env --reporter=list
+    uses: ./.github/workflows/minimal-env-e2e.yml
 
   build-and-push-docker-image:
     needs: [install-test-build, full-env-e2e, minimal-env-e2e]
-    runs-on: ubuntu-latest
-    steps:
-      -
-        name: Checkout
-        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
-
-      -
-        name: Set up QEMU
-        uses: docker/setup-qemu-action@96fe6ef7f33517b61c61be40b68a1882f3264fb8 # v4.2.0
-      -
-        name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@bb05f3f5519dd87d3ba754cc423b652a5edd6d2c # v4.2.0
-
-      -
-        name: Login to GitHub Container Registry
-        uses: docker/login-action@af1e73f918a031802d376d3c8bbc3fe56130a9b0 # v4.4.0
-        with:
-          registry: ghcr.io
-          username: ${{ github.repository_owner }}
-          password: ${{ secrets.PAT }}
-      -
-        name: Login to DockerHub
-        uses: docker/login-action@af1e73f918a031802d376d3c8bbc3fe56130a9b0 # v4.4.0
-        with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
-      -
-        name: Build and push
-        uses: docker/build-push-action@53b7df96c91f9c12dcc8a07bcb9ccacbed38856a # v7.3.0
-        with:
-          context: .
-          file: ./Dockerfile
-          platforms: linux/amd64,linux/arm64 # have to disable linux/arm/v7 linux/arm/v6 for now, see https://github.com/nodejs/docker-node/issues/1798
-          push: true
-          tags: |
-            ghcr.io/timothystewart6/littlelink-server:latest
-            timothystewart6/littlelink-server
+    uses: ./.github/workflows/build-and-push.yml
+    secrets:
+      PAT: ${{ secrets.PAT }}
+      DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+      DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
