@@ -98,6 +98,38 @@ test.describe('Full featured compose example', () => {
     await expect(page.getByText('Recommended Gear')).toBeVisible();
   });
 
+  test('mobile layout stays centered without horizontal overflow', async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 320, height: 900 });
+    await page.goto('/', { waitUntil: 'networkidle' });
+
+    const pageWidth = await page.evaluate(
+      () => document.documentElement.clientWidth,
+    );
+    const scrollWidth = await page.evaluate(
+      () => document.documentElement.scrollWidth,
+    );
+
+    expect(scrollWidth).toBeLessThanOrEqual(pageWidth);
+
+    const viewportCenter = pageWidth / 2;
+    const avatar = await page.locator('img.avatar').boundingBox();
+    const title = await page.locator('h1').boundingBox();
+    const firstButton = await page.locator('a.button').first().boundingBox();
+
+    expect(avatar).not.toBeNull();
+    expect(title).not.toBeNull();
+    expect(firstButton).not.toBeNull();
+
+    for (const box of [avatar, title, firstButton]) {
+      const center = box!.x + box!.width / 2;
+      expect(Math.abs(center - viewportCenter)).toBeLessThanOrEqual(2);
+    }
+
+    expect(firstButton!.width).toBeLessThan(300);
+  });
+
   test('avatar image renders with correct alt text', async ({ page }) => {
     await page.goto('/', { waitUntil: 'networkidle' });
     const avatar = page.locator('img').first();
