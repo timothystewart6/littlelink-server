@@ -10,8 +10,8 @@
     "build": "next build && tsc -p tsconfig.server.json",
     "debug": "yarn start --inspect --inspect-port 9230",
     "start": "NODE_ENV=production node dist-server/server.js",
-    "sync:compose-env": "node scripts/sync-compose-env.mjs",
-    "check:compose-env": "node scripts/sync-compose-env.mjs --check",
+    "compose-env:sync": "node scripts/sync-compose-env.mjs",
+    "compose-env:check": "node scripts/sync-compose-env.mjs --check",
     "typegen": "next typegen",
     "typecheck": "yarn typegen && tsc --noEmit",
     "test:e2e": "yarn playwright test",
@@ -20,7 +20,7 @@
     "lint": "eslint .",
     "lint:style": "stylelint ./src/**/*.css ./public/**/*.css",
     "lint:markdown": "markdownlint .github/*.md && markdownlint README.md",
-    "ci": "yarn lint && yarn lint:style && yarn lint:markdown && yarn check:compose-env && yarn typecheck && yarn test"
+    "ci": "yarn lint && yarn lint:style && yarn lint:markdown && yarn compose-env:check && yarn typecheck && yarn test"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.7.2",

@@ -4,8 +4,8 @@ import { fileURLToPath } from 'node:url';
 
 // Keeps docker-compose.yml aligned with the canonical runtime env allowlist.
 // Usage:
-//   yarn sync:compose-env        updates docker-compose.yml in place
-//   yarn check:compose-env       verifies docker-compose.yml is already synced
+//   yarn compose-env:sync        updates docker-compose.yml in place
+//   yarn compose-env:check       verifies docker-compose.yml is already synced
 
 const repositoryRoot = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)),
@@ -165,7 +165,7 @@ const result = syncComposeEnvironment(envNames, composeSource);
 
 if (checkOnly && result.content !== composeSource) {
   console.error(
-    'docker-compose.yml is out of sync with src/config/envNames.ts. Run yarn sync:compose-env.',
+    'docker-compose.yml is out of sync with src/config/envNames.ts. Run yarn compose-env:sync.',
   );
   console.error(
     JSON.stringify(
