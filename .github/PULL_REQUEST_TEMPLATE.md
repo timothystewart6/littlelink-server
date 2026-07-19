@@ -1,23 +1,36 @@
-# Proposed Changes
-<!--- Provide a general summary of your changes -->
+# Summary
+
+<!-- Describe what changed and why. -->
 
 -
+
+## Type of Change
+
+- [ ] Bug fix
+- [ ] Feature
+- [ ] Documentation
+- [ ] Refactor or maintenance
+- [ ] Tests
+- [ ] CI, build, or release
+
+## Validation
+
+<!-- List the commands run and any relevant manual checks. Mark anything not applicable as N/A. -->
+
+- [ ] Ran `yarn ci`
+- [ ] Ran focused unit or integration tests:
+- [ ] Ran e2e tests:
+- [ ] Validated Docker or Compose changes:
+- [ ] Checked UI changes in a browser and attached screenshots when visual output changed
+
+## Configuration and Docs
+
+- [ ] Updated documentation for user-facing behavior
+- [ ] Updated `.env.example`, `docker-compose.yml`, or config examples when env vars changed
+- [ ] Confirmed no secrets, credentials, or `.env` files are included
+
+## Notes for Reviewers
+
+<!-- Add screenshots, links, rollout notes, or known limitations here. -->
+
 -
--
-
-Screenshot (If Applicable)
-
-## Checklist
-
-- [ ] Tested locally
-- [ ] Ran `yarn ci` to test my code
-- [ ] Ran `yarn typecheck` to verify types
-- [ ] Ran `yarn test:e2e` to verify e2e tests
-- [ ] Did not add any unnecessary changes
-- [ ] All my changes appear after other changes in each file
-- [ ] Included a screenshot (if adding a new button)
-- [ ] 🚀
-
-<!--- If adding a new button, please include screenshot -->
-<!--- If you are adding new code, please follow the pattern and add it to the end of the file where appropriate -->
-<!--- Please be sure that you are not adding any additional changes including spaces, adding/deleting lines -->
