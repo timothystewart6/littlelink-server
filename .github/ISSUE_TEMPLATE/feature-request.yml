@@ -1,0 +1,50 @@
+name: Feature Request
+description: Suggest an improvement, configuration option, or documentation change
+title: '[Feature]: '
+labels: ['enhancement']
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form for feature ideas, configuration changes, documentation improvements, and workflow requests.
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: Describe the requested change in one or two sentences.
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or Use Case
+      description: What problem does this solve, and who benefits from it?
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed Behavior
+      description: Describe the behavior, configuration, or documentation change you want.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: List any workarounds or alternative designs considered. Use N/A if none.
+    validations:
+      required: false
+
+  - type: textarea
+    id: validation
+    attributes:
+      label: Validation Ideas
+      description: Suggest tests, e2e checks, Docker checks, or documentation updates that should cover this change.
+    validations:
+      required: false

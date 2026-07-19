@@ -1,3 +1,5 @@
+MIT License
+
 Copyright (c) 2021 Timothy Stewart (Techno Tim)
 
 Permission is hereby granted, free of charge, to any person obtaining

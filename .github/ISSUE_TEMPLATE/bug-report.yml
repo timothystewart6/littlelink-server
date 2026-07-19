@@ -1,61 +1,80 @@
 name: Bug Report
-description: Report a bug with littlelink-server
-title: '[BUG REPORT] <Concise description of the bug>'
+description: Report something that is broken or behaving unexpectedly
+title: '[Bug]: '
 labels: ['bug']
 
-
 body:
-
   - type: markdown
     attributes:
-      value: |-
-        ## Please enter the following headings, where applicable, to make it easier to complete this request!
-    validations:
-      required: false
+      value: |
+        Thanks for reporting a bug. Clear reproduction steps and environment details help maintainers and automation agents verify the issue quickly.
 
   - type: textarea
-    id: buttonrelation
+    id: summary
     attributes:
-      label: Buttons Relation
-      description: What button is this in relation too. If multiple, please seperate with `,`. If none, please write `N/A`
-      placeholder: e.g Twitter
+      label: Summary
+      description: Describe the bug in one or two sentences.
+      placeholder: The page renders without the expected button when ...
     validations:
       required: true
 
   - type: textarea
-    id: bugexplanation
+    id: steps
     attributes:
-      label: Bug Description
-      description: Please explain the bug, include any errors
-      placeholder: Bug report
+      label: Steps to Reproduce
+      description: List the smallest set of steps needed to trigger the issue.
+      placeholder: |
+        1. Set ...
+        2. Run ...
+        3. Open ...
     validations:
       required: true
 
   - type: textarea
     id: expected
     attributes:
-      label: Expected Result
-      description: Please explain the bug, include any errors
-      placeholder: The expected result
+      label: Expected Behavior
+      description: What should have happened?
     validations:
       required: true
 
   - type: textarea
-    id: additional
+    id: actual
     attributes:
-      label: Additional Information
-      description: Anything to give further context to the bug report or information that will assist in solving the issue
+      label: Actual Behavior
+      description: What happened instead? Include logs, errors, or screenshots when useful.
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Include the app version or image tag, Node version, browser, deployment type, and relevant non-secret env vars.
+      placeholder: |
+        - Image tag or commit:
+        - Node version:
+        - Browser:
+        - Deployment: Docker Compose, Docker, Kubernetes, local dev
+        - Relevant env vars:
+    validations:
+      required: true
+
+  - type: textarea
+    id: validation
+    attributes:
+      label: Validation Attempted
+      description: List any commands or checks already run. Use N/A if none.
+      placeholder: |
+        - yarn ci
+        - docker compose config
     validations:
       required: false
 
   - type: textarea
-    id: links
+    id: additional-context
     attributes:
-      label: Images
-      description: CTRL V to paste images in
+      label: Additional Context
+      description: Add screenshots, links, logs, or related issues. Do not include secrets.
     validations:
       required: false
-
-
-
-
