@@ -1,11 +1,12 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import { getRuntimeConfig, getTheme } from '../src/config/runtimeConfig';
 import AnalyticsScripts from '../src/analytics/AnalyticsScripts';
 import FontAwesomeInit from '../src/components/FontAwesomeInit';
 
 export const dynamic = 'force-dynamic';
 
-export async function generateMetadata() {
+export async function generateMetadata(): Promise<Metadata> {
   const cfg = getRuntimeConfig();
 
   const title = cfg.META_TITLE || 'My Site';
@@ -40,7 +41,10 @@ export async function generateMetadata() {
         : [],
     },
     twitter: {
-      card: cfg.TWITTER_CARD || undefined,
+      card:
+        (cfg.TWITTER_CARD as
+          'summary' | 'summary_large_image' | 'player' | 'app' | undefined) ||
+        undefined,
       title: cfg.TWITTER_TITLE || undefined,
       description: cfg.TWITTER_DESCRIPTION || undefined,
       images: cfg.TWITTER_IMAGE ? [cfg.TWITTER_IMAGE] : [],
@@ -54,7 +58,9 @@ export async function generateMetadata() {
   };
 }
 
-export default async function RootLayout({ children }) {
+export default async function RootLayout({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
   const cfg = getRuntimeConfig();
   const theme = getTheme(cfg);
   const lang = cfg.LANG || 'en';
