@@ -1,0 +1,35 @@
+name: Minimal-env e2e tests
+
+on:
+  workflow_call:
+
+jobs:
+  playwright-container-env:
+    name: Minimal container Playwright tests
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+
+      - name: Use Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: v24.18.0
+
+      - name: Install Dependencies
+        run: yarn install --frozen-lockfile --check-files --network-timeout 600000
+        env:
+          CI: true
+
+      - name: Install Playwright browsers
+        run: yarn playwright install --with-deps chromium
+        timeout-minutes: 5
+
+      - name: Build Docker image
+        run: docker build --tag littlelink-server:pr .
+
+      - name: Run minimal-env e2e tests
+        env:
+          CI: true
+          IMAGE_NAME: littlelink-server:pr
+        run: bash e2e/minimal-env.sh

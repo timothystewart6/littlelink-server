@@ -31,7 +31,9 @@
 
 .button,
 button {
-  display: inline-block;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   text-decoration: none;
   height: 48px;
   text-align: center;

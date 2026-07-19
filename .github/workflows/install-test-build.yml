@@ -1,0 +1,54 @@
+name: Install, lint, typecheck, build
+
+on:
+  workflow_call:
+    inputs:
+      build-docker:
+        description: Whether to build and smoke-test the Docker image
+        type: boolean
+        required: false
+        default: false
+
+jobs:
+  node-checks:
+    name: Lint, typecheck, test, and build
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+
+      - name: Use Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: v24.18.0
+
+      - name: Install Dependencies
+        run: yarn install --frozen-lockfile --check-files --network-timeout 600000
+        env:
+          CI: true
+
+      - name: Run CI checks
+        run: yarn ci
+        env:
+          CI: true
+
+      - name: Build
+        run: yarn build
+        env:
+          CI: true
+
+      - name: Build Docker image
+        if: inputs.build-docker
+        run: docker build --tag littlelink-server:pr .
+
+      - name: Smoke test Docker image
+        if: inputs.build-docker
+        run: |
+          docker run --rm -d --name littlelink-pr -p 3100:3000 \
+            -e META_TITLE='PR Test' \
+            -e THEME=Dark \
+            littlelink-server:pr
+          trap 'docker stop littlelink-pr 2>/dev/null' EXIT
+          sleep 3
+          curl -s -o /dev/null -w "healthcheck: %{http_code}\\n" http://localhost:3100/healthcheck
+          curl -s -o /dev/null -w "root: %{http_code}\\n" http://localhost:3100/

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   sodipodi:docname="semantic-scholar.svg"
+   inkscape:version="1.0 (1.0+r73+1)"
+   id="svg8"
+   version="1.1"
+   viewBox="0 0 512 512"
+   height="512"
+   width="512">
+  <title
+     id="title833">Semantic Scholar</title>
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     inkscape:window-maximized="1"
+     inkscape:window-y="27"
+     inkscape:window-x="51"
+     inkscape:window-height="713"
+     inkscape:window-width="1315"
+     inkscape:guide-bbox="true"
+     showguides="true"
+     units="px"
+     showgrid="true"
+     inkscape:document-rotation="0"
+     inkscape:current-layer="layer6"
+     inkscape:document-units="px"
+     inkscape:cy="256"
+     inkscape:cx="256"
+     inkscape:zoom="0.75"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     borderopacity="1.0"
+     bordercolor="#666666"
+     pagecolor="#ffffff"
+     id="base">
+    <inkscape:grid
+       empspacing="4"
+       id="grid10"
+       type="xygrid" />
+    <sodipodi:guide
+       inkscape:color="rgb(0,0,255)"
+       inkscape:locked="true"
+       inkscape:label="baseline"
+       id="guide23"
+       orientation="0,1"
+       position="511.99998,64" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>Semantic Scholar</dc:title>
+        <cc:license
+           rdf:resource="http://scripts.sil.org/OFL" />
+        <dc:subject>
+          <rdf:Bag>
+            <rdf:li>Semantic Scholar</rdf:li>
+          </rdf:Bag>
+        </dc:subject>
+      </cc:Work>
+      <cc:License
+         rdf:about="http://scripts.sil.org/OFL">
+        <cc:permits
+           rdf:resource="http://scripts.sil.org/pub/OFL/Reproduction" />
+        <cc:permits
+           rdf:resource="http://scripts.sil.org/pub/OFL/Distribution" />
+        <cc:permits
+           rdf:resource="http://scripts.sil.org/pub/OFL/Embedding" />
+        <cc:permits
+           rdf:resource="http://scripts.sil.org/pub/OFL/DerivativeWorks" />
+        <cc:requires
+           rdf:resource="http://scripts.sil.org/pub/OFL/Notice" />
+        <cc:requires
+           rdf:resource="http://scripts.sil.org/pub/OFL/Attribution" />
+        <cc:requires
+           rdf:resource="http://scripts.sil.org/pub/OFL/ShareAlike" />
+        <cc:requires
+           rdf:resource="http://scripts.sil.org/pub/OFL/DerivativeRenaming" />
+        <cc:requires
+           rdf:resource="http://scripts.sil.org/pub/OFL/BundlingWhenSelling" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="icon"
+     id="layer6"
+     inkscape:groupmode="layer">
+    <path
+       sodipodi:nodetypes="cccccccccccccccccccccccccccccccccccccccccc"
+       id="path2"
+       d="m 379.0868,75.20191 c 18.16812,40.68422 25.53302,83.89034 32.42143,127.20955 -1.26557,0.35902 -2.52865,0.72116 -3.79427,1.08267 -0.9109,-2.53364 -1.98432,-5.02156 -2.70735,-7.60959 -5.21805,-18.65384 -10.47938,-37.29655 -15.47376,-56.01156 -1.79641,-6.7327 -6.03443,-10.08392 -12.09539,-13.38137 -8.90177,-4.84112 -17.31343,-11.08316 -24.69005,-18.04576 -4.70771,-4.44068 -8.73494,-7.14859 -15.41325,-7.07815 -44.46061,0.47028 -88.92553,0.51538 -133.38426,0.92448 -2.96314,0.0295 -6.63075,1.12345 -8.72809,3.06448 -8.08853,7.48476 -15.67094,15.51457 -25.64177,25.55586 26.29927,64.04074 39.52245,133.8403 33.84523,208.04469 -12.62623,-8.0842 -22.40117,-14.47949 -22.98144,-31.41848 C 177.54002,222.87779 151.42365,146.31401 96.863089,80.431113 95.635828,78.948619 95.025884,76.955074 94.126122,75.20129 H 379.0868 Z M 48.729955,107.84705 c 12.662672,0 25.33214,-0.20085 37.983708,0.17178 2.510789,0.0723 6.022658,1.66788 7.277148,3.67935 37.836649,60.79088 67.333839,124.63574 71.155359,197.68268 0.0178,0.28921 -0.2826,0.59448 -1.36262,2.71657 -22.61129,-77.29358 -63.40364,-142.73587 -115.871175,-201.39106 0.273676,-0.95167 0.544426,-1.90519 0.818185,-2.85871 z m -40.7293523,53.1819 c 18.0890173,-0.65752 33.3891773,-1.3175 48.6911883,-1.60238 1.541204,-0.0295 3.360468,2.009 4.650795,3.4439 29.847587,33.20131 56.935394,68.2806 73.632114,110.23473 3.17758,7.97976 5.35158,16.35996 7.98907,24.55477 C 108.37943,243.23533 60.253096,202.53752 7.9999987,161.02833 Z M 202.47422,436.79811 c -31.48153,-50.06559 -61.80372,-98.28894 -92.12778,-146.5123 0.37077,-0.47706 0.74155,-0.95165 1.11169,-1.42811 2.54233,2.04731 56.62149,45.41225 80.9093,65.30201 6.76608,5.54129 11.87848,5.44178 18.91585,-0.27375 82.58396,-67.08545 174.73706,-117.86224 272.58287,-158.80848 5.22305,-2.18511 10.64009,-3.91664 15.98238,-5.81688 1.18651,-0.42022 2.44093,-0.65319 4.15147,-0.22122 C 390.37701,255.0261 281.97764,327.27773 202.47359,436.79871 Z"
+       style="stroke-width:0.0868161" />
+  </g>
+</svg>

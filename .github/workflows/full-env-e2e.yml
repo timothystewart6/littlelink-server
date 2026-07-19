@@ -1,0 +1,35 @@
+name: Full-env e2e tests
+
+on:
+  workflow_call:
+
+jobs:
+  playwright-full-env:
+    name: Full environment Playwright tests
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    container:
+      image: mcr.microsoft.com/playwright:v1.61.1@sha256:5b8f294aff9041b7191c34a4bab3ac270157a28774d4b0660e9743297b697e48
+      options: --user 1001
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+
+      - name: Use Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: v24.18.0
+
+      - name: Install Dependencies
+        run: yarn install --frozen-lockfile --check-files --network-timeout 600000
+        env:
+          CI: true
+
+      - name: Build
+        run: yarn build
+        env:
+          CI: true
+
+      - name: Run full-env e2e tests
+        run: yarn playwright test --config=playwright.config.ts --project=chromium --reporter=list
+        env:
+          CI: true

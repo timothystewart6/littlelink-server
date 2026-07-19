@@ -1,8 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`<Avatar /> <Avatar /> snapshot 1`] = `
-<img
-  className="avatar"
-  style={Object {}}
-/>
-`;

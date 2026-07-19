@@ -13,3 +13,7 @@ build
 .env
 cache
 package-lock.json
+.next
+test-results
+dist-server
+*.tsbuildinfo

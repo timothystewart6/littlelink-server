@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "allowJs": true,
+    "outDir": "dist-server",
+    "rootDir": ".",
+    "noEmit": false,
+    "module": "node16",
+    "moduleResolution": "node16",
+    "types": ["node"]
+  },
+  "include": ["server.ts", "src/config/**/*.ts", "src/types/**/*.ts", "next-env.d.ts"],
+  "exclude": ["src/components/**", "src/analytics/**", "app/**", "**/*.test.*", "**/*.spec.*"]
+}
