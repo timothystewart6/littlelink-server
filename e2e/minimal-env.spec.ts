@@ -50,4 +50,12 @@ test.describe('Minimal env (no variables set)', () => {
     const response = await page.request.get('/sitemap.xml');
     expect(response.status()).toBe(404);
   });
+
+  test('robots disallows crawling by default', async ({ page }) => {
+    const response = await page.request.get('/robots.txt');
+    expect(response.status()).toBe(200);
+
+    const body = await response.text();
+    expect(body).toBe('User-agent: *\nDisallow: /\n');
+  });
 });

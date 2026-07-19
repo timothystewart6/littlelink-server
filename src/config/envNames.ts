@@ -119,6 +119,8 @@ export const ENV_NAMES = Object.freeze([
   'PRIVATEBIN',
   'PRODUCT_HUNT',
   'REDDIT',
+  'ROBOTS_ADDITIONAL_RULES',
+  'ROBOTS_TXT',
   'RSS',
   'SEMANTICSCHOLAR',
   'SERIALIZD',

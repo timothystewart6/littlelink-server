@@ -25,6 +25,7 @@ const ENV: Record<string, string> = {
   OG_IMAGE_WIDTH: '400',
   OG_IMAGE_HEIGHT: '400',
   GA_TRACKING_ID: 'G-XXXXXXXXXX',
+  ROBOTS_ADDITIONAL_RULES: 'User-agent: GPTBot\\nDisallow: /',
   THEME: 'Dark',
   FAVICON_URL:
     'https://pbs.twimg.com/profile_images/1286144221217316864/qIAsKOpB_200x200.jpg',
@@ -183,6 +184,19 @@ test.describe('Full featured compose example', () => {
     expect(body).toContain(`<loc>${ENV.OG_URL}/</loc>`);
     expect(body).toContain('<changefreq>weekly</changefreq>');
     expect(body).toContain('<priority>1.0</priority>');
+  });
+
+  test('robots allows indexing, links sitemap, and appends custom rules', async ({
+    page,
+  }) => {
+    const response = await page.request.get('/robots.txt');
+    expect(response.status()).toBe(200);
+    expect(response.headers()['content-type']).toContain('text/plain');
+
+    const body = await response.text();
+    expect(body).toContain('User-agent: *\nAllow: /');
+    expect(body).toContain('User-agent: GPTBot\nDisallow: /');
+    expect(body).toContain(`Sitemap: ${ENV.OG_URL}/sitemap.xml`);
   });
 
   test('healthcheck returns 200 and status ok', async ({ page }) => {

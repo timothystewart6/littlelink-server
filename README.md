@@ -75,6 +75,27 @@ META_INDEX_STATUS=all
 
 If `OG_URL` is not set, or `META_INDEX_STATUS` contains `noindex`, `/sitemap.xml` returns `404`.
 
+### Robots
+
+LittleLink-Server generates `/robots.txt` at request time. By default, `META_INDEX_STATUS=all` allows crawling and adds a sitemap link when `OG_URL` is configured. Missing or `noindex` metadata disallows crawling.
+
+```bash
+META_INDEX_STATUS=all
+OG_URL=https://links.example.com
+```
+
+Use `ROBOTS_ADDITIONAL_RULES` to append crawler-specific rules. Escaped `\n` sequences are converted to new lines, which works well in container environment variables.
+
+```bash
+ROBOTS_ADDITIONAL_RULES=User-agent: GPTBot\nDisallow: /\n\nUser-agent: Googlebot\nDisallow: /
+```
+
+Use `ROBOTS_TXT` when you need to replace the generated file entirely.
+
+```bash
+ROBOTS_TXT=User-agent: *\nDisallow: /private
+```
+
 ### Docker build
 
 ```bash
