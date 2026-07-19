@@ -1,12 +1,26 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import type { IconProp } from '@fortawesome/fontawesome-svg-core';
+import type { DropShadow } from '../../config/runtimeConfig';
+
+export interface ButtonProps {
+  name?: string;
+  href?: string;
+  displayName?: string;
+  logo?: string;
+  styles?: React.CSSProperties;
+  alt?: string;
+  icon?: string;
+  rels?: string;
+  buttonTarget?: string;
+  dropShadow?: DropShadow;
+  order?: number;
+}
 
 /**
  * Determine the CSS shadow class based on drop shadow config.
- * @param {'light'|'medium'|'heavy'|undefined} dropShadow
- * @returns {string}
  */
-function addShadow(dropShadow) {
+function addShadow(dropShadow: DropShadow | undefined): string {
   switch (dropShadow) {
     case 'light':
       return ' box-shadow-light';
@@ -19,7 +33,7 @@ function addShadow(dropShadow) {
   }
 }
 
-function Button(props) {
+function Button(props: ButtonProps) {
   const {
     name,
     href,
@@ -51,7 +65,9 @@ function Button(props) {
     >
       {logo && <img className="icon" src={logo} alt={`${displayName} logo`} />}
 
-      {icon && <FontAwesomeIcon className="icon" icon={icon.split(' ')} />}
+      {icon && (
+        <FontAwesomeIcon className="icon" icon={icon.split(' ') as IconProp} />
+      )}
 
       {displayName}
     </a>

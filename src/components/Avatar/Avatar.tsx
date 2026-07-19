@@ -1,13 +1,20 @@
 import React from 'react';
+import type { DropShadow } from '../../config/runtimeConfig';
 
 import './Avatar.css';
 
+export interface AvatarProps {
+  src?: string;
+  srcSet?: string;
+  alt?: string;
+  avatarSize?: string;
+  dropShadow?: DropShadow;
+}
+
 /**
  * Determine the CSS shadow class based on drop shadow config.
- * @param {'light'|'medium'|'heavy'|undefined} dropShadow
- * @returns {string}
  */
-function addShadow(dropShadow) {
+function addShadow(dropShadow: DropShadow | undefined): string {
   switch (dropShadow) {
     case 'light':
       return ' box-shadow-light';
@@ -20,8 +27,7 @@ function addShadow(dropShadow) {
   }
 }
 
-// Avatar component that renders an image with shadow.
-function Avatar(props) {
+function Avatar(props: AvatarProps) {
   const { src, srcSet, alt, avatarSize, dropShadow } = props;
 
   return (

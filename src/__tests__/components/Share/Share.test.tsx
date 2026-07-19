@@ -19,7 +19,7 @@ describe('<Share />', () => {
     const { container } = render(
       <Share url="https://example.com" title="Test Title" text="Test text" />,
     );
-    const link = container.querySelector('a');
+    const link = container.querySelector('a')!;
     fireEvent.click(link);
     expect(mockShare).toHaveBeenCalledWith({
       url: 'https://example.com',
@@ -35,7 +35,7 @@ describe('<Share />', () => {
     const { container } = render(
       <Share url="https://example.com" title="Test" text="Desc" />,
     );
-    const link = container.querySelector('a');
+    const link = container.querySelector('a')!;
     // This should not throw
     fireEvent.click(link);
   });
@@ -46,7 +46,7 @@ describe('<Share />', () => {
     const { container } = render(
       <Share url="https://example.com" title="Test" text="Desc" />,
     );
-    const link = container.querySelector('a');
+    const link = container.querySelector('a')!;
     fireEvent.click(link);
     // No error should be thrown
   });

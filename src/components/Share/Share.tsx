@@ -3,7 +3,13 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-function Share(props) {
+export interface ShareProps {
+  url?: string;
+  title?: string;
+  text?: string;
+}
+
+function Share(props: ShareProps) {
   const { url, title, text } = props;
 
   const handleSharing = async () => {
@@ -22,7 +28,7 @@ function Share(props) {
 
   return (
     <a className={'button'} rel="noopener noreferrer" onClick={handleSharing}>
-      <FontAwesomeIcon className="icon" icon={['fas', 'fa-share-nodes']} />
+      <FontAwesomeIcon className="icon" icon={['fas', 'share-nodes']} />
     </a>
   );
 }

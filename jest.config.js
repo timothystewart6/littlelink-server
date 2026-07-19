@@ -11,6 +11,8 @@ const customJestConfig = {
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'mjs', 'cjs'],
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
+    // Allow .js imports to resolve to .ts/.tsx files during migration
+    '^(\\.{1,2}/.*)\\.js$': '$1',
   },
 };
 
