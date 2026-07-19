@@ -1,17 +1,16 @@
 # 🔗 LittleLink-Server
 
-LittleLink is a lightweight DIY alternative to services like [Linktree](https://linktr.ee)
-and [many.link](https://many.link/).
+LittleLink-Server is a lightweight, self-hosted link page for publishing a profile, avatar, social links, custom buttons, metadata, analytics, and health checks from environment variables.
 
-Inspired by [littlelink](https://github.com/sethcottle/littlelink).
+It is inspired by [LittleLink](https://github.com/sethcottle/littlelink) and built with [Next.js](https://nextjs.org/), React, and TypeScript. The container image uses Next.js standalone output so the production runtime stays small and only includes the files needed to serve the app.
 
  ![image](https://user-images.githubusercontent.com/1322205/174909247-2515ab5c-fd39-475d-b5dc-9c0a1ea20d6e.png)
 
 ## 👇 What is LittleLink-Server?
 
-LittleLink-Server is based on the great work from [littlelink](https://github.com/sethcottle/littlelink), a lightweight DIY alternative to services like [Linktree](https://linktr.ee) and [many.link](https://many.link/). LittleLink and LittleLink-Server is built using [Skeleton](http://getskeleton.com/), a dead simple, responsive boilerplate \u2014 we just stripped out some additional code you wouldn't need and added in branded styles for popular services. 😊
+LittleLink-Server takes the same simple approach as LittleLink and packages it as a configurable Node.js application. Pass environment variables to control page metadata, theme, profile content, social links, custom buttons, analytics providers, and health check behavior.
 
-> **Migration note:** This project has migrated from Razzle to [Next.js](https://nextjs.org/). Container configuration is unchanged. All environment variable names are the same. Variables are read when the container starts and during request rendering, not when the image is built. No container configuration changes are required.
+Configuration is evaluated at request time. Rebuilds are not required when environment values change, but containers should be restarted so the running process receives the new values.
 
 ## Developer Setup
 
@@ -35,14 +34,17 @@ yarn typecheck
 # Run tests
 yarn test
 
+# Run lint, style, markdown, type, and unit test checks
+yarn ci
+
 # Build for production
 yarn build
 
 # Start production server
 yarn start
 
-# Lint and format checks
-CI=true yarn lint
+# Run Playwright e2e tests
+yarn test:e2e
 ```
 
 ### File conventions
@@ -69,17 +71,15 @@ docker build -t littlelink-server .
 docker run -p 8080:3000 littlelink-server
 ```
 
-It takes the same simple approach to a link page and hosts it within a NodeJS server with React, containerized for you to use. Customizing `LittleLink` with `littlelink-server` is as easy as passing in some environment variables. If you need help configuring this, please see this [video](https://youtu.be/42SqfI_AjXU) at explains everything and a live example at [links.technotim.com](https://links.technotim.com/).
-
-> **Migration note:** littlelink-server has migrated from Razzle to [Next.js](https://nextjs.org/). Container configuration is unchanged. All environment variable names are the same. Variables are read when the container starts and during request rendering, not when the image is built. No container configuration change is required.
+Customizing LittleLink-Server is as easy as passing in environment variables. For a walkthrough, see this [video](https://youtu.be/42SqfI_AjXU), or view a live example at [links.technotim.com](https://links.technotim.com/).
 
 ## ⭐ Features
 
 - Over 60+ brand buttons with more able to be requested
-- Customisable Themes
+- Customisable themes
 - Analytics Support
 - Health Check Support
-- A fully customisable docker-compose 
+- A fully customisable Docker Compose setup
 
 ## 🚀 Getting Started
 
@@ -121,7 +121,7 @@ services:
       - BIO=Software Engineer | Gamer | Twitch Streamer | Content Creator on YouTube | Homelab | 🇺🇸 🇯🇵 | Full Nerd
       # use ENV variable names for order, listed buttons will be boosted to the top
       - BUTTON_ORDER=YOUTUBE,TWITCH,TWITTER,GITHUB,INSTAGRAM,LINKED_IN,DISCORD,FACEBOOK,TIKTOK,PATREON,GEAR,DOCUMENTATION
-      # you can render an unlimited amount of custom buttons by adding 
+      # you can render an unlimited amount of custom buttons by adding
       # the CUSTOM_BUTTON_* variables and by using a comma as a separator.
       - CUSTOM_BUTTON_TEXT=Documentation,Recommended Gear
       - CUSTOM_BUTTON_URL=https://l.technotim.com/docs,https://l.technotim.com/gear
@@ -148,7 +148,7 @@ services:
       - no-new-privileges:true
 ```
 
-### Using Docker 
+### Using Docker
 
 ```bash
 docker run -d \
@@ -194,7 +194,7 @@ helm install littlelink-server \
     k8s-at-home/littlelink-server
 ```
 
-Or use a values.yaml files
+Or use a values.yaml file:
 
 `helm install littlelink-server k8s-at-home/littlelink-server -f values.yaml`
 
@@ -202,6 +202,6 @@ Or use a values.yaml files
 
 See [docs/analytics.md](docs/analytics.md) for analytics setup instructions and [docs/healthcheck.md](docs/healthcheck.md) for health check configuration.
 
-All environment variable names remain unchanged. Variables are read at request time, so changes take effect after a container restart without rebuilding the image. 
-  
+Environment variables are read at request time, so changes take effect after a container restart without rebuilding the image.
+
 
