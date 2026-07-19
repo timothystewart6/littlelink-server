@@ -1,21 +1,26 @@
 import React from 'react';
+import type { RuntimeConfig, DropShadow } from '../../config/runtimeConfig';
 import Avatar from '../Avatar/Avatar';
 import Button from '../Button/Button';
 import Share from '../Share/Share';
 
 import Sort from '../Sort/Sort';
 
-function Home({ config }) {
-  let order = [];
+export interface HomeProps {
+  config: RuntimeConfig;
+}
+
+function Home({ config }: HomeProps) {
+  let order: string[] = [];
   if (config?.BUTTON_ORDER) {
     order = config.BUTTON_ORDER.split(',').reverse();
   }
 
-  const buttonOrder = button => {
+  const buttonOrder = (button: string): number => {
     return order.indexOf(button);
   };
 
-  const dropShadow = config?.DROP_SHADOW;
+  const dropShadow = config?.DROP_SHADOW as DropShadow | undefined;
   const buttonTarget = config?.BUTTON_TARGET;
 
   const renderCustomButtons = () => {
@@ -28,22 +33,18 @@ function Home({ config }) {
     const icons = config.CUSTOM_BUTTON_ICON?.split(',');
     // have to clean up some of the strings to standardize for analytics
 
+    if (!texts) return null;
+
     return texts.map((t, i) => {
       // do not try to render button unless it has all of the required props
       return (
-        <div key={i} order={buttonOrder(names[i]?.trim())}>
-          {names &&
-            names[i] &&
-            urls &&
-            urls[i] &&
-            texts &&
-            texts[i] &&
-            buttonColors &&
-            buttonColors[i] &&
-            textColors &&
-            textColors[i] &&
-            altTexts &&
-            altTexts[i] && (
+        <div key={i} data-order={buttonOrder(names?.[i]?.trim() ?? '')}>
+          {names?.[i] &&
+            urls?.[i] &&
+            texts?.[i] &&
+            buttonColors?.[i] &&
+            textColors?.[i] &&
+            altTexts?.[i] && (
               <Button
                 name={names[i]?.trim().toLowerCase()}
                 href={urls[i]?.trim()}
@@ -53,7 +54,7 @@ function Home({ config }) {
                   color: textColors[i]?.trim(),
                 }}
                 alt={altTexts[i]?.trim()}
-                icon={icons && icons[i]?.trim()}
+                icon={icons?.[i]?.trim()}
                 buttonTarget={buttonTarget}
                 dropShadow={dropShadow}
               />
