@@ -15,3 +15,4 @@ cache
 package-lock.json
 .next
 test-results
+*.tsbuildinfo

@@ -16,7 +16,11 @@ module.exports = defineConfig({
       NODE_ENV: 'development',
       META_TITLE: 'Techno Tim',
       META_DESCRIPTION:
-        'Software Engineer | Gamer | Twitch Streamer | Content Creator on YouTube | Homelab | ' + String.fromCodePoint(0x1F1FA, 0x1F1F8) + ' ' + String.fromCodePoint(0x1F1EF, 0x1F1F5) + '  | Full Nerd',
+        'Software Engineer | Gamer | Twitch Streamer | Content Creator on YouTube | Homelab | ' +
+        String.fromCodePoint(0x1f1fa, 0x1f1f8) +
+        ' ' +
+        String.fromCodePoint(0x1f1ef, 0x1f1f5) +
+        '  | Full Nerd',
       META_AUTHOR: 'Techno Tim',
       META_KEYWORDS: 'HomeLab, HTML, CSS, Engineering',
       LANG: 'en',
@@ -40,11 +44,16 @@ module.exports = defineConfig({
       AVATAR_ALT: 'Techno Tim Profile Pic',
       NAME: 'TechnoTim',
       BIO:
-        'Software Engineer | Gamer | Twitch Streamer | Content Creator on YouTube | Homelab | ' + String.fromCodePoint(0x1F1FA, 0x1F1F8) + ' ' + String.fromCodePoint(0x1F1EF, 0x1F1F5) + ' | Full Nerd',
+        'Software Engineer | Gamer | Twitch Streamer | Content Creator on YouTube | Homelab | ' +
+        String.fromCodePoint(0x1f1fa, 0x1f1f8) +
+        ' ' +
+        String.fromCodePoint(0x1f1ef, 0x1f1f5) +
+        ' | Full Nerd',
       BUTTON_ORDER:
         'YOUTUBE,TWITCH,TWITTER,GITHUB,INSTAGRAM,LINKED_IN,DISCORD,FACEBOOK,TIKTOK,PATREON,GEAR,DOCUMENTATION',
       CUSTOM_BUTTON_TEXT: 'Documentation,Recommended Gear',
-      CUSTOM_BUTTON_URL: 'https://l.technotim.com/docs,https://l.technotim.com/gear',
+      CUSTOM_BUTTON_URL:
+        'https://l.technotim.com/docs,https://l.technotim.com/gear',
       CUSTOM_BUTTON_COLOR: '#000000,#000000',
       CUSTOM_BUTTON_TEXT_COLOR: '#ffffff,#ffffff',
       CUSTOM_BUTTON_ALT_TEXT:
