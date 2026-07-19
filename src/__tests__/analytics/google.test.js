@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 
-import { trackGoogleEvent } from '../google';
+import { trackGoogleEvent } from '../../analytics/google';
 
 describe('google.js', () => {
   beforeEach(() => {

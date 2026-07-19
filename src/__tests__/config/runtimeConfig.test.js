@@ -3,7 +3,7 @@ import {
   getTheme,
   shouldSkipHealthLog,
   ENV_NAMES,
-} from './runtimeConfig';
+} from '../../config/runtimeConfig';
 
 describe('getRuntimeConfig', () => {
   test('reads every allowlisted key from the provided env object', () => {

@@ -1,6 +1,6 @@
-import Sort from '../Sort';
+import Sort from '../../../components/Sort/Sort';
 import React from 'react';
-import Button from '../../Button/Button';
+import Button from '../../../components/Button/Button';
 
 import { render } from '@testing-library/react';
 

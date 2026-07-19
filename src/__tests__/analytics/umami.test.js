@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 
-import { trackUmamiEvent } from '../umami';
+import { trackUmamiEvent } from '../../analytics/umami';
 
 describe('umami.js', () => {
   beforeEach(() => {

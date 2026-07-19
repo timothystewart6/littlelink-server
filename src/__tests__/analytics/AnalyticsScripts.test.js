@@ -1,4 +1,6 @@
-import AnalyticsScripts, { safeJsEncode } from '../AnalyticsScripts';
+import AnalyticsScripts, {
+  safeJsEncode,
+} from '../../analytics/AnalyticsScripts';
 
 describe('AnalyticsScripts', () => {
   test('component is defined and is a function', () => {

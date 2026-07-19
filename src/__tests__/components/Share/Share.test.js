@@ -1,4 +1,4 @@
-import Share from '../Share';
+import Share from '../../../components/Share/Share';
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 
