@@ -50,5 +50,6 @@ jobs:
             littlelink-server:pr
           trap 'docker stop littlelink-pr 2>/dev/null' EXIT
           sleep 3
+          bash src/container-health-test.sh littlelink-pr
           curl -s -o /dev/null -w "healthcheck: %{http_code}\\n" http://localhost:3100/healthcheck
           curl -s -o /dev/null -w "root: %{http_code}\\n" http://localhost:3100/
