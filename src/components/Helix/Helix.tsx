@@ -738,8 +738,16 @@ function Helix({ options, children }: HelixProps) {
       e.preventDefault();
       velocity += clamp(e.deltaY, -140, 140) * 0.00042;
     };
-    const onEnter = () => {
-      pointerInside = true;
+    /*
+     * Hovering pauses the drift so a link holds still while you aim at it.
+     * That has to mean hovering something clickable, not the stage: the stage
+     * is a full-viewport element, so testing it would make the pointer count
+     * as "inside" whenever the cursor is anywhere on the page, and the strand
+     * would never drift at all.
+     */
+    const onOver = (e: PointerEvent) => {
+      const target = e.target as HTMLElement | null;
+      pointerInside = !!target?.closest?.('.hx-rung, [data-helix-overlay]');
     };
     const onLeave = () => {
       pointerInside = false;
@@ -818,8 +826,9 @@ function Helix({ options, children }: HelixProps) {
     };
 
     stage.addEventListener('wheel', onWheel, { passive: false });
-    stage.addEventListener('pointerenter', onEnter);
+    stage.addEventListener('pointerover', onOver);
     stage.addEventListener('pointerleave', onLeave);
+    stage.addEventListener('pointercancel', onLeave);
     stage.addEventListener('pointerdown', onDown);
     stage.addEventListener('pointermove', onMove);
     stage.addEventListener('pointerup', onUp);
@@ -837,8 +846,9 @@ function Helix({ options, children }: HelixProps) {
       cancelAnimationFrame(raf);
       document.body.classList.remove('hx-lock');
       stage.removeEventListener('wheel', onWheel);
-      stage.removeEventListener('pointerenter', onEnter);
+      stage.removeEventListener('pointerover', onOver);
       stage.removeEventListener('pointerleave', onLeave);
+      stage.removeEventListener('pointercancel', onLeave);
       stage.removeEventListener('pointerdown', onDown);
       stage.removeEventListener('pointermove', onMove);
       stage.removeEventListener('pointerup', onUp);
