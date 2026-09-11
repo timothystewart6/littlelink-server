@@ -10,5 +10,5 @@
     "types": ["node"]
   },
   "include": ["server.ts", "src/config/**/*.ts", "src/types/**/*.ts", "next-env.d.ts"],
-  "exclude": ["src/components/**", "src/analytics/**", "app/**", "**/*.test.*", "**/*.spec.*"]
+  "exclude": ["src/components/**", "src/analytics/**", "app/**"]
 }

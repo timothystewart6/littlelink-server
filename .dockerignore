@@ -7,10 +7,6 @@ dist-server
 build
 cache
 
-# Test and coverage
-coverage
-test-results
-
 # Local environment
 .env
 .env.*

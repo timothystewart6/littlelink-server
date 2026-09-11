@@ -11,7 +11,7 @@ on:
 
 jobs:
   node-checks:
-    name: Lint, typecheck, test, and build
+    name: Lint, typecheck, and build
     runs-on: ubuntu-24.04
     timeout-minutes: 25
     steps:

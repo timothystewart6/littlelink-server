@@ -3,7 +3,6 @@ logs
 npm-debug.log*
 .DS_Store
 
-coverage
 node_modules
 build
 .env.local
@@ -14,6 +13,5 @@ build
 cache
 package-lock.json
 .next
-test-results
 dist-server
 *.tsbuildinfo

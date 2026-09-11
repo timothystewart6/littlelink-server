@@ -7,7 +7,7 @@
  *
  * The list is alphabetically sorted and intended to be treated as a
  * stable public API. Any deliberate addition or removal should update
- * this array and its corresponding test.
+ * this array.
  */
 export const ENV_NAMES = Object.freeze([
   'AMAZON_AFFILIATE',

@@ -31,10 +31,7 @@ yarn dev
 # Run type checking
 yarn typecheck
 
-# Run tests
-yarn test
-
-# Run lint, style, markdown, type, and unit test checks
+# Run lint, style, markdown, type, and compose env checks
 yarn ci
 
 # Build for production
@@ -42,9 +39,6 @@ yarn build
 
 # Start production server
 yarn start
-
-# Run Playwright e2e tests
-yarn test:e2e
 ```
 
 ### File conventions
@@ -52,7 +46,7 @@ yarn test:e2e
 This project uses TypeScript. The file extension tells you what the file contains:
 
 - `.ts` for code without JSX (server, configuration, utilities)
-- `.tsx` for React components and tests that contain JSX
+- `.tsx` for React components
 
 If you use VS Code, set the workspace TypeScript version:
 

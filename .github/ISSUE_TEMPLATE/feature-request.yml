@@ -45,6 +45,6 @@ body:
     id: validation
     attributes:
       label: Validation Ideas
-      description: Suggest tests, e2e checks, Docker checks, or documentation updates that should cover this change.
+      description: Suggest Docker checks, documentation updates, or other validation that should cover this change.
     validations:
       required: false

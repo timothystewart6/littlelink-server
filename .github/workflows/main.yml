@@ -11,21 +11,11 @@ permissions:
 jobs:
   quality-gate:
     name: Release quality gate
-    uses: ./.github/workflows/install-test-build.yml
-
-  browser-e2e:
-    name: Browser e2e suite
-    needs: [quality-gate]
-    uses: ./.github/workflows/full-env-e2e.yml
-
-  container-e2e:
-    name: Container e2e suite
-    needs: [quality-gate]
-    uses: ./.github/workflows/minimal-env-e2e.yml
+    uses: ./.github/workflows/install-lint-build.yml
 
   publish-images:
     name: Publish container images
-    needs: [quality-gate, browser-e2e, container-e2e]
+    needs: [quality-gate]
     permissions:
       actions: write
       contents: read

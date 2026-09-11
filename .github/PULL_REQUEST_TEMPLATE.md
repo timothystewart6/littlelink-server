@@ -10,7 +10,6 @@
 - [ ] Feature
 - [ ] Documentation
 - [ ] Refactor or maintenance
-- [ ] Tests
 - [ ] CI, build, or release
 
 ## Validation
@@ -18,8 +17,6 @@
 <!-- List the commands run and any relevant manual checks. Mark anything not applicable as N/A. -->
 
 - [ ] Ran `yarn ci`
-- [ ] Ran focused unit or integration tests:
-- [ ] Ran e2e tests:
 - [ ] Validated Docker or Compose changes:
 - [ ] Checked UI changes in a browser and attached screenshots when visual output changed
 

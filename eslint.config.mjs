@@ -34,7 +34,6 @@ const eslintConfig = [
       '.next/**',
       'build/**',
       'coverage/**',
-      'test-results/**',
       'next-env.d.ts',
       'cache/**',
       'dist-server/**',
@@ -43,31 +42,6 @@ const eslintConfig = [
   ...nextCoreWebVitals,
   ...nextTypescript,
   prettierConfig,
-  {
-    files: ['**/*.test.js', '**/*.test.jsx', '**/*.spec.js'],
-    languageOptions: {
-      globals: {
-        jest: 'readonly',
-        describe: 'readonly',
-        it: 'readonly',
-        test: 'readonly',
-        expect: 'readonly',
-        beforeEach: 'readonly',
-        afterEach: 'readonly',
-        beforeAll: 'readonly',
-        afterAll: 'readonly',
-      },
-    },
-  },
-  {
-    files: ['e2e/**/*.js', 'e2e/**/*.spec.js'],
-    languageOptions: {
-      globals: {
-        test: 'readonly',
-        expect: 'readonly',
-      },
-    },
-  },
   {
     files: ['**/*.js', '**/*.jsx', '**/*.cjs'],
     rules: {

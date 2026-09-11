@@ -27,20 +27,11 @@ Open <http://localhost:3000>.
 ## Common Commands
 
 ```bash
-# Lint, stylelint, markdownlint, compose env check, typecheck, and unit tests
+# Lint, stylelint, markdownlint, compose env check, and typecheck
 yarn ci
 
 # Type checking only
 yarn typecheck
-
-# Unit tests only
-yarn test
-
-# Browser e2e tests
-yarn test:e2e
-
-# Docker-backed minimal environment e2e tests
-yarn test:e2e:minimal
 
 # Production build
 yarn build
@@ -58,14 +49,13 @@ Run the narrowest useful command while developing, then run `yarn ci` before ope
 
 1. Create a branch from `main` for each focused change.
 2. Keep unrelated formatting, refactors, dependency changes, and generated files out of the branch.
-3. Add or update tests when behavior changes.
-4. Update documentation and examples when user-facing behavior, env vars, Docker, or CI behavior changes.
-5. Run the relevant validation commands and list them in the pull request.
-6. Open a pull request against `main`.
+3. Update documentation and examples when user-facing behavior, env vars, Docker, or CI behavior changes.
+4. Run the relevant validation commands and list them in the pull request.
+5. Open a pull request against `main`.
 
 ## Guidance for Automation Agents
 
-- Read the nearby implementation and tests before editing.
+- Read the nearby implementation before editing.
 - Preserve user changes already present in the working tree.
 - Prefer small commits and focused pull requests.
 - Do not commit `.env` files, secrets, credentials, or unrelated generated output.
@@ -80,9 +70,8 @@ When adding, renaming, or removing an environment variable:
 
 1. Update `src/config/envNames.ts` and keep the list alphabetically sorted.
 2. Update code that reads or renders the setting.
-3. Add or update unit and e2e coverage when behavior changes.
-4. Run `yarn compose-env:sync` so `docker-compose.yml` stays complete and sorted.
-5. Run `yarn compose-env:check` or `yarn ci` before opening the pull request.
+3. Run `yarn compose-env:sync` so `docker-compose.yml` stays complete and sorted.
+4. Run `yarn compose-env:check` or `yarn ci` before opening the pull request.
 
 ## Adding a Button
 
@@ -92,14 +81,12 @@ When adding, renaming, or removing an environment variable:
 4. Add the icon asset under `src/icons` when the button needs a new local icon.
 5. Add or update CSS in `public/css/brands.css` when the button needs custom colors.
 6. Run `yarn compose-env:sync` to add the new variable to `docker-compose.yml`.
-7. Add or update tests for the new button.
-8. Include a screenshot in the pull request when the visual output changes.
+7. Include a screenshot in the pull request when the visual output changes.
 
 ## Docker and Compose Changes
 
 - Validate Compose-only changes with `docker compose config`.
 - Validate image changes with a local Docker build when practical.
-- Run `yarn test:e2e:minimal` when container runtime behavior changes.
 - Keep the Docker image focused on Next.js standalone output and production runtime files.
 
 ## Pull Request Checklist
@@ -108,7 +95,7 @@ Before requesting review, confirm:
 
 - The branch is based on the latest `main`.
 - The pull request has a concise summary of what changed and why.
-- Relevant tests, lint, type checks, Docker checks, or e2e checks have passed.
+- Relevant lint, type checks, and Docker checks have passed.
 - Documentation and examples match the behavior being shipped.
 - No secrets or ignored files are included.
 

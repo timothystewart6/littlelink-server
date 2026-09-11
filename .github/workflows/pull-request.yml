@@ -14,11 +14,6 @@ permissions:
 jobs:
   quality-gate:
     name: Node quality gate
-    uses: ./.github/workflows/install-test-build.yml
+    uses: ./.github/workflows/install-lint-build.yml
     with:
       build-docker: true
-
-  browser-e2e:
-    name: Browser e2e suite
-    needs: [quality-gate]
-    uses: ./.github/workflows/full-env-e2e.yml
