@@ -13,7 +13,7 @@ function escapeXml(value: string): string {
 }
 
 export function isSitemapIndexable(
-  metaIndexStatus: string | undefined,
+  metaIndexStatus: string | null | undefined,
 ): boolean {
   if (!metaIndexStatus) {
     return false;
