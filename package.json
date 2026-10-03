@@ -29,7 +29,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
     "@fortawesome/react-fontawesome": "^0.2.6",
     "compression": "^1.8.2",
-    "express": "^4.21.2",
+    "express": "^4.22.3",
     "morgan": "^1.12.1",
     "next": "16.3.4",
     "react": "19.3.0",
