@@ -263,6 +263,10 @@ The strand is driven by the wheel, a drag, a swipe, or the arrow keys, and it
 loops endlessly in both directions: run off the end of your list and you come
 straight back into the start of it.
 
+A full write-up — the screw motion, why the loop has no seam, how it keeps every
+link a real anchor, and the configuration reference — is in
+[docs/dna-helix.md](docs/dna-helix.md).
+
 | Variable | Default | Notes |
 | --- | --- | --- |
 | `LAYOUT` | `list` | `dna` enables the helix. Any other value keeps the stock list. |
@@ -305,7 +309,7 @@ link to it.
 
 ## 🔧 Configuration
 
-See [docs/analytics.md](docs/analytics.md) for analytics setup instructions and [docs/healthcheck.md](docs/healthcheck.md) for health check configuration.
+See [docs/analytics.md](docs/analytics.md) for analytics setup instructions, [docs/healthcheck.md](docs/healthcheck.md) for health check configuration, and [docs/dna-helix.md](docs/dna-helix.md) for a full write-up of the DNA helix layout — how the motion works, how it plugs into this project, and the configuration reference.
 
 Environment variables are read at request time, so changes take effect after a container restart without rebuilding the image.
 
