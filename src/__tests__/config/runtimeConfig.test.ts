@@ -126,7 +126,7 @@ describe('shouldSkipHealthLog', () => {
 
 describe('ENV_NAMES allowlist', () => {
   test('contains exactly the expected number of keys', () => {
-    expect(ENV_NAMES.length).toBe(167);
+    expect(ENV_NAMES.length).toBe(177);
   });
 
   test('every key is sorted alphabetically', () => {

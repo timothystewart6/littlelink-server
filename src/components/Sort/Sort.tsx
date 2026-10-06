@@ -6,15 +6,23 @@ interface SortableElement {
   };
 }
 
-// this will sort in descending order because data is reverse sorted before it is rendered
-const Sort = ({ children }: { children?: React.ReactNode }) => {
-  const sorted = React.Children.toArray(children).sort((a, b) => {
+/**
+ * Sort rendered button children into display order.
+ *
+ * This sorts descending because the data is reverse sorted before rendering.
+ * Exported so alternative layouts can consume the same ordering without
+ * duplicating the rule.
+ */
+export function sortNodes(children?: React.ReactNode): React.ReactNode[] {
+  return React.Children.toArray(children).sort((a, b) => {
     const aEl = a as SortableElement;
     const bEl = b as SortableElement;
     return (bEl.props.order ?? -Infinity) - (aEl.props.order ?? -Infinity);
   });
+}
 
-  return <>{sorted}</>;
+const Sort = ({ children }: { children?: React.ReactNode }) => {
+  return <>{sortNodes(children)}</>;
 };
 
 export default Sort;

@@ -240,9 +240,76 @@ Or use a values.yaml file:
 
 `helm install littlelink-server k8s-at-home/littlelink-server -f values.yaml`
 
+## 🧬 DNA helix layout
+
+An optional layout that renders your links as the base pairs of a scrolling
+DNA double helix instead of a vertical list. It is off by default; set
+`LAYOUT=dna` to turn it on and `LAYOUT=list` (or leave it unset) to keep the
+original page.
+
+```yaml
+environment:
+  - LAYOUT=dna
+  - HELIX_STYLE=bio      # bio | chroma | clinical
+  - HELIX_TURNS=2        # whole turns across the full list
+  - HELIX_RADIUS=172     # helix radius in pixels
+  - HELIX_RISE=90        # vertical gap between base pairs, in pixels
+  - HELIX_DRIFT=true     # turn slowly while the pointer is away
+  - HELIX_PARTICLES=subtle  # off | subtle | rich
+  - HELIX_CONTROLS=false    # true adds a gear button with live scene controls
+```
+
+The strand is driven by the wheel, a drag, a swipe, or the arrow keys, and it
+loops endlessly in both directions: run off the end of your list and you come
+straight back into the start of it.
+
+A full write-up — the screw motion, why the loop has no seam, how it keeps every
+link a real anchor, and the configuration reference — is in
+[docs/dna-helix.md](docs/dna-helix.md).
+
+| Variable | Default | Notes |
+| --- | --- | --- |
+| `LAYOUT` | `list` | `dna` enables the helix. Any other value keeps the stock list. |
+| `HELIX_STYLE` | `bio` | `bio` tints each button as lit glass over a cyan strand, `chroma` keeps full brand colours against a violet strand, `clinical` is a monochrome treatment with brand colour on hover. |
+| `HELIX_TURNS` | `2` | Whole turns of the helix across the whole list, 1-6. **Must be a whole number**: the list wraps by shifting a button one full list-length along the strand, so the twist across that shift has to be a whole number of revolutions or the loop would visibly jump. |
+| `HELIX_RADIUS` | `172` | 90-320. Reduced automatically to fit narrow viewports. |
+| `HELIX_RISE` | `90` | 50-190. Scaled automatically on short viewports. |
+| `HELIX_DRIFT` | `true` | Set `false` to hold the strand still until it is scrolled. Drift is also suppressed while the pointer is over the page and whenever the visitor prefers reduced motion. |
+| `HELIX_PARTICLES` | `subtle` | Orbiting motes, travelling signal pulses along the backbone, and synapse arcs between motes that drift close together. `rich` roughly doubles the population. Motion is suppressed for visitors who prefer reduced motion. |
+| `HELIX_CONTROLS` | `false` | `true` adds a gear button that opens a small panel letting visitors change the render style, particle density, twist, radius, rise and drift. Nothing is persisted, so a reload returns every setting to the configured values. |
+
+Every button stays an ordinary anchor in the document, so links remain
+crawlable, keyboard-navigable and right-click-copyable. Only the backbone and
+the background are drawn to canvas. Buttons keep the brand colours they
+already had; the helix reads them at runtime rather than requiring any button
+definition to know about the layout.
+
+The helix commits to a dark scene whatever `THEME` is set to, because the
+strands are lit objects in a dark field.
+
+## 👤 Long-form bio
+
+Set `BIO_LONG` and the avatar becomes a button that opens a profile panel.
+Leave it unset and the avatar stays a plain image, exactly as before. This
+works in both layouts.
+
+```yaml
+environment:
+  - BIO_TAGS=Systems Engineer,Speaker,Photographer
+  - BIO_LONG=|
+      The first paragraph is shown as a lede.
+
+      Separate paragraphs with a blank line. Soft-wrapped lines inside a
+      paragraph are joined back together.
+```
+
+`\n\n` is accepted in place of real blank lines, which is easier to write on a
+single line in a `.env` file. When `LINKED_IN` is set, the panel closes with a
+link to it.
+
 ## 🔧 Configuration
 
-See [docs/analytics.md](docs/analytics.md) for analytics setup instructions and [docs/healthcheck.md](docs/healthcheck.md) for health check configuration.
+See [docs/analytics.md](docs/analytics.md) for analytics setup instructions, [docs/healthcheck.md](docs/healthcheck.md) for health check configuration, and [docs/dna-helix.md](docs/dna-helix.md) for a full write-up of the DNA helix layout — how the motion works, how it plugs into this project, and the configuration reference.
 
 Environment variables are read at request time, so changes take effect after a container restart without rebuilding the image.
 

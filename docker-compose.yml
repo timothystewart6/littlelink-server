@@ -22,6 +22,8 @@ services:
       - AVATAR_URL=https://pbs.twimg.com/profile_images/1286144221217316864/qIAsKOpB_200x200.jpg
       - BANDCAMP=https://bandcamp.com/
       - BIO=Hey! Just a place where you can connect with me!
+      - "BIO_LONG=The long-form bio shown when a visitor clicks the avatar.\n\nSeparate paragraphs with a blank line. The first paragraph is displayed as a lede. Leave BIO_LONG unset to keep the avatar non-interactive."
+      - BIO_TAGS=Engineer,Speaker,Photographer
       - BLUESKY=https://bsky.app/profile/bsky.app
       - BUTTON_ORDER=YOUTUBE,TWITCH,TWITTER,GITHUB,INSTAGRAM,DISCORD,FACEBOOK,TIKTOK,KIT,PATREON
       - BUTTON_TARGET=_blank
@@ -65,6 +67,13 @@ services:
       - GOOGLE_PODCASTS=https://podcasts.google.com/feed/XYZ
       - GOOGLEMAPS=https://www.google.com/maps
       - GOOGLESCHOLAR=https://scholar.google.co.uk/
+      - HELIX_CONTROLS=false
+      - HELIX_DRIFT=true
+      - HELIX_PARTICLES=subtle
+      - HELIX_RADIUS=172
+      - HELIX_RISE=90
+      - HELIX_STYLE=bio
+      - HELIX_TURNS=2
       - INSTAGRAM=https://www.instagram.com/techno.tim
       - INSTANTGAMING=https://www.instant-gaming.com/
       - INTERNETARCHIVE=https://archive.org/
@@ -74,6 +83,7 @@ services:
       - KIT=https://kit.co/TechnoTim
       - LANG=en
       - LASTFM=https://last.fm/
+      - LAYOUT=list
       - LEMMY=https://join-lemmy.org
       - LETTERBOXD=https://letterboxd.com/
       - LINE=https://line.me/en/
