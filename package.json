@@ -55,7 +55,7 @@
     "markdownlint-cli": "^0.49.1",
     "prettier": "^3.9.7",
     "stylelint": "^16.25.0",
-    "tsx": "^4.23.13",
+    "tsx": "^4.23.15",
     "typescript": "^6.0.3"
   }
 }
