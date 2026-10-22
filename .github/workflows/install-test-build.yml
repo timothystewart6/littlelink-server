@@ -20,7 +20,7 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
-          node-version: v24.18.0
+          node-version: v26.12.1
 
       - name: Install Dependencies
         run: yarn install --frozen-lockfile --check-files --network-timeout 600000
