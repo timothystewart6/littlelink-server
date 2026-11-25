@@ -9,6 +9,16 @@ describe('<Home />', () => {
     expect(container).toBeTruthy();
   });
 
+  test('renders a Ko-fi button for KO_FI', () => {
+    const config = { KO_FI: 'https://ko-fi.com/example' } as RuntimeConfig;
+
+    const { container } = render(<Home config={config} />);
+    const link = container.querySelector('a.button-kofi');
+
+    expect(link?.getAttribute('href')).toBe('https://ko-fi.com/example');
+    expect(link?.textContent).toContain('Ko-fi');
+  });
+
   test('BUTTON_ORDER positions custom buttons alongside built-in buttons', () => {
     const config = {
       BUTTON_ORDER: 'JOIN,YOUTUBE,SUPPORT',

@@ -72,6 +72,7 @@ export const ENV_NAMES = Object.freeze([
   'KAKAOTALK',
   'KEYBASE',
   'KIT',
+  'KO_FI',
   'LANG',
   'LASTFM',
   'LEMMY',

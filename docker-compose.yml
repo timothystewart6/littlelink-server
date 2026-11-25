@@ -72,6 +72,7 @@ services:
       - KAKAOTALK=https://www.kakaocorp.com/page/service/service/KakaoTalk?lang=ko
       - KEYBASE=https://keybase.io/
       - KIT=https://kit.co/TechnoTim
+      - KO_FI=
       - LANG=en
       - LASTFM=https://last.fm/
       - LEMMY=https://join-lemmy.org
