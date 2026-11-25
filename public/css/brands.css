@@ -518,6 +518,12 @@ button {
 }
 
 
+/* Ko-fi */
+.button.button-kofi {
+  color: #fff;
+  background-color: #ff5e5b
+}
+
 /* kakaoTalk */
 .button.button-kakaoTalk {
   color: #000;

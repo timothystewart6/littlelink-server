@@ -437,6 +437,15 @@ function Home({ config }: HomeProps) {
                   order={buttonOrder('GITLAB')}
                 />
               )}
+              {config.KO_FI && (
+                <Button
+                  name="kofi"
+                  href={config.KO_FI}
+                  displayName="Ko-fi"
+                  logo="/icons/kofi.svg"
+                  order={buttonOrder('KO_FI')}
+                />
+              )}
               {config.PATREON && (
                 <Button
                   name="patreon"
